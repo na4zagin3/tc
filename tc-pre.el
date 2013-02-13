@@ -124,7 +124,7 @@ nemacs, mule-1, mule-2, mule-3, mule-4, xemacsのいずれか。")
 ;;;; site information
 
 
-(defconst tcode-site-data-directory "/usr/local/share/tc/")
+(defconst tcode-site-data-directory "~/.emacs.d/tc/tcode/")
 
 (provide 'tc-pre)
 
