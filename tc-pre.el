@@ -123,8 +123,8 @@ nemacs, mule-1, mule-2, mule-3, mule-4, xemacsのいずれか。")
 
 ;;;; site information
 
-
-(defconst tcode-site-data-directory "~/.emacs.d/tc/tcode/")
+(require 'find-func)
+(defconst tcode-site-data-directory (expand-file-name "../tcode" (find-library-name "tc-pre")))
 
 (provide 'tc-pre)
 
