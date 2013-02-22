@@ -1,4 +1,4 @@
-tc  Japanese direct input method environment for emacs
+tc:  Japanese direct input method environment for emacs
 ========================================================
 
 This repository provides tc(T-code input environment for emacs).
