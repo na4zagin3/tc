@@ -1127,6 +1127,7 @@ Emacsが起動されてから最初のtcode-modeで実行される。
   (tcode-auto-remove-help t)
   (run-hooks 'tcode-clear-hook))
 
+;;;###autoload
 (defun tcode-activate (&optional arg)
   "Tコードモードを有効にする。ARGが負の整数のときは無効にする。
 

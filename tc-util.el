@@ -30,6 +30,7 @@
   "Tコードの補助機能"
   :group 'tcode)
 
+;;;###autoload
 (defun tcode-inactivate-and-self-insert (n)
   "Inactivate tcode-mode and self-insert."
   (interactive "*p")
@@ -659,6 +660,7 @@ FORCE が nil の場合は、
 	  (delete-region start end)
 	  (insert hiragana))))))
 
+;;;###autoload
 (defun tcode-katakana-preceding-chars (arg)
   "直前の文字列を順にカタカナに変換する。
 コマンドのキーを何回か押すと、その回数だけ直前のひらがながカタカナになる。

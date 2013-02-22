@@ -1204,6 +1204,7 @@ Emacs内部のcompletionの実装上の問題のため、「?」を
 	   (frame-live-p eelll-frame))
       (make-frame-invisible eelll-frame)))
 
+;;;###autoload
 (defun eelll-other-frame ()
   "フレームを作成してEELLLを始める。"
   (interactive)
