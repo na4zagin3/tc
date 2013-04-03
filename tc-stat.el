@@ -162,7 +162,7 @@
 			    (cdr (cdr entry))))
 	    (setq last-entry entry)))
 	(setq count-list (cdr count-list)))
-      (insert (format "\n%d$BJ8;z(B (%d %d)\n"
+      (insert (format "\n%d文字 (%d %d)\n"
 		      total-chars total-inputs total-helps)))
     (tcode-display-help-buffer buffer)))
 
@@ -197,7 +197,7 @@ When optional HELPED is non-nil, list uninputted characters also."
 		  (insert "\n"))
 	      (setq count (1+ count)))
 	    (setq all-chars (cdr all-chars))))
-	(insert (format "\n\n$B7W(B%d$BJ8;z(B" count)))
+	(insert (format "\n\n計%d文字" count)))
       (tcode-display-help-buffer buffer))))
 
 ;;;###autoload
@@ -220,8 +220,8 @@ When optional HELPED is non-nil, list uninputted characters also."
     (save-excursion
       (tcode-set-work-buffer bufname tcode-input-statistics-file-name nil t)
       (erase-buffer)
-      (insert ";; $B$3$N%U%!%$%k$O<+F0E*$K99?7$5$l$^$9!#(B"
-	      "$BJT=8$7$J$$$G$/$@$5$$!#(B\n")
+      (insert ";; このファイルは自動的に更新されます。"
+	      "編集しないでください。\n")
       (insert "(setq tcode-input-statistics-list '(\n")
       (while list
 	(let ((entry (car list)))

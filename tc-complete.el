@@ -28,38 +28,38 @@
 (require 'tc)
 
 (defcustom tcode-complete-max-candidate-count 3
-  "*Êä´°¤Îºİ¤ÎºÇÂç¸õÊä¿ô¡£"
+  "*è£œå®Œã®éš›ã®æœ€å¤§å€™è£œæ•°ã€‚"
   :type 'integer :group 'tcode)
 
 (defcustom tcode-complete-min-context-length 3
-  "*Êä´°¤Îºİ¤ÎÊ¸Ì®¤ÎºÇ¾®Ä¹¡£"
+  "*è£œå®Œã®éš›ã®æ–‡è„ˆã®æœ€å°é•·ã€‚"
   :type 'integer :group 'tcode)
 
 (defcustom tcode-complete-max-context-length 8
-  "*Êä´°¤Îºİ¤ÎÊ¸Ì®¤ÎºÇÂçÄ¹¡£"
+  "*è£œå®Œã®éš›ã®æ–‡è„ˆã®æœ€å¤§é•·ã€‚"
   :type 'integer :group 'tcode)
 
 (defcustom tcode-complete-delay 0.5
-  "*¸õÊä¤¬É½¼¨¤µ¤ì¤ë¤Ş¤Ç¤ÎÂÔ¤Á»ş´Ö¡£"
+  "*å€™è£œãŒè¡¨ç¤ºã•ã‚Œã‚‹ã¾ã§ã®å¾…ã¡æ™‚é–“ã€‚"
   :type 'float :group 'tcode)
 
 (defcustom tcode-complete-dictionary-name "complete.dic"
-  "*Êä´°¼­½ñ¤Î¥Õ¥¡¥¤¥ëÌ¾¡£"
+  "*è£œå®Œè¾æ›¸ã®ãƒ•ã‚¡ã‚¤ãƒ«åã€‚"
   :type 'string :group 'tcode)
 (defconst tcode-complete-buffer-name " *tcode: complete dictionary*")
-;; Êä´°¼­½ñ¤Î¥Ğ¥Ã¥Õ¥¡Ì¾
+;; è£œå®Œè¾æ›¸ã®ãƒãƒƒãƒ•ã‚¡å
 
 (defcustom tcode-complete-mazegaki-prefix-length 3
-  "*¸ò¤¼½ñ¤­ÊÑ´¹¼­½ñ¤«¤é¤ÎÊä´°¤Î¾ì¹ç¤ËÀÜÆ¬¼­¤È¤ß¤Ê¤¹Ê¸»ú¿ô¡£")
+  "*äº¤ãœæ›¸ãå¤‰æ›è¾æ›¸ã‹ã‚‰ã®è£œå®Œã®å ´åˆã«æ¥é ­è¾ã¨ã¿ãªã™æ–‡å­—æ•°ã€‚")
 
-;;; ¼­½ñ¤ÎÅĞÏ¿
+;;; è¾æ›¸ã®ç™»éŒ²
 (unless (assq tcode-complete-buffer-name tcode-dictionaries)
   (setq tcode-dictionaries (cons (cons tcode-complete-buffer-name
 				       tcode-complete-dictionary-name)
 				 tcode-dictionaries)))
 
 (defvar tcode-complete-candidate-list nil)
-;; Êä´°¸õÊä¤òÊİ»ı¤¹¤ëÊÑ¿ô
+;; è£œå®Œå€™è£œã‚’ä¿æŒã™ã‚‹å¤‰æ•°
 (make-variable-buffer-local 'tcode-complete-candidate-list)
 
 (defvar tcode-message-overlay nil)
@@ -69,10 +69,10 @@
 (defvar tcode-message-overlay-suffix "<")
 
 ;;;
-;;; ¥ª¡¼¥Ğ¥ì¥¤¤òÍÑ¤¤¤¿¥á¥Ã¥»¡¼¥¸É½¼¨
+;;; ã‚ªãƒ¼ãƒãƒ¬ã‚¤ã‚’ç”¨ã„ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤º
 ;;;
 (defun tcode-overlay-message (str)
-  "overlay¤òÍÑ¤¤¤Æ¡¢¸½ºß¤Î¹Ô¤Ë¥á¥Ã¥»¡¼¥¸(STR)¤òÉ½¼¨¤¹¤ë¡£"
+  "overlayã‚’ç”¨ã„ã¦ã€ç¾åœ¨ã®è¡Œã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸(STR)ã‚’è¡¨ç¤ºã™ã‚‹ã€‚"
   (save-excursion
     (insert tcode-message-overlay-prefix))
   (let ((point (point))
@@ -88,13 +88,13 @@
     (overlay-put tcode-message-overlay
 		 'after-string 
 		 (concat str tcode-message-overlay-suffix))
-    ;; É½¼¨¤¹¤ë¤È±£¤ì¤ë¾ì¹ç¤ÏºÆÉ½¼¨
+    ;; è¡¨ç¤ºã™ã‚‹ã¨éš ã‚Œã‚‹å ´åˆã¯å†è¡¨ç¤º
     (if (>= (+ (count-lines (window-start) (point)) nol 1)
 	    (1- (window-height)))
 	(recenter (1- (- nol))))))
 
 (defun tcode-delete-overlay-message ()
-  "`tcode-overlay-message'¤ÇÉ½¼¨¤µ¤ì¤¿¥á¥Ã¥»¡¼¥¸¤ò¾Ã¤¹¡£"
+  "`tcode-overlay-message'ã§è¡¨ç¤ºã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ¶ˆã™ã€‚"
   (interactive)
   (when (overlayp tcode-message-overlay)
     (save-excursion
@@ -105,19 +105,19 @@
     (redraw-frame (selected-frame))))
 
 ;;;
-;;; ¼­½ñ´ÉÍı
+;;; è¾æ›¸ç®¡ç†
 ;;;
 
 ;;;###autoload
 (defun tcode-complete-reload-dictionary ()
-  "Êä´°¼­½ñ¤òºÆÆÉ¤ß¹ş¤ß¤¹¤ë¡£"
+  "è£œå®Œè¾æ›¸ã‚’å†èª­ã¿è¾¼ã¿ã™ã‚‹ã€‚"
   (interactive)
   (tcode-set-work-buffer tcode-complete-buffer-name
 			 tcode-complete-dictionary-name
 			 t))
 
 (defun tcode-complete-lookup (prefix)
-  "Êä´°ÍÑ¼­½ñ¤«¤éPREFIX¤ò»ı¤Ä¸õÊä¤òÃµ¤¹¡£"
+  "è£œå®Œç”¨è¾æ›¸ã‹ã‚‰PREFIXã‚’æŒã¤å€™è£œã‚’æ¢ã™ã€‚"
   (save-excursion
     (tcode-set-work-buffer tcode-complete-buffer-name
 			   tcode-complete-dictionary-name)
@@ -141,14 +141,14 @@
 	(reverse candidate-list)))))
 
 (defun tcode-complete-switch-to-dictionary ()
-  "¥Ğ¥Ã¥Õ¥¡¤òÊä´°ÍÑ¼­½ñ¤ËÀÚ¤êÂØ¤¨¤ë¡£"
+  "ãƒãƒƒãƒ•ã‚¡ã‚’è£œå®Œç”¨è¾æ›¸ã«åˆ‡ã‚Šæ›¿ãˆã‚‹ã€‚"
   (interactive)
   (switch-to-buffer
    (tcode-set-work-buffer tcode-complete-buffer-name
 			  tcode-complete-dictionary-name)))
 
 (defun tcode-complete-add-to-dictionary (beg end)
-  "¥ê¡¼¥¸¥ç¥ó¤Ç»ØÄê¤·¤¿¸ì¤òÊä´°ÍÑ¼­½ñ¤ËÅĞÏ¿¤¹¤ë¡£"
+  "ãƒªãƒ¼ã‚¸ãƒ§ãƒ³ã§æŒ‡å®šã—ãŸèªã‚’è£œå®Œç”¨è¾æ›¸ã«ç™»éŒ²ã™ã‚‹ã€‚"
   (interactive "r")
   (let ((str (buffer-substring beg end)))
     (save-excursion
@@ -159,7 +159,7 @@
 
 (defun tcode-complete-copy-entry-from-mazegaki-dictionary (prefix candidate)
   (save-excursion
-    ;; Êä´°¼­½ñ¤ËÅĞÏ¿ºÑ¤ß¤«¤É¤¦¤«Ä´¤Ù¤ë¡£
+    ;; è£œå®Œè¾æ›¸ã«ç™»éŒ²æ¸ˆã¿ã‹ã©ã†ã‹èª¿ã¹ã‚‹ã€‚
     (tcode-set-work-buffer tcode-complete-buffer-name
 			   tcode-complete-dictionary-name)
     (goto-char (point-min))
@@ -172,8 +172,8 @@
 				(looking-at (regexp-quote prefix)))
 			    (throw 'found t)))))))
       (unless found
-	;; Êä´°¼­½ñ¤Ë¤Ï¤Ê¤«¤Ã¤¿¤Î¤ÇÄÉ²Ã¤¹¤ë¡£
-	;; ÆÉ¤ß¤ò¸ò¤¼½ñ¤­ÊÑ´¹¼­½ñ¤«¤éÄ´¤Ù¤ë¡£
+	;; è£œå®Œè¾æ›¸ã«ã¯ãªã‹ã£ãŸã®ã§è¿½åŠ ã™ã‚‹ã€‚
+	;; èª­ã¿ã‚’äº¤ãœæ›¸ãå¤‰æ›è¾æ›¸ã‹ã‚‰èª¿ã¹ã‚‹ã€‚
 	(tcode-mazegaki-switch-to-dictionary)
 	(tcode-mazegaki-search-yomi (regexp-quote prefix))
 	(when (and (search-forward 
@@ -181,24 +181,24 @@
 		   (save-excursion
 		     (beginning-of-line)
 		     (looking-at (regexp-quote prefix))))
-	  ;; ÅĞÏ¿¤¹¤ë¤Ù¤­¸õÊä¤ò¸«¤Ä¤±¤¿¡£
+	  ;; ç™»éŒ²ã™ã‚‹ã¹ãå€™è£œã‚’è¦‹ã¤ã‘ãŸã€‚
 	  (beginning-of-line)
 	  (looking-at (concat "\\(" prefix ".*\\) /"))
 	  (let ((yomi (match-string 1)))
-	    ;; ÆÉ¤ßyomi¸õÊäcandidate¤ÇÅĞÏ¿¤¹¤ë¡£
+	    ;; èª­ã¿yomiå€™è£œcandidateã§ç™»éŒ²ã™ã‚‹ã€‚
 	    (tcode-set-work-buffer tcode-complete-buffer-name
 				   tcode-complete-dictionary-name)
 	    (goto-char (point-min))
 	    (insert (format "%s %s\n" yomi candidate))))))))
 
 ;;;
-;;; Êä´°ÆşÎÏ
+;;; è£œå®Œå…¥åŠ›
 ;;;
 
 ;;;###autoload
 (defun tcode-complete-insert (n)
-  "¸½ºß¤ÎÊ¸Ì®¤«¤é¿äÄê¤Ç¤­¤ëÆşÎÏ¸õÊä¤òÁŞÆş¤¹¤ë¡£
-N¤¬»ØÄê¤µ¤ì¤¿¾ì¹ç¤Ï¡¢NÈÖÌÜ¤Î¸õÊä¤Ë¤Ê¤ë¡£"
+  "ç¾åœ¨ã®æ–‡è„ˆã‹ã‚‰æ¨å®šã§ãã‚‹å…¥åŠ›å€™è£œã‚’æŒ¿å…¥ã™ã‚‹ã€‚
+NãŒæŒ‡å®šã•ã‚ŒãŸå ´åˆã¯ã€Nç•ªç›®ã®å€™è£œã«ãªã‚‹ã€‚"
   (interactive "*p")
   (when tcode-complete-candidate-list
     (delete-region (car (car tcode-complete-candidate-list)) (point))
@@ -214,14 +214,14 @@ N¤¬»ØÄê¤µ¤ì¤¿¾ì¹ç¤Ï¡¢NÈÖÌÜ¤Î¸õÊä¤Ë¤Ê¤ë¡£"
 (global-set-key (kbd "M-RET") 'tcode-complete-insert)
 
 ;;;
-;;; Êä´°¸õÊäÃê½Ğ
+;;; è£œå®Œå€™è£œæŠ½å‡º
 ;;;
 
 (defun tcode-complete-scan-backward ()
-  "¸½ºß¤Î¥İ¥¤¥ó¥È¤«¤éÊ¸Ì®¤òÆÀ¤ë¡£
-Ê¸Ì®¤Ï¥ê¥¹¥È¹½Â¤¤Ç¤¢¤ê¡¢¥ê¥¹¥È¤ÎÍ×ÁÇ¤Ï(POINT . \"Ê¸»úÎó\")¤Ç¤¢¤ë¡£
-¤³¤³¤Ç¡¢¡ÖÊ¸»úÎó¡×¤Ï¡¢POINT¤«¤é»Ï¤Ş¤ë¸½ºß¤Î¥İ¥¤¥ó¥È¤Ş¤Ç¤ÎÊ¸»úÎó¤Ç¤¢¤ë¡£
-Ê¸»úÎó¤ÎÄ¹¤µ¤Ï`tcode-complete-max-context-length'¤Ş¤Ç¤Ç¤¢¤ë¡£"
+  "ç¾åœ¨ã®ãƒã‚¤ãƒ³ãƒˆã‹ã‚‰æ–‡è„ˆã‚’å¾—ã‚‹ã€‚
+æ–‡è„ˆã¯ãƒªã‚¹ãƒˆæ§‹é€ ã§ã‚ã‚Šã€ãƒªã‚¹ãƒˆã®è¦ç´ ã¯(POINT . \"æ–‡å­—åˆ—\")ã§ã‚ã‚‹ã€‚
+ã“ã“ã§ã€ã€Œæ–‡å­—åˆ—ã€ã¯ã€POINTã‹ã‚‰å§‹ã¾ã‚‹ç¾åœ¨ã®ãƒã‚¤ãƒ³ãƒˆã¾ã§ã®æ–‡å­—åˆ—ã§ã‚ã‚‹ã€‚
+æ–‡å­—åˆ—ã®é•·ã•ã¯`tcode-complete-max-context-length'ã¾ã§ã§ã‚ã‚‹ã€‚"
   (let ((raw-context (tcode-scan-backward tcode-complete-max-context-length))
 	context)
     (while raw-context
@@ -232,7 +232,7 @@ N¤¬»ØÄê¤µ¤ì¤¿¾ì¹ç¤Ï¡¢NÈÖÌÜ¤Î¸õÊä¤Ë¤Ê¤ë¡£"
     (reverse context)))
 
 (defun tcode-complete-search-candidate (context)
-  "¼­½ñ¤«¤éÊ¸Ì®¤Ë¹ç¤¦¸õÊä¤òÃµ¤¹¡£"
+  "è¾æ›¸ã‹ã‚‰æ–‡è„ˆã«åˆã†å€™è£œã‚’æ¢ã™ã€‚"
   (catch 'found
     (while context
       (let ((candidate-list (append (tcode-complete-lookup (cdr (car context)))
@@ -250,7 +250,7 @@ N¤¬»ØÄê¤µ¤ì¤¿¾ì¹ç¤Ï¡¢NÈÖÌÜ¤Î¸õÊä¤Ë¤Ê¤ë¡£"
       (setq context (cdr context)))))
 
 (defun tcode-complete-make-candidate-list-string (prefix candidate-list)
-  "Êä´°¸õÊä¤Î¥ê¥¹¥È¤òÉ½¤¹Ê¸»úÎó¤òºî¤ë¡£"
+  "è£œå®Œå€™è£œã®ãƒªã‚¹ãƒˆã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’ä½œã‚‹ã€‚"
   (format "%s%s"
 	  (let ((candidate (car candidate-list)))
 	    (if (string= prefix
@@ -274,7 +274,7 @@ N¤¬»ØÄê¤µ¤ì¤¿¾ì¹ç¤Ï¡¢NÈÖÌÜ¤Î¸õÊä¤Ë¤Ê¤ë¡£"
 	    "")))
 
 (defun tcode-complete-display ()
-  "¸½ºß¤ÎÊ¸Ì®¤«¤é¿äÄê¤Ç¤­¤ëÆşÎÏ¸õÊä¤òÉ½¼¨¤¹¤ë¡£"
+  "ç¾åœ¨ã®æ–‡è„ˆã‹ã‚‰æ¨å®šã§ãã‚‹å…¥åŠ›å€™è£œã‚’è¡¨ç¤ºã™ã‚‹ã€‚"
   (interactive)
   (let* ((candidates (tcode-complete-search-candidate
 		      (tcode-complete-scan-backward)))
@@ -294,7 +294,7 @@ N¤¬»ØÄê¤µ¤ì¤¿¾ì¹ç¤Ï¡¢NÈÖÌÜ¤Î¸õÊä¤Ë¤Ê¤ë¡£"
 	       (tcode-complete-make-candidate-list-string
 		prefix real-candidate-list))
 	      (tcode-verbose-message (tcode-substitute-command-keys
-				      "¡Ö\\[tcode-complete-insert]¡×¤ÇÊä´°"))
+				      "ã€Œ\\[tcode-complete-insert]ã€ã§è£œå®Œ"))
 	      (sit-for 5))
 	  (tcode-delete-overlay-message))))))
 

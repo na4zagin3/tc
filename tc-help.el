@@ -27,42 +27,42 @@
 
 (require 'tc-bushu)
 
-;;;; ÊÑ¿ô
+;;;; å¤‰æ•°
 
 (defvar tcode-strict-help t
-  "* non-nil ¤Î¤È¤­¡¢Éô¼óÊÑ´¹¤Ë¤è¤êÆşÎÏ¤¬¤Ç¤­¤ë¤«¤É¤¦¤«¤ò¾Ü¤·¤¯Ä´¥Ù¤ë¡£
-nil ¤Î¾ì¹ç¤Ç¤Ï¸«¤Ä¤«¤é¤Ê¤¤¤è¤¦¤Ê¾ì¹ç¤Ç¤â¡¢non-nil ¤Ë¤¹¤ì¤Ğ¸«¤Ä¤«¤ë¾ì¹ç¤¬
-¤¢¤ë¡£¤¿¤À¤·¡¢¤«¤Ê¤ê»ş´Ö¤¬¤«¤«¤ë¤³¤È¤â¤¢¤ë¡£")
+  "* non-nil ã®ã¨ãã€éƒ¨é¦–å¤‰æ›ã«ã‚ˆã‚Šå…¥åŠ›ãŒã§ãã‚‹ã‹ã©ã†ã‹ã‚’è©³ã—ãèª¿ãƒ™ã‚‹ã€‚
+nil ã®å ´åˆã§ã¯è¦‹ã¤ã‹ã‚‰ãªã„ã‚ˆã†ãªå ´åˆã§ã‚‚ã€non-nil ã«ã™ã‚Œã°è¦‹ã¤ã‹ã‚‹å ´åˆãŒ
+ã‚ã‚‹ã€‚ãŸã ã—ã€ã‹ãªã‚Šæ™‚é–“ãŒã‹ã‹ã‚‹ã“ã¨ã‚‚ã‚ã‚‹ã€‚")
 
-(defvar tcode-help-first-stroke "¡ü"
-  "* ¥Ø¥ë¥×É½¤ÇÂè1ÂÇ¸°°ÌÃÖ¤òÉ½¤¹Ê¸»ú")
-(defvar tcode-help-second-stroke "¡û"
-  "* ¥Ø¥ë¥×É½¤ÇÂè2ÂÇ¸°°ÌÃÖ¤òÉ½¤¹Ê¸»ú")
-(defvar tcode-help-third-stroke "¢¤"
-  "* ¥Ø¥ë¥×É½¤ÇÂè3ÂÇ¸°°ÌÃÖ¤òÉ½¤¹Ê¸»ú")
-(defvar tcode-help-forth-stroke "¡ş"
-  "* ¥Ø¥ë¥×É½¤ÇÂè4ÂÇ¸°°ÌÃÖ¤òÉ½¤¹Ê¸»ú")
-(defvar tcode-help-double-stroke "¡ı"
-  "* ¥Ø¥ë¥×É½¤ÇÊ£¿ô²ó¤³¤Î°ÌÃÖ¤ò²¡¤¹¤³¤È¤òÉ½¤¹Ê¸»ú")
-(defvar tcode-help-another-double-stroke "¡ù"
-  "* ¥Ø¥ë¥×É½¤ÇÊ£¿ô²ó¤³¤Î°ÌÃÖ¤ò²¡¤¹¤³¤È¤òÉ½¤¹Ê¸»ú¡£
-`tcode-help-double-stroke' ¤ò´û¤Ë»ÈÍÑ¤·¤Æ¤¤¤ë¾ì¹ç¤Ë»ÈÍÑ¤¹¤ë¡£")
+(defvar tcode-help-first-stroke "â—"
+  "* ãƒ˜ãƒ«ãƒ—è¡¨ã§ç¬¬1æ‰“éµä½ç½®ã‚’è¡¨ã™æ–‡å­—")
+(defvar tcode-help-second-stroke "â—‹"
+  "* ãƒ˜ãƒ«ãƒ—è¡¨ã§ç¬¬2æ‰“éµä½ç½®ã‚’è¡¨ã™æ–‡å­—")
+(defvar tcode-help-third-stroke "â–³"
+  "* ãƒ˜ãƒ«ãƒ—è¡¨ã§ç¬¬3æ‰“éµä½ç½®ã‚’è¡¨ã™æ–‡å­—")
+(defvar tcode-help-forth-stroke "â—‡"
+  "* ãƒ˜ãƒ«ãƒ—è¡¨ã§ç¬¬4æ‰“éµä½ç½®ã‚’è¡¨ã™æ–‡å­—")
+(defvar tcode-help-double-stroke "â—"
+  "* ãƒ˜ãƒ«ãƒ—è¡¨ã§è¤‡æ•°å›ã“ã®ä½ç½®ã‚’æŠ¼ã™ã“ã¨ã‚’è¡¨ã™æ–‡å­—")
+(defvar tcode-help-another-double-stroke "â˜†"
+  "* ãƒ˜ãƒ«ãƒ—è¡¨ã§è¤‡æ•°å›ã“ã®ä½ç½®ã‚’æŠ¼ã™ã“ã¨ã‚’è¡¨ã™æ–‡å­—ã€‚
+`tcode-help-double-stroke' ã‚’æ—¢ã«ä½¿ç”¨ã—ã¦ã„ã‚‹å ´åˆã«ä½¿ç”¨ã™ã‚‹ã€‚")
 
 (defvar tcode-help-draw-top-keys t
-  "* ¥¹¥È¥í¡¼¥¯É½¤ÇºÇ¾åÃÊ¤Î¥­¡¼¤òÉ½¼¨¤¹¤ë¤«")
+  "* ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯è¡¨ã§æœ€ä¸Šæ®µã®ã‚­ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ã‹")
 
 (defvar tcode-last-help-char-list nil
-  "ºÇ¸å¤Ë¥Ø¥ë¥×¤òÉ½¼¨¤·¤¿Ê¸»ú¤Î¥ê¥¹¥È")
+  "æœ€å¾Œã«ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã—ãŸæ–‡å­—ã®ãƒªã‚¹ãƒˆ")
 
 (defvar tcode-help-with-real-keys nil
-  "* nil¤Ç¤Ê¤¤¾ì¹ç¡¢É½·Á¼°¤Ç¤Ï¤Ê¤¯¡¢¥­¡¼ÆşÎÏ½ç·Á¼°¤Ë¤è¤ë¤Ø¥ë¥×É½¼¨¤ò¹Ô¤¦¡£")
+  "* nilã§ãªã„å ´åˆã€è¡¨å½¢å¼ã§ã¯ãªãã€ã‚­ãƒ¼å…¥åŠ›é †å½¢å¼ã«ã‚ˆã‚‹ã¸ãƒ«ãƒ—è¡¨ç¤ºã‚’è¡Œã†ã€‚")
 
 (defvar tcode-stroke-to-string-opener ""
-  "*`tcode-stroke-to-string'¤Ç»È¤ï¤ì¤ë³«»ÏÊ¸»úÎó")
+  "*`tcode-stroke-to-string'ã§ä½¿ã‚ã‚Œã‚‹é–‹å§‹æ–‡å­—åˆ—")
 (defvar tcode-stroke-to-string-separator "-"
-  "*`tcode-stroke-to-string'¤Ç»È¤ï¤ì¤ëÊ¬³äÊ¸»úÎó")
+  "*`tcode-stroke-to-string'ã§ä½¿ã‚ã‚Œã‚‹åˆ†å‰²æ–‡å­—åˆ—")
 (defvar tcode-stroke-to-string-closer ""
-  "*`tcode-stroke-to-string'¤Ç»È¤ï¤ì¤ë½ªÎ»Ê¸»úÎó")
+  "*`tcode-stroke-to-string'ã§ä½¿ã‚ã‚Œã‚‹çµ‚äº†æ–‡å­—åˆ—")
 
 (defvar tcode-stroke-to-string-option
   (cond ((and (tcode-mule-4-p)
@@ -78,22 +78,22 @@ nil ¤Î¾ì¹ç¤Ç¤Ï¸«¤Ä¤«¤é¤Ê¤¤¤è¤¦¤Ê¾ì¹ç¤Ç¤â¡¢non-nil ¤Ë¤¹¤ì¤Ğ¸«¤Ä¤«¤ë¾ì¹ç¤¬
 	 (autoload 'tc-bitmap-stroke-to-string "tc-bitmap")
 	 'tc-bitmap-stroke-to-string)
 	(t nil))
-  "*`tcode-stroke-to-string'¤òÀ©¸æ¤¹¤ëÊÑ¿ô")
+  "*`tcode-stroke-to-string'ã‚’åˆ¶å¾¡ã™ã‚‹å¤‰æ•°")
 
 (defvar tcode-stroke-to-string-function nil
-  "*´ÁÄ¾¥Ñ¥Ã¥±¡¼¥¸Ëè¤Ë`tcode-stroke-to-string'¤ò¾è¤Ã¼è¤ë´Ø¿ô")
+  "*æ¼¢ç›´ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸æ¯ã«`tcode-stroke-to-string'ã‚’ä¹—ã£å–ã‚‹é–¢æ•°")
 
 (defcustom tcode-help-stroke-hook nil
-  "¥Ø¥ë¥×É½¤òÉ½¼¨¤¹¤ëÁ°¤Ë¼Â¹Ô¤µ¤ì¤ë¥Õ¥Ã¥¯¡£"
+  "ãƒ˜ãƒ«ãƒ—è¡¨ã‚’è¡¨ç¤ºã™ã‚‹å‰ã«å®Ÿè¡Œã•ã‚Œã‚‹ãƒ•ãƒƒã‚¯ã€‚"
   :type 'hook :group 'tcode)
 
 ;;;
-;;; ¥â¡¼¥É¤Î¥Ø¥ë¥×
+;;; ãƒ¢ãƒ¼ãƒ‰ã®ãƒ˜ãƒ«ãƒ—
 ;;;
 
 ;;;###autoload
 (defun tcode-mode-help ()
-  "T¥³¡¼¥É¥â¡¼¥É¤Î¥­¡¼³ä¤êÅö¤Æ¤Ê¤É¤òÉ½¼¨¤¹¤ë¡£"
+  "Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã®ã‚­ãƒ¼å‰²ã‚Šå½“ã¦ãªã©ã‚’è¡¨ç¤ºã™ã‚‹ã€‚"
   (interactive)
   (let ((buf (get-buffer-create " *T-Code Mode Help*")))
     (set-buffer buf)
@@ -108,7 +108,7 @@ nil ¤Î¾ì¹ç¤Ç¤Ï¸«¤Ä¤«¤é¤Ê¤¤¤è¤¦¤Ê¾ì¹ç¤Ç¤â¡¢non-nil ¤Ë¤¹¤ì¤Ğ¸«¤Ä¤«¤ë¾ì¹ç¤¬
     (kill-buffer buf)))
 
 ;;;
-;;; Éô¼ó¹çÀ®ÊÑ´¹¤Î¤Ø¥ë¥×
+;;; éƒ¨é¦–åˆæˆå¤‰æ›ã®ã¸ãƒ«ãƒ—
 ;;;
 
 (defun tcode-another-stroke (c)
@@ -171,8 +171,8 @@ nil ¤Î¾ì¹ç¤Ç¤Ï¸«¤Ä¤«¤é¤Ê¤¤¤è¤¦¤Ê¾ì¹ç¤Ç¤â¡¢non-nil ¤Ë¤¹¤ì¤Ğ¸«¤Ä¤«¤ë¾ì¹ç¤¬
 	      )))))))
 
 (defun tcode-bushu-composed-p (char bushu1 bushu2)
-  "CHAR¤¬BUSHU1¤ÈBUSHU2¤Ç¹çÀ®¤Ç¤­¤ë¤«¡£
-Àµ³Î¤Ë¤Ï¡¢BUSHU1¤ÈBUSHU2¤ÏÎ¾Êı¤È¤âÄ¾ÀÜÆşÎÏ¤Ç¤­¤Ê¤¤¤È¤¤¤±¤Ê¤¤¡£"
+  "CHARãŒBUSHU1ã¨BUSHU2ã§åˆæˆã§ãã‚‹ã‹ã€‚
+æ­£ç¢ºã«ã¯ã€BUSHU1ã¨BUSHU2ã¯ä¸¡æ–¹ã¨ã‚‚ç›´æ¥å…¥åŠ›ã§ããªã„ã¨ã„ã‘ãªã„ã€‚"
   (and (or (null tcode-strict-help)
 	   (and (not (stringp bushu1)) (tcode-encode bushu1)
 		(not (stringp bushu2)) (tcode-encode bushu2)))
@@ -204,10 +204,10 @@ nil ¤Î¾ì¹ç¤Ç¤Ï¸«¤Ä¤«¤é¤Ê¤¤¤è¤¦¤Ê¾ì¹ç¤Ç¤â¡¢non-nil ¤Ë¤¹¤ì¤Ğ¸«¤Ä¤«¤ë¾ì¹ç¤¬
 	(setq b2 (nconc b2 (list (car b1))))))))
 
 (defun tcode-decompose-char (kanji &optional for-help)
-  "KANJI¤òÆó¤Ä¤ÎÉô¼ó¤ËÊ¬²ò¤¹¤ë¡£
-ÊÖ¤êÃÍ¤ÏÆó¤Ä¤Î»ú¤ò `cons' ¤·¤¿¥»¥ë¡£
-Ê¬²ò¤Ç¤­¤Ê¤¤»ş¤Ë¤Ïnil¤òÊÖ¤¹¡£
-FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
+  "KANJIã‚’äºŒã¤ã®éƒ¨é¦–ã«åˆ†è§£ã™ã‚‹ã€‚
+è¿”ã‚Šå€¤ã¯äºŒã¤ã®å­—ã‚’ `cons' ã—ãŸã‚»ãƒ«ã€‚
+åˆ†è§£ã§ããªã„æ™‚ã«ã¯nilã‚’è¿”ã™ã€‚
+FOR-HELPãŒnilã§ãªã„å ´åˆã¯ã€ç›´æ¥å…¥åŠ›ã§ãã‚‹å­—ã«åˆ†è§£ã™ã‚‹ã€‚"
   (tcode-bushu-init 2)
   (save-excursion
     (tcode-set-work-buffer tcode-bushu-help-buffer-name
@@ -227,7 +227,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 		       (let ((bushu-list (tcode-bushu-for-char
 					  (cdr decomposed))))
 			 (catch 'found
-			   ;; ¶¯¹çÀ®½¸¹ç¤òÃµ¤¹¡£
+			   ;; å¼·åˆæˆé›†åˆã‚’æ¢ã™ã€‚
 			   (mapcar
 			    (lambda (c)
 			      (if (tcode-bushu-composed-p kanji
@@ -237,7 +237,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 						      (char-to-string c)))))
 			    (sort (tcode-bushu-subset bushu-list)
 				  'tcode-bushu-less-p))
-			   ;; ¼å¹çÀ®½¸¹ç¤òÃµ¤¹¡£
+			   ;; å¼±åˆæˆé›†åˆã‚’æ¢ã™ã€‚
 			   (mapcar
 			    (lambda (c)
 			      (if (tcode-bushu-composed-p kanji
@@ -247,7 +247,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 						      (char-to-string c)))))
 			    (sort (tcode-bushu-superset bushu-list)
 				  'tcode-bushu-less-p))
-			   ;; ºÆµ¢Åª¤ËÃµ¤¹¡£
+			   ;; å†å¸°çš„ã«æ¢ã™ã€‚
 			   (let ((dec2 (tcode-decompose-char str2 t)))
 			     (if dec2
 				 (cons str1 dec2)
@@ -256,7 +256,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 		     (let ((bushu-list (tcode-bushu-for-char
 					(car decomposed))))
 		       (catch 'found
-			 ;; ¶¯¹çÀ®½¸¹ç¤òÃµ¤¹¡£
+			 ;; å¼·åˆæˆé›†åˆã‚’æ¢ã™ã€‚
 			 (mapcar
 			  (lambda (c)
 			    (if (tcode-bushu-composed-p kanji
@@ -266,7 +266,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 						    str2))))
 			  (sort (tcode-bushu-subset bushu-list)
 				'tcode-bushu-less-p))
-			 ;; ¼å¹çÀ®½¸¹ç¤òÃµ¤¹¡£
+			 ;; å¼±åˆæˆé›†åˆã‚’æ¢ã™ã€‚
 			 (mapcar
 			  (lambda (c)
 			    (if (tcode-bushu-composed-p kanji
@@ -276,7 +276,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 						    str2))))
 			  (sort (tcode-bushu-superset bushu-list)
 				'tcode-bushu-less-p))
-			 ;; ºÆµ¢Åª¤ËÃµ¤¹¡£
+			 ;; å†å¸°çš„ã«æ¢ã™ã€‚
 			 (let ((dec1 (tcode-decompose-char str1 t)))
 			   (if dec1
 			       (cons dec1 str2)
@@ -312,9 +312,9 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 				 (or d2 (cons str2 nil)))))))))
 	  (cons (char-to-string (car decomposed))
 		(char-to-string (cdr decomposed))))
-      ;; Æó¤Ä¤ËÊ¬³ä¤Ç¤­¤Ê¤¤¾ì¹ç
+      ;; äºŒã¤ã«åˆ†å‰²ã§ããªã„å ´åˆ
       (if for-help
-	  ;; ¶¯º¹¹çÀ®½¸¹ç¤òÃµ¤¹¡£
+	  ;; å¼·å·®åˆæˆé›†åˆã‚’æ¢ã™ã€‚
 	  (let ((bushu-list (tcode-bushu-for-char char)))
 	    (catch 'found
 	      (mapcar
@@ -349,19 +349,19 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
     ret))
 
 (defun tcode-stroke-to-string (stroke)
-  "STROKE ¤òÉ½¤¹Ã»¤¤Ê¸»úÎó¤òÊÖ¤¹¡£
-`tcode-stroke-to-string-opener'¤Ç»Ï¤Ş¤ê¡¢
-`tcode-stroke-to-string-separator'¤ò¶èÀÚ¤ê¤È¤·¡¢
-`tcode-stroke-to-string-closer'¤Ç½ª¤ï¤ë¡£
+  "STROKE ã‚’è¡¨ã™çŸ­ã„æ–‡å­—åˆ—ã‚’è¿”ã™ã€‚
+`tcode-stroke-to-string-opener'ã§å§‹ã¾ã‚Šã€
+`tcode-stroke-to-string-separator'ã‚’åŒºåˆ‡ã‚Šã¨ã—ã€
+`tcode-stroke-to-string-closer'ã§çµ‚ã‚ã‚‹ã€‚
 
-`tcode-stroke-to-string-option'¤Ë¤è¤ê¥¹¥È¥í¡¼¥¯¤òÉ½¤¹Ê¸»úÎó¤¬ÊÑ¤ï¤ë¡£
-  nil ¤Î»ş¤Ï2·å¤Î¿ô»ú¤ÇÉ½¤¹¡£
-  t ¤Î»ş¤Ï tcode-mode ¤Ç¤Ê¤¤»ş¤ËÆşÎÏ¤µ¤ì¤ëÊ¸»ú¤ÇÉ½¤¹¡£
-  vector ¤Î»ş¤ÏÍ×ÁÇ¤òÍøÍÑ¤¹¤ë¡£
-  ´Ø¿ô¤Î»ş¤Ï¤½¤Î´Ø¿ô¤ò¸Æ¤Ó½Ğ¤¹¡£
+`tcode-stroke-to-string-option'ã«ã‚ˆã‚Šã‚¹ãƒˆãƒ­ãƒ¼ã‚¯ã‚’è¡¨ã™æ–‡å­—åˆ—ãŒå¤‰ã‚ã‚‹ã€‚
+  nil ã®æ™‚ã¯2æ¡ã®æ•°å­—ã§è¡¨ã™ã€‚
+  t ã®æ™‚ã¯ tcode-mode ã§ãªã„æ™‚ã«å…¥åŠ›ã•ã‚Œã‚‹æ–‡å­—ã§è¡¨ã™ã€‚
+  vector ã®æ™‚ã¯è¦ç´ ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
+  é–¢æ•°ã®æ™‚ã¯ãã®é–¢æ•°ã‚’å‘¼ã³å‡ºã™ã€‚
 
-¤¿¤À¤·`tcode-stroke-to-string-function'¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤ë»ş¤Ï
-¤½¤Î´Ø¿ô¤òÄ¾ÀÜ¸Æ¤Ó½Ğ¤¹¤Î¤Ç¾åµ­¤¬À®Î©¤¹¤ë¤È¤Ï¸Â¤é¤Ê¤¤¡£"
+ãŸã ã—`tcode-stroke-to-string-function'ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹æ™‚ã¯
+ãã®é–¢æ•°ã‚’ç›´æ¥å‘¼ã³å‡ºã™ã®ã§ä¸Šè¨˜ãŒæˆç«‹ã™ã‚‹ã¨ã¯é™ã‚‰ãªã„ã€‚"
   (cond ((functionp tcode-stroke-to-string-function)
 	 (let ((f tcode-stroke-to-string-function)
 	       (tcode-stroke-to-string-function nil))
@@ -405,20 +405,20 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 	     (concat "[" left "]"))))))
 
 (defun tcode-help-bushu-help-string (ch for-help)
-  "Ê¸»úCH¤Î¡¢Éô¼ó¹çÀ®ÊÑ´¹¤Ë¤è¤ëÂÇ¤ÁÊı¤òÉ½¤¹Ê¸»úÎó¤òÊÖ¤¹¡£"
+  "æ–‡å­—CHã®ã€éƒ¨é¦–åˆæˆå¤‰æ›ã«ã‚ˆã‚‹æ‰“ã¡æ–¹ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’è¿”ã™ã€‚"
   (let ((decomposed (or (tcode-bushu-help-lookup ch)
 			(tcode-decompose-char ch for-help))))
     (and decomposed
 	 (concat (tcode-help-make-bushu-structure-string decomposed t)))))
 
 ;;;
-;;; ¥Ø¥ë¥×É½
+;;; ãƒ˜ãƒ«ãƒ—è¡¨
 ;;;
 
 (defun tcode-make-drawing-data (stroke)
-  "STROKE ¤ÎÂÇ¤ÁÊı¤ò¿Ş¼¨¤¹¤ë¤¿¤á¤Î¥Ç¡¼¥¿¤òÀ¸À®¤¹¤ë¡£
-À¸À®¤¹¤ë¥Ç¡¼¥¿¤Ï¡¢¼¡¤Î¥ê¥¹¥È¤Î¥ê¥¹¥È¡£
-  ¥­¡¼¤ÎÈÖÃÏ(0-39)  °õ(¡û¤Ê¤É)  ½çÈÖ¤ò¼¨¤¹Ê¸»úÎó(1¤Ê¤É)"
+  "STROKE ã®æ‰“ã¡æ–¹ã‚’å›³ç¤ºã™ã‚‹ãŸã‚ã®ãƒ‡ãƒ¼ã‚¿ã‚’ç”Ÿæˆã™ã‚‹ã€‚
+ç”Ÿæˆã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã¯ã€æ¬¡ã®ãƒªã‚¹ãƒˆã®ãƒªã‚¹ãƒˆã€‚
+  ã‚­ãƒ¼ã®ç•ªåœ°(0-39)  å°(â—‹ãªã©)  é †ç•ªã‚’ç¤ºã™æ–‡å­—åˆ—(1ãªã©)"
   (let ((1st (car stroke))
 	(2nd (car (cdr stroke)))
 	(3rd (car (cdr (cdr stroke))))
@@ -433,24 +433,24 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 					    (= 1st 3rd)
 					    (= 1st 4th))
 				       (setq 2nd nil 3rd nil 4th nil)
-				       "1¡¢Âè2¡¢Âè3¡¢Âè4")
+				       "1ã€ç¬¬2ã€ç¬¬3ã€ç¬¬4")
 				      ((and 3rd (= 1st 2nd) (= 1st 3rd))
 				       (setq 2nd nil 3rd nil)
-				       "1¡¢Âè2¡¢Âè3")
+				       "1ã€ç¬¬2ã€ç¬¬3")
 				      ((and 4th 3rd (= 1st 2nd) (= 1st 4th))
 				       (setq 2nd nil 4th nil)
-				       "1¡¢Âè2¡¢Âè4")
+				       "1ã€ç¬¬2ã€ç¬¬4")
 				      ((and 4th 3rd (= 1st 3rd) (= 1st 4th))
 				       (setq 3rd nil 4th nil)
-				       "1¡¢Âè3¡¢Âè4")
+				       "1ã€ç¬¬3ã€ç¬¬4")
 				      ((and 4th 3rd (= 1st 4th))
 				       (setq 4th nil)
-				       "1¡¢Âè4")
+				       "1ã€ç¬¬4")
 				      ((and 3rd (= 1st 3rd))
 				       (setq 3rd nil)
-				       "1¡¢Âè3")
+				       "1ã€ç¬¬3")
 				      ((= 1st 2nd) (setq 2nd nil)
-				       "1¡¢Âè2")))
+				       "1ã€ç¬¬2")))
 			(list tcode-help-first-stroke "1")))))
     (and 2nd
 	 (setq draw-data
@@ -465,13 +465,13 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 				       (cond ((and 3rd 4th
 						   (= 2nd 3rd) (= 2nd 4th))
 					      (setq 3rd nil 4th nil)
-					      "2¡¢Âè3¡¢Âè4")
+					      "2ã€ç¬¬3ã€ç¬¬4")
 					     ((and 3rd (= 2nd 3rd))
 					      (setq 3rd nil)
-					      "2¡¢Âè3")
+					      "2ã€ç¬¬3")
 					     ((and 4th (= 2nd 4th))
 					      (setq 4th nil)
-					      "2¡¢Âè4")))
+					      "2ã€ç¬¬4")))
 				    (list tcode-help-second-stroke "2")))))))
     (and 3rd
 	 (setq draw-data
@@ -484,7 +484,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 					 tcode-help-double-stroke)
 				       (progn
 					 (setq 4th nil)
-					 "3¡¢Âè4"))
+					 "3ã€ç¬¬4"))
 				    (list tcode-help-third-stroke "3")))))))
     (and 4th
 	 (setq draw-data
@@ -509,7 +509,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
     (if (= c 32) "SPC" (char-to-string c))))
 
 (defun tcode-draw-stroke-for-char (stroke)
-  "STROKE ¤ÎÂÇ¤ÁÊı¤òÉ½¤¹¿Ş¤òÉÁ¤¯¡£"
+  "STROKE ã®æ‰“ã¡æ–¹ã‚’è¡¨ã™å›³ã‚’æãã€‚"
   (let* ((data (tcode-stroke-prefix-match stroke))
 	 (draw-data
 	  (if (null data)
@@ -530,9 +530,9 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 	(i 0))
     (insert "\
                       \n\
-¡¦¡¦¡¦¡¦      ¡¦¡¦¡¦¡¦
-¡¦¡¦¡¦¡¦      ¡¦¡¦¡¦¡¦
-¡¦¡¦¡¦¡¦      ¡¦¡¦¡¦¡¦")
+ãƒ»ãƒ»ãƒ»ãƒ»      ãƒ»ãƒ»ãƒ»ãƒ»
+ãƒ»ãƒ»ãƒ»ãƒ»      ãƒ»ãƒ»ãƒ»ãƒ»
+ãƒ»ãƒ»ãƒ»ãƒ»      ãƒ»ãƒ»ãƒ»ãƒ»")
     (while draw-data
       (let* ((datum (car draw-data))
 	     (addr (car datum))
@@ -543,18 +543,18 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 	  (setq char (tcode-key-to-help-string addr)))
 	(goto-line (if (= (mod i 2) 0) 3 4))
 	(end-of-line)
-	(insert "     " char "¡ÄÂè" str "ÂÇ¸°")
+	(insert "     " char "â€¦ç¬¬" str "æ‰“éµ")
 	(setq i (1+ i)
 	      draw-data (cdr draw-data))))))
 
 ;;;###autoload
 (defun tcode-display-key-for-char (ch &optional not-display)
-  "CH (1Ê¸»ú)¤ÎÂÇ¤ÁÊı¤ò¥­¡¼¤ÎÆşÎÏ½ç¤ÇÉ½¼¨¤¹¤ë¡£"
+  "CH (1æ–‡å­—)ã®æ‰“ã¡æ–¹ã‚’ã‚­ãƒ¼ã®å…¥åŠ›é †ã§è¡¨ç¤ºã™ã‚‹ã€‚"
   (interactive "sHelp:\nP")
   (if (or (null ch)
 	  (string= ch ""))
       (progn
-	(tcode-verbose-message "¥Ø¥ë¥×¤ÎÊ¸»ú¤¬¤¢¤ê¤Ş¤»¤ó¡£")
+	(tcode-verbose-message "ãƒ˜ãƒ«ãƒ—ã®æ–‡å­—ãŒã‚ã‚Šã¾ã›ã‚“ã€‚")
 	(ding))
     (let* ((strokes (tcode-encode (tcode-string-to-char ch)))
 	   (msg (if strokes
@@ -588,7 +588,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 
 ;;;###autoload
 (defun tcode-display-direct-stroke (kakutei &optional yomi append)
-  "KAKUTEI ¤ÎÃæ¤Ç¡¢ YOMI ¤Ë´Ş¤Ş¤ì¤º¡¢¤«¤ÄÄ¾ÀÜÆşÎÏ¤Ç¤­¤ë´Á»ú¤òÉ½¼¨¤¹¤ë¡£"
+  "KAKUTEI ã®ä¸­ã§ã€ YOMI ã«å«ã¾ã‚Œãšã€ã‹ã¤ç›´æ¥å…¥åŠ›ã§ãã‚‹æ¼¢å­—ã‚’è¡¨ç¤ºã™ã‚‹ã€‚"
   (when (not (window-minibuffer-p (selected-window)))
     (let* ((kakutei-list (string-to-list kakutei))
 	   (yomi-list (string-to-list yomi))
@@ -605,7 +605,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 
 ;;;###autoload
 (defun tcode-display-stroke-for-char (ch &optional append recursive)
-  "CH (1Ê¸»ú)¤ÎÂÇ¤ÁÊı¤òÉ½¼¨¤¹¤ë¡£"
+  "CH (1æ–‡å­—)ã®æ‰“ã¡æ–¹ã‚’è¡¨ç¤ºã™ã‚‹ã€‚"
   (interactive "sHelp:\nP")
   (run-hooks 'tcode-help-stroke-hook)
   (if tcode-help-with-real-keys
@@ -613,7 +613,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
     (if (or (null ch)
 	    (string= ch ""))
 	(progn
-	  (tcode-verbose-message "¥Ø¥ë¥×¤ÎÊ¸»ú¤¬¤¢¤ê¤Ş¤»¤ó¡£")
+	  (tcode-verbose-message "ãƒ˜ãƒ«ãƒ—ã®æ–‡å­—ãŒã‚ã‚Šã¾ã›ã‚“ã€‚")
 	  (ding))
       (let* ((strokes (tcode-encode (tcode-string-to-char ch)))
 	     (buf (get-buffer-create " *tcode: stroke*"))
@@ -657,7 +657,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 
 ;;;###autoload
 (defun tcode-query-stroke (p)
-  "°ÌÃÖP¤Ë¤¢¤ëÊ¸»ú¤ÎÂÇ¤ÁÊı¤òÉ½¼¨¤¹¤ë¡£"
+  "ä½ç½®Pã«ã‚ã‚‹æ–‡å­—ã®æ‰“ã¡æ–¹ã‚’è¡¨ç¤ºã™ã‚‹ã€‚"
   (interactive "d")
   (let ((ch (buffer-substring (save-excursion
 				(goto-char p)
@@ -667,7 +667,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
     (tcode-display-stroke-for-char ch)))
 
 (defun tcode-auto-remove-help-char ()
-  "`tcode-last-help-char-list'¤Ë´Ş¤Ş¤ì¤ëÊ¸»ú¤òÃµ¤·¤Æ¾Ãµî¤¹¤ë¡£"
+  "`tcode-last-help-char-list'ã«å«ã¾ã‚Œã‚‹æ–‡å­—ã‚’æ¢ã—ã¦æ¶ˆå»ã™ã‚‹ã€‚"
   (and (eq tcode-auto-help 'delete-the-char)
        (let ((chars (reverse tcode-last-help-char-list)))
 	 (while chars
@@ -678,7 +678,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
 	 (ding))))
 
 ;;;
-;;; ¥¹¥È¥í¡¼¥¯É½
+;;; ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯è¡¨
 ;;;
 
 ;;;###autoload
@@ -706,7 +706,7 @@ FOR-HELP¤¬nil¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢Ä¾ÀÜÆşÎÏ¤Ç¤­¤ë»ú¤ËÊ¬²ò¤¹¤ë¡£"
     (while (< j 5)
       (let ((a (cdr (tcode-decode (append prefix (list i1 k2))))))
 	(setq c (if (null a)
-		    "¢£"
+		    "â– "
 		  (tcode-action-to-printable a)))
 	(insert c)
 	(if (= (char-width (tcode-string-to-char c)) 1) (insert " ")))

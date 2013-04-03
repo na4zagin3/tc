@@ -34,94 +34,94 @@
 ;;
 
 (defcustom tcode-bushu-ready-hook nil
-  "Éô¼ó¹çÀ®ÊÑ´¹¤Î½é´ü²½Ä¾¸å¤Ë¼Â¹Ô¤µ¤ì¤ë¥Õ¥Ã¥¯¡£"
+  "éƒ¨é¦–åˆæˆå¤‰æ›ã®åˆæœŸåŒ–ç›´å¾Œã«å®Ÿè¡Œã•ã‚Œã‚‹ãƒ•ãƒƒã‚¯ã€‚"
   :type 'hook :group 'tcode)
 
 (defvar tcode-bushu-on-demand 2
-  "Éô¼ó¹çÀ®ÊÑ´¹¼­½ñ¤ò¤¤¤Ä½é´ü²½¤¹¤ë¤«¡£
-	0 : tc.el ¥í¡¼¥É»ş
-	1 : ½é¤á¤ÆT¥³¡¼¥É¥â¡¼¥É¤ËÆş¤Ã¤¿¤È¤­
-	2 : Éô¼ó¹çÀ®ÊÑ´¹¤ò³«»Ï¤·¤¿¤È¤­¡¢
-            ¤Ş¤¿¤ÏÊ¸»ú¤Î¥Ø¥ë¥×¤ò¸«¤è¤¦¤È¤·¤¿¤È¤­")
+  "éƒ¨é¦–åˆæˆå¤‰æ›è¾æ›¸ã‚’ã„ã¤åˆæœŸåŒ–ã™ã‚‹ã‹ã€‚
+	0 : tc.el ãƒ­ãƒ¼ãƒ‰æ™‚
+	1 : åˆã‚ã¦Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã«å…¥ã£ãŸã¨ã
+	2 : éƒ¨é¦–åˆæˆå¤‰æ›ã‚’é–‹å§‹ã—ãŸã¨ãã€
+            ã¾ãŸã¯æ–‡å­—ã®ãƒ˜ãƒ«ãƒ—ã‚’è¦‹ã‚ˆã†ã¨ã—ãŸã¨ã")
 
 (defcustom tcode-use-postfix-bushu-as-default nil
-  "* nil ¤Ç¤Ê¤¤¤È¤­¡¢jf¤Ç¸åÃÖ·¿Éô¼ó¹çÀ®ÊÑ´¹¤ò¡¢77¤ÇÁ°ÃÖ·¿Éô¼ó¹çÀ®ÊÑ´¹¤ò¹Ô¤¦¡£
-nil¤Î»ş¤Ë¤Ï¤½¤ÎµÕ¡£" :type 'boolean :group 'tcode)
+  "* nil ã§ãªã„ã¨ãã€jfã§å¾Œç½®å‹éƒ¨é¦–åˆæˆå¤‰æ›ã‚’ã€77ã§å‰ç½®å‹éƒ¨é¦–åˆæˆå¤‰æ›ã‚’è¡Œã†ã€‚
+nilã®æ™‚ã«ã¯ãã®é€†ã€‚" :type 'boolean :group 'tcode)
 
 (defcustom tcode-use-prefix-mazegaki nil
-  "* Á°ÃÖ·¿(½¾Íè·¿)¤Î¸ò¤¼½ñ¤­ÊÑ´¹¤Î»ş¤Ët, ¸åÃÖ·¿(¿··¿)¤Î¸ò¤¼½ñ¤­ÊÑ´¹¤Î»ş¤Ënil¡£
+  "* å‰ç½®å‹(å¾“æ¥å‹)ã®äº¤ãœæ›¸ãå¤‰æ›ã®æ™‚ã«t, å¾Œç½®å‹(æ–°å‹)ã®äº¤ãœæ›¸ãå¤‰æ›ã®æ™‚ã«nilã€‚
 
-Á°ÃÖ·¿¤Ç¤Ï¡¢fj¤òÆşÎÏ¤¹¤ë¤È¡¢ÆÉ¤ßÆşÎÏ¥â¡¼¥É¤ËÆş¤ê¡¢¤½¤ÎÃæ¤Ç ' '¤òÆşÎÏ¤¹¤ë¤È
-ÊÑ´¹¤ò¹Ô¤¦¡£¸åÃÖ·¿¤Ç¤Ï¡¢fj¤òÆşÎÏ¤¹¤ë¤È¡¢¥İ¥¤¥ó¥ÈÁ°¤Ë¤¢¤ëÊ¸»úÎó¤ò»È¤Ã¤Æ
-ÊÑ´¹¤ò¹Ô¤¦¡£"
+å‰ç½®å‹ã§ã¯ã€fjã‚’å…¥åŠ›ã™ã‚‹ã¨ã€èª­ã¿å…¥åŠ›ãƒ¢ãƒ¼ãƒ‰ã«å…¥ã‚Šã€ãã®ä¸­ã§ ' 'ã‚’å…¥åŠ›ã™ã‚‹ã¨
+å¤‰æ›ã‚’è¡Œã†ã€‚å¾Œç½®å‹ã§ã¯ã€fjã‚’å…¥åŠ›ã™ã‚‹ã¨ã€ãƒã‚¤ãƒ³ãƒˆå‰ã«ã‚ã‚‹æ–‡å­—åˆ—ã‚’ä½¿ã£ã¦
+å¤‰æ›ã‚’è¡Œã†ã€‚"
   :type 'boolean :group 'tcode)
 
-(defvar tcode-kuten "¡£" "* ¶çÅÀ")
+(defvar tcode-kuten "ã€‚" "* å¥ç‚¹")
 (make-variable-buffer-local 'tcode-kuten)
-(defvar tcode-touten "¡¢" "* ÆÉÅÀ")
+(defvar tcode-touten "ã€" "* èª­ç‚¹")
 (make-variable-buffer-local 'tcode-touten)
 
 (defvar tcode-switch-table-list
-  '(((tcode-touten . "¡¢")
-     (tcode-kuten . "¡£"))
+  '(((tcode-touten . "ã€")
+     (tcode-kuten . "ã€‚"))
 
     ((tcode-touten . ", ")
      (tcode-kuten . ". ")))
-  "¥Æ¡¼¥Ö¥ëÃæ¤ÎÊÑ¿ôÃÍ¤òÀÚ¤êÂØ¤¨¤ë¤¿¤á¤ÎÉ½¡£")
+  "ãƒ†ãƒ¼ãƒ–ãƒ«ä¸­ã®å¤‰æ•°å€¤ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ãŸã‚ã®è¡¨ã€‚")
 
 (defcustom tcode-record-file-name "~/.tc-record"
-  "* non-nil ¤Î¤È¤­¡¢T¥³¡¼¥É¤ÎÅı·×¤ò¤³¤Î¥Õ¥¡¥¤¥ë¤Ëµ­Ï¿¤¹¤ë¡£"
+  "* non-nil ã®ã¨ãã€Tã‚³ãƒ¼ãƒ‰ã®çµ±è¨ˆã‚’ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨˜éŒ²ã™ã‚‹ã€‚"
   :type 'string :group 'tcode)
 
 (defcustom tcode-ready-hook nil
-  "Emacs¤òÎ©¤Á¾å¤²¤Æ¤«¤éºÇ½é¤Ëtcode-mode¤ËÆş¤Ã¤¿¤È¤­¼Â¹Ô¤µ¤ì¤ë¥Õ¥Ã¥¯¡£"
+  "Emacsã‚’ç«‹ã¡ä¸Šã’ã¦ã‹ã‚‰æœ€åˆã«tcode-modeã«å…¥ã£ãŸã¨ãå®Ÿè¡Œã•ã‚Œã‚‹ãƒ•ãƒƒã‚¯ã€‚"
   :type 'hook :group 'tcode)
 
 (defcustom tcode-mode-hook nil
-  "¤½¤Î¥Ğ¥Ã¥Õ¥¡¤Ç½é¤á¤Ætcode-mode¤ËÆş¤Ã¤¿¤È¤­¼Â¹Ô¤µ¤ì¤ë¥Õ¥Ã¥¯¡£"
+  "ãã®ãƒãƒƒãƒ•ã‚¡ã§åˆã‚ã¦tcode-modeã«å…¥ã£ãŸã¨ãå®Ÿè¡Œã•ã‚Œã‚‹ãƒ•ãƒƒã‚¯ã€‚"
   :type 'hook :group 'tcode)
 
 (defcustom tcode-toggle-hook nil
-  "tcode-mode¤ò¥È¥°¥ë¤¹¤ëÅÙ¤Ë¼Â¹Ô¤µ¤ì¤ë¥Õ¥Ã¥¯¡£"
+  "tcode-modeã‚’ãƒˆã‚°ãƒ«ã™ã‚‹åº¦ã«å®Ÿè¡Œã•ã‚Œã‚‹ãƒ•ãƒƒã‚¯ã€‚"
   :type 'hook :group 'tcode)
 
 (defcustom tcode-before-load-table-hook nil
-  "`tcode-load-table' ¤Ë¤è¤ê¥Æ¡¼¥Ö¥ë¤òÆÉ¤ß¹ş¤àÄ¾Á°¤Ë¼Â¹Ô¤µ¤ì¤ë¥Õ¥Ã¥¯¡£"
+  "`tcode-load-table' ã«ã‚ˆã‚Šãƒ†ãƒ¼ãƒ–ãƒ«ã‚’èª­ã¿è¾¼ã‚€ç›´å‰ã«å®Ÿè¡Œã•ã‚Œã‚‹ãƒ•ãƒƒã‚¯ã€‚"
   :type 'hook :group 'tcode)
 
 (defcustom tcode-after-load-table-hook nil
-  "`tcode-load-table' ¤Ë¤è¤ê¥Æ¡¼¥Ö¥ë¤òÆÉ¤ß¹ş¤àÅÙ¤Ë¼Â¹Ô¤µ¤ì¤ë¥Õ¥Ã¥¯¡£"
+  "`tcode-load-table' ã«ã‚ˆã‚Šãƒ†ãƒ¼ãƒ–ãƒ«ã‚’èª­ã¿è¾¼ã‚€åº¦ã«å®Ÿè¡Œã•ã‚Œã‚‹ãƒ•ãƒƒã‚¯ã€‚"
   :type 'hook :group 'tcode)
 
 (defcustom tcode-before-read-stroke-hook nil
-  "2¥¹¥È¥í¡¼¥¯ÌÜ°Ê¹ß¤Î¥­¡¼¥¹¥È¥í¡¼¥¯¤òÆÉ¤àÁ°¤Ë¼Â¹Ô¤µ¤ì¤ë¥Õ¥Ã¥¯¡£"
+  "2ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯ç›®ä»¥é™ã®ã‚­ãƒ¼ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯ã‚’èª­ã‚€å‰ã«å®Ÿè¡Œã•ã‚Œã‚‹ãƒ•ãƒƒã‚¯ã€‚"
   :type 'hook :group 'tcode)
 
 (defcustom tcode-clear-hook nil
-  "¥Ç¥Õ¥©¡¼¥ë¥È¾õÂÖ¤ËÌá¤¹¤È¤­¤Ë¼Â¹Ô¤µ¤ì¤ë¥Õ¥Ã¥¯¡£"
+  "ãƒ‡ãƒ•ã‚©ãƒ¼ãƒ«ãƒˆçŠ¶æ…‹ã«æˆ»ã™ã¨ãã«å®Ÿè¡Œã•ã‚Œã‚‹ãƒ•ãƒƒã‚¯ã€‚"
   :type 'hook :group 'tcode)
 
 (defvar tcode-auto-zap-table nil
-  "* non-nil ¤Î¤È¤­¡¢¥¹¥È¥í¡¼¥¯É½¤ò¼¡¤ÎÂÇ¸°¤Ç¼«Æ°Åª¤Ë¾Ã¤¹¡£")
+  "* non-nil ã®ã¨ãã€ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯è¡¨ã‚’æ¬¡ã®æ‰“éµã§è‡ªå‹•çš„ã«æ¶ˆã™ã€‚")
 
 (defcustom tcode-auto-help t
-  "* non-nil ¤Î¤È¤­¡¢ÆşÎÏ¤·¤¿Ê¸»ú¤Î¥Ø¥ë¥×É½¤ò¼«Æ°Åª¤ËÉ½¼¨¤¹¤ë¡£
-¤¿¤À¤·¡¢É½¼¨¤¹¤ë¤Î¤Ï¡¢¸ò¤¼½ñ¤­ÊÑ´¹¤äÉô¼ó¹çÀ®ÊÑ´¹¤Ë¤è¤Ã¤ÆÄ¾ÀÜÆşÎÏ¤Ç¤­¤ë´Á»ú¤ò
-ÁŞÆş¤·¤¿¾ì¹ç¤Î¤ß¡£
-¤Ş¤¿¡¢ÃÍ¤¬¥·¥ó¥Ü¥ë delete-the-char ¤Î¤È¤­¤Ï¡¢¥Ø¥ë¥×¤òÉ½¼¨¤·¡¢
-¤µ¤é¤ËºÇ¸å¤Ë¥Ø¥ë¥×¤ÎÂĞ¾İ¤È¤Ê¤Ã¤¿Ê¸»ú¤ò¾Ãµî¤¹¤ë¡£
+  "* non-nil ã®ã¨ãã€å…¥åŠ›ã—ãŸæ–‡å­—ã®ãƒ˜ãƒ«ãƒ—è¡¨ã‚’è‡ªå‹•çš„ã«è¡¨ç¤ºã™ã‚‹ã€‚
+ãŸã ã—ã€è¡¨ç¤ºã™ã‚‹ã®ã¯ã€äº¤ãœæ›¸ãå¤‰æ›ã‚„éƒ¨é¦–åˆæˆå¤‰æ›ã«ã‚ˆã£ã¦ç›´æ¥å…¥åŠ›ã§ãã‚‹æ¼¢å­—ã‚’
+æŒ¿å…¥ã—ãŸå ´åˆã®ã¿ã€‚
+ã¾ãŸã€å€¤ãŒã‚·ãƒ³ãƒœãƒ« delete-the-char ã®ã¨ãã¯ã€ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã—ã€
+ã•ã‚‰ã«æœ€å¾Œã«ãƒ˜ãƒ«ãƒ—ã®å¯¾è±¡ã¨ãªã£ãŸæ–‡å­—ã‚’æ¶ˆå»ã™ã‚‹ã€‚
 
-¤¿¤À¤·¡¢`input-method-verbose-flag' ¤¬ nil ¤Ç¤Ê¤¤¾ì¹ç¤Ï t ¤È¤Ê¤ë
-¤Î¤ÇÃí°Õ¡£"
+ãŸã ã—ã€`input-method-verbose-flag' ãŒ nil ã§ãªã„å ´åˆã¯ t ã¨ãªã‚‹
+ã®ã§æ³¨æ„ã€‚"
   :group 'tcode)
 
 (defvar tcode-auto-remove-help-count nil
-  "* ¥Ø¥ë¥×É½¤ò²èÌÌ¤«¤éÌµ¤¯¤¹¤Ş¤Ç¤Ë¸Æ¤Ğ¤ì¤ë `tcode-auto-remove-help' ¤Î²ó¿ô¡£
-´Ø¿ô `tcode-auto-remove-help' ¤Ï¡¢¤³¤ÎÊÑ¿ô¤Î²ó¿ô¤À¤±¸Æ¤Ğ¤ì¤ë¤È¡¢
-¥Ø¥ë¥×É½¤ò¼«Æ°Åª¤Ëºï½ü¤¹¤ë¡£nil ¤Î¾ì¹ç¤Ï¼«Æ°ºï½ü¤ò¹Ô¤ï¤Ê¤¤¡£")
+  "* ãƒ˜ãƒ«ãƒ—è¡¨ã‚’ç”»é¢ã‹ã‚‰ç„¡ãã™ã¾ã§ã«å‘¼ã°ã‚Œã‚‹ `tcode-auto-remove-help' ã®å›æ•°ã€‚
+é–¢æ•° `tcode-auto-remove-help' ã¯ã€ã“ã®å¤‰æ•°ã®å›æ•°ã ã‘å‘¼ã°ã‚Œã‚‹ã¨ã€
+ãƒ˜ãƒ«ãƒ—è¡¨ã‚’è‡ªå‹•çš„ã«å‰Šé™¤ã™ã‚‹ã€‚nil ã®å ´åˆã¯è‡ªå‹•å‰Šé™¤ã‚’è¡Œã‚ãªã„ã€‚")
 
 (defcustom tcode-adjust-window-for-help nil
-  "* non-nil ¤Î¤È¤­¡¢¥Ø¥ë¥×¤òÉ½¼¨¤¹¤ë¥¦¥£¥ó¥É¥¦¤ÎÂç¤­¤µ¤ò¼«Æ°Åª¤ËÄ´À°¤¹¤ë¡£"
+  "* non-nil ã®ã¨ãã€ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å¤§ãã•ã‚’è‡ªå‹•çš„ã«èª¿æ•´ã™ã‚‹ã€‚"
   :type 'boolean :group 'tcode)
 
 (defcustom tcode-adjust-window-additional-height
@@ -129,39 +129,39 @@ nil¤Î»ş¤Ë¤Ï¤½¤ÎµÕ¡£" :type 'boolean :group 'tcode)
 	   (= emacs-major-version 21))
       1
     0)
-  "* ¥Ø¥ë¥×¤òÉ½¼¨¤¹¤ë¥¦¥£¥ó¥É¥¦¤Î¹â¤µ¤ËÄÉ²Ã¤¹¤ë¹â¤µ¡£"
+  "* ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®é«˜ã•ã«è¿½åŠ ã™ã‚‹é«˜ã•ã€‚"
   :type 'integer :group 'tcode)
 
 (defcustom tcode-display-help-delay 2
-  "* Ä¾Á°¤ÎÊ¸»ú¤òÆşÎÏ¤·¤Æ¤«¤é²¾ÁÛ¸°È×¤òÉ½¼¨¤¹¤ë¤Ş¤Ç¤Î»ş´Ö(ÉÃ)¡£
+  "* ç›´å‰ã®æ–‡å­—ã‚’å…¥åŠ›ã—ã¦ã‹ã‚‰ä»®æƒ³éµç›¤ã‚’è¡¨ç¤ºã™ã‚‹ã¾ã§ã®æ™‚é–“(ç§’)ã€‚
 
-¤¿¤À¤·¡¢`input-method-verbose-flag' ¤¬ nil ¤Ç¤Ê¤¤¾ì¹ç¤Ï 2 ¤È¤Ê¤ë
-¤Î¤ÇÃí°Õ¡£"
+ãŸã ã—ã€`input-method-verbose-flag' ãŒ nil ã§ãªã„å ´åˆã¯ 2 ã¨ãªã‚‹
+ã®ã§æ³¨æ„ã€‚"
   :group 'tcode)
 
 (defcustom tcode-verbose-message t
-  "* non-nil ¤Î¤È¤­¡¢¤è¤êÂ¿¤¯¤Î¥á¥Ã¥»¡¼¥¸¤òÉ½¼¨¤¹¤ë¡£
+  "* non-nil ã®ã¨ãã€ã‚ˆã‚Šå¤šãã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
 
-¤¿¤À¤·¡¢ÊÑ¿ô `input-method-verbose-flag' ¤¬ nil ¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢
-¤³¤ÎÊÑ¿ô¤ÎÃÍ¤Ë¤è¤é¤º¡¢t ¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤ë¾ì¹ç¤ÈÆ±¤¸Æ°ºî¤Ë¤Ê¤ë¤Î¤ÇÃí°Õ¡£"
+ãŸã ã—ã€å¤‰æ•° `input-method-verbose-flag' ãŒ nil ã§ãªã„å ´åˆã¯ã€
+ã“ã®å¤‰æ•°ã®å€¤ã«ã‚ˆã‚‰ãšã€t ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¨åŒã˜å‹•ä½œã«ãªã‚‹ã®ã§æ³¨æ„ã€‚"
   :type 'boolean :group 'tcode)
 
 (defvar tcode-shift-lowercase nil
-  "T¥³¡¼¥ÉÆşÎÏ»ş¤Î¥·¥Õ¥È¤Î¾ì¹ç¤Ë¡¢ÂçÊ¸»ú¤Ç¤Ï¤Ê¤¯¾®Ê¸»ú¤òÆşÎÏ¤¹¤ë¡£")
+  "Tã‚³ãƒ¼ãƒ‰å…¥åŠ›æ™‚ã®ã‚·ãƒ•ãƒˆã®å ´åˆã«ã€å¤§æ–‡å­—ã§ã¯ãªãå°æ–‡å­—ã‚’å…¥åŠ›ã™ã‚‹ã€‚")
 
 (defvar tcode-no-wait-display-help-command-list nil
-  "¥¹¥Ú¡¼¥¹¤ÎÆşÎÏ¤Ç¥Ø¥ë¥×É½¤Î¥Ğ¥Ã¥Õ¥¡¤ò¾Ã¤¹µ¡Ç½¤ò»È¤ï¤Ê¤¤¥³¥Ş¥ó¥É¤Î¥ê¥¹¥È¡£
-¤³¤Î¥ê¥¹¥ÈÃæ¤Î¥³¥Ş¥ó¥É¤Ç¤Ï¡¢ `tcode-display-help-buffer' ¤Ë¤è¤ê
-¥Ø¥ë¥×¤¬É½¼¨¤µ¤ì¤¿¾ì¹ç¤Ë¡¢Â³¤±¤Æ¥¹¥Ú¡¼¥¹¤òÆşÎÏ¤·¤¿¤È¤­¤Ç¤â
-¥Ø¥ë¥×É½¤Ï¾Ã¤¨¤Ê¤¤¡£")
+  "ã‚¹ãƒšãƒ¼ã‚¹ã®å…¥åŠ›ã§ãƒ˜ãƒ«ãƒ—è¡¨ã®ãƒãƒƒãƒ•ã‚¡ã‚’æ¶ˆã™æ©Ÿèƒ½ã‚’ä½¿ã‚ãªã„ã‚³ãƒãƒ³ãƒ‰ã®ãƒªã‚¹ãƒˆã€‚
+ã“ã®ãƒªã‚¹ãƒˆä¸­ã®ã‚³ãƒãƒ³ãƒ‰ã§ã¯ã€ `tcode-display-help-buffer' ã«ã‚ˆã‚Š
+ãƒ˜ãƒ«ãƒ—ãŒè¡¨ç¤ºã•ã‚ŒãŸå ´åˆã«ã€ç¶šã‘ã¦ã‚¹ãƒšãƒ¼ã‚¹ã‚’å…¥åŠ›ã—ãŸã¨ãã§ã‚‚
+ãƒ˜ãƒ«ãƒ—è¡¨ã¯æ¶ˆãˆãªã„ã€‚")
 
 (defvar tcode-help-window-height-max 21
-  "* ¥Ø¥ë¥×¤òÉ½¼¨¤¹¤ë¤¿¤á¤Î¥¦¥£¥ó¥É¥¦¤Î¹â¤µ¤ÎºÇÂçÃÍ")
+  "* ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®é«˜ã•ã®æœ€å¤§å€¤")
 
 (defvar tcode-cancel-stroke-list '(?\C-\? ?\C-h)
-  "Ê¸»úÆşÎÏ¤òÌÀ¼¨Åª¤Ë¼è¤ê¾Ã¤¹¥­¡¼¤Î¥ê¥¹¥È")
+  "æ–‡å­—å…¥åŠ›ã‚’æ˜ç¤ºçš„ã«å–ã‚Šæ¶ˆã™ã‚­ãƒ¼ã®ãƒªã‚¹ãƒˆ")
 (defvar tcode-verbose-stroke-list '(? )
-  "Ê¸»úÆşÎÏ¤ÎÅÓÃæ¤Ç¡¢º£¤Ş¤Ç¤ÎÆşÎÏ¤ò¤¹¤Ù¤Æ¤½¤Î¤Ş¤ŞÁŞÆş¤¹¤ë¥­¡¼¤Î¥ê¥¹¥È")
+  "æ–‡å­—å…¥åŠ›ã®é€”ä¸­ã§ã€ä»Šã¾ã§ã®å…¥åŠ›ã‚’ã™ã¹ã¦ãã®ã¾ã¾æŒ¿å…¥ã™ã‚‹ã‚­ãƒ¼ã®ãƒªã‚¹ãƒˆ")
 
 
 ;;
@@ -169,9 +169,9 @@ nil¤Î»ş¤Ë¤Ï¤½¤ÎµÕ¡£" :type 'boolean :group 'tcode)
 ;;
 
 (defvar tcode-mode-map nil
-  "tcode-mode ¤Î¤È¤­ T¥³¡¼¥É¥­¡¼°Ê³°¤Î¥­¡¼¤Î¤¿¤á¤Î¥­¡¼¥Ş¥Ã¥×¡£
-¤³¤Î¥­¡¼¥Ş¥Ã¥×¤ËÅĞÏ¿¤¹¤ë¤È¤­¤Ï¡¢`tcode-set-key'¤òÍÑ¤¤¤ë¡£
-`tcode-key-translation-rule-table' ¤ò»²¾È¡£")
+  "tcode-mode ã®ã¨ã Tã‚³ãƒ¼ãƒ‰ã‚­ãƒ¼ä»¥å¤–ã®ã‚­ãƒ¼ã®ãŸã‚ã®ã‚­ãƒ¼ãƒãƒƒãƒ—ã€‚
+ã“ã®ã‚­ãƒ¼ãƒãƒƒãƒ—ã«ç™»éŒ²ã™ã‚‹ã¨ãã¯ã€`tcode-set-key'ã‚’ç”¨ã„ã‚‹ã€‚
+`tcode-key-translation-rule-table' ã‚’å‚ç…§ã€‚")
 
 (defvar tcode-key-translation-rule-table
 ;;   0  1  2  3  4  5  6  7  8  9
@@ -198,26 +198,26 @@ nil¤Î»ş¤Ë¤Ï¤½¤ÎµÕ¡£" :type 'boolean :group 'tcode)
    -1  20  34  32  22  12  23  24  25  17  26  27  28  36  35  18
    19  10  13  21  14  16  33  11  31  15  30  -1  -1  -1  -1
    ]
-  "T¥³¡¼¥É¥­¡¼ÊÑ´¹ÍÑ¥Æ¡¼¥Ö¥ë¡£¤½¤Î1Ê¸»ú¤òÆşÎÏ¤·¤¿¤È¤­¤Î°ÕÌ£¤òÉ½¤¹¡£
-0..39:	T¥³¡¼¥É¥­¡¼¡£
--1:	¤½¤ÎÊ¸»ú¡£
--2:	ÂĞ±ş¤¹¤ë±Ñ¾®Ê¸»ú¡£
--3:	`tcode-mode-map' ¤Ë¤·¤¿¤¬¤Ã¤¿¥³¥Ş¥ó¥É¡£
-< -3:	- (Ê¸»ú¥³¡¼¥É)¡£")
+  "Tã‚³ãƒ¼ãƒ‰ã‚­ãƒ¼å¤‰æ›ç”¨ãƒ†ãƒ¼ãƒ–ãƒ«ã€‚ãã®1æ–‡å­—ã‚’å…¥åŠ›ã—ãŸã¨ãã®æ„å‘³ã‚’è¡¨ã™ã€‚
+0..39:	Tã‚³ãƒ¼ãƒ‰ã‚­ãƒ¼ã€‚
+-1:	ãã®æ–‡å­—ã€‚
+-2:	å¯¾å¿œã™ã‚‹è‹±å°æ–‡å­—ã€‚
+-3:	`tcode-mode-map' ã«ã—ãŸãŒã£ãŸã‚³ãƒãƒ³ãƒ‰ã€‚
+< -3:	- (æ–‡å­—ã‚³ãƒ¼ãƒ‰)ã€‚")
 
 (defvar tcode-key-num 40
-  "T¥³¡¼¥É¤Ç»È¤¦¥­¡¼¤Î¿ô¡£É¸½à¤Ç40¡£")
+  "Tã‚³ãƒ¼ãƒ‰ã§ä½¿ã†ã‚­ãƒ¼ã®æ•°ã€‚æ¨™æº–ã§40ã€‚")
 
 (defvar tcode-ext-keys nil
-  "T¥³¡¼¥É¥­¡¼40°Ê¾å¤ËÂĞ±ş¤¹¤ë¥­¡¼¤Î¥ê¥¹¥È")
+  "Tã‚³ãƒ¼ãƒ‰ã‚­ãƒ¼40ä»¥ä¸Šã«å¯¾å¿œã™ã‚‹ã‚­ãƒ¼ã®ãƒªã‚¹ãƒˆ")
 
 (defvar tcode-this-command-keys nil
-  "T¥³¡¼¥É¤Ç¥³¥Ş¥ó¥É¸Æ¤Ó½Ğ¤·¤Ë»È¤Ã¤¿¥­¡¼¥·¡¼¥±¥ó¥¹(¼Âºİ¤Î¥­¡¼)")
+  "Tã‚³ãƒ¼ãƒ‰ã§ã‚³ãƒãƒ³ãƒ‰å‘¼ã³å‡ºã—ã«ä½¿ã£ãŸã‚­ãƒ¼ã‚·ãƒ¼ã‚±ãƒ³ã‚¹(å®Ÿéš›ã®ã‚­ãƒ¼)")
 
 ;;
 ;; These variables are set in a table file, e.g. tc-tbl.el.
 ;;
-(defvar tcode-input-method nil "¸½ºßÁªÂò¤µ¤ì¤Æ¤¤¤ëÆşÎÏË¡")
+(defvar tcode-input-method nil "ç¾åœ¨é¸æŠã•ã‚Œã¦ã„ã‚‹å…¥åŠ›æ³•")
 
 (defvar tcode-transparent-mode-indicator nil)
 (defvar tcode-tcode-mode-indicator nil)
@@ -225,54 +225,54 @@ nil¤Î»ş¤Ë¤Ï¤½¤ÎµÕ¡£" :type 'boolean :group 'tcode)
 (defvar tcode-hiragana-mode-indicator nil)
 (defvar tcode-katakana-mode-indicator nil)
 
-;;; °Ê²¼¤ÎÊÑ¿ô¤Ï¡¢tc-tbl.el ¤Ê¤É¤ÇÃÍ¤¬ÀßÄê¤µ¤ì¡¢
-;;; ÆâÉô¥Æ¡¼¥Ö¥ë `tcode-table' ¤Ë¤½¤ÎÆâÍÆ¤¬ÅĞÏ¿¤µ¤ì¤ë¡£
+;;; ä»¥ä¸‹ã®å¤‰æ•°ã¯ã€tc-tbl.el ãªã©ã§å€¤ãŒè¨­å®šã•ã‚Œã€
+;;; å†…éƒ¨ãƒ†ãƒ¼ãƒ–ãƒ« `tcode-table' ã«ãã®å†…å®¹ãŒç™»éŒ²ã•ã‚Œã‚‹ã€‚
 (defvar tcode-tbl nil)
 (defvar tcode-non-2-stroke-char-list nil)
 (defvar tcode-another-table nil
-  "`tcode-verbose-stroke-list' ¤Î¥­¡¼¤¬²¡¤µ¤ì¤¿¤È¤­¤ËÁŞÆş¤¹¤ëÊ¸»ú¤Î¥Æ¡¼¥Ö¥ë¡£
-ÃÍ¤¬ nil ¤Ê¤é¤Ğ¤½¤ÎÊ¸»ú¤ò¡¢vector ¤Ç»ØÄê¤µ¤ì¤Æ¤¤¤ì¤Ğ¥­¡¼¤Ë±ş¤¸
-³µÅö¤¹¤ëÊ¸»ú¤òÁŞÆş¤¹¤ë¡£")
+  "`tcode-verbose-stroke-list' ã®ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã¨ãã«æŒ¿å…¥ã™ã‚‹æ–‡å­—ã®ãƒ†ãƒ¼ãƒ–ãƒ«ã€‚
+å€¤ãŒ nil ãªã‚‰ã°ãã®æ–‡å­—ã‚’ã€vector ã§æŒ‡å®šã•ã‚Œã¦ã„ã‚Œã°ã‚­ãƒ¼ã«å¿œã˜
+æ¦‚å½“ã™ã‚‹æ–‡å­—ã‚’æŒ¿å…¥ã™ã‚‹ã€‚")
 (defvar tcode-special-commands-alist nil)
 
 (defvar tcode-mode-help-string nil
-  "`tcode-mode-help' ¤Ë¤è¤Ã¤ÆÉ½¼¨¤µ¤ì¤ëÊ¸»úÎó¡£
-nil ¤Î¤È¤­¤Ï `tcode-mode' ¤«¤éÆÀ¤ë¡£")
-(defvar tcode-stroke-file-name nil "¥¹¥È¥í¡¼¥¯É½¤Î¥Ñ¥¹Ì¾")
+  "`tcode-mode-help' ã«ã‚ˆã£ã¦è¡¨ç¤ºã•ã‚Œã‚‹æ–‡å­—åˆ—ã€‚
+nil ã®ã¨ãã¯ `tcode-mode' ã‹ã‚‰å¾—ã‚‹ã€‚")
+(defvar tcode-stroke-file-name nil "ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯è¡¨ã®ãƒ‘ã‚¹å")
 
 (defvar tcode-special-prefix-alist nil
-  "¥Ø¥ë¥×¤ÇÆÃÊÌ¤Ë°·¤¦¥×¥ì¥Õ¥£¥¯¥¹¥¹¥È¥í¡¼¥¯¤Îalist
-Í×ÁÇ¤Ï (stroke table-file stroke-to-string-prefix @draw-table-data)")
+  "ãƒ˜ãƒ«ãƒ—ã§ç‰¹åˆ¥ã«æ‰±ã†ãƒ—ãƒ¬ãƒ•ã‚£ã‚¯ã‚¹ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯ã®alist
+è¦ç´ ã¯ (stroke table-file stroke-to-string-prefix @draw-table-data)")
 
 ;;
 ;; misc. global variables
 ;;
 
-;;; ÆşÎÏ¥³¡¼¥É¤Î¾ğÊó¤òÊİ»ı¤¹¤ë¥Æ¡¼¥Ö¥ë
-(defvar tcode-table nil "ÊÑ´¹¤ËÍÑ¤¤¤ëÉ½")
+;;; å…¥åŠ›ã‚³ãƒ¼ãƒ‰ã®æƒ…å ±ã‚’ä¿æŒã™ã‚‹ãƒ†ãƒ¼ãƒ–ãƒ«
+(defvar tcode-table nil "å¤‰æ›ã«ç”¨ã„ã‚‹è¡¨")
 (defvar tcode-stroke-table nil)
 (defvar tcode-stroke-table-size 511)
 
-;;; Åı·×µ­Ï¿ÍÑ¤ÎÊÑ¿ô
+;;; çµ±è¨ˆè¨˜éŒ²ç”¨ã®å¤‰æ•°
 (defvar tcode-input-chars 0)
 (defvar tcode-number-strokes 0)
 (defvar tcode-bushu-occurrence 0)
 (defvar tcode-mazegaki-occurrence 0)
 (defvar tcode-special-occurrence 0)
 
-(defvar tcode-help-char nil "¥Ø¥ë¥×¤ÎÂĞ¾İÊ¸»ú")
+(defvar tcode-help-char nil "ãƒ˜ãƒ«ãƒ—ã®å¯¾è±¡æ–‡å­—")
 (defvar tcode-auto-remove-help-current-count 0)
 (defvar tcode-window-configuration-before-help nil)
 
 (defvar tcode-mode-in-minibuffer nil)
 
 (defvar tcode-dictionaries nil)
-;; (¥Ğ¥Ã¥Õ¥¡Ì¾ . ¥Õ¥¡¥¤¥ëÌ¾)¤Î¥ê¥¹¥È¡£
+;; (ãƒãƒƒãƒ•ã‚¡å . ãƒ•ã‚¡ã‚¤ãƒ«å)ã®ãƒªã‚¹ãƒˆã€‚
 
 (defconst tcode-stroke-buffer-name " *tcode: stroke*")
 (defconst tcode-help-buffer-name "*T-Code Help*")
 
-;;; input-method-verbose-flag ÍÑ
+;;; input-method-verbose-flag ç”¨
 (defvar tcode-input-method-verbose-flag nil)
 (defvar tcode-orig-auto-help nil)
 (defvar tcode-orig-verbose-message nil)
@@ -310,33 +310,33 @@ nil ¤Î¤È¤­¤Ï `tcode-mode' ¤«¤éÆÀ¤ë¡£")
     tcode-electric-comma
     tcode-self-insert-command
     tcode-mazegaki-self-insert-or-convert)
-  "*T¥³¡¼¥É¥â¡¼¥É¤Î¤È¤­¤Ë¤ÏT¥³¡¼¥ÉÆşÎÏ¤ËÍÑ¤¤¤ë¥³¥Ş¥ó¥É¤Î¥ê¥¹¥È¡£")
+  "*Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã®ã¨ãã«ã¯Tã‚³ãƒ¼ãƒ‰å…¥åŠ›ã«ç”¨ã„ã‚‹ã‚³ãƒãƒ³ãƒ‰ã®ãƒªã‚¹ãƒˆã€‚")
 
 ;;
 ;; Buffer Local Variables
 ;;
-(defvar tcode-mode nil "T¥³¡¼¥É¥â¡¼¥É¤Î¤È¤­t¡£")
+(defvar tcode-mode nil "Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã®ã¨ãtã€‚")
 (make-variable-buffer-local 'tcode-mode)
 
-(defvar tcode-ready-in-this-buffer nil "¤³¤Î¥Ğ¥Ã¥Õ¥¡Æâ¤ÇT¥³¡¼¥É¤Î½àÈ÷¤¬OK")
+(defvar tcode-ready-in-this-buffer nil "ã“ã®ãƒãƒƒãƒ•ã‚¡å†…ã§Tã‚³ãƒ¼ãƒ‰ã®æº–å‚™ãŒOK")
 (make-variable-buffer-local 'tcode-ready-in-this-buffer)
 
 (defvar tcode-current-switch-table 0)
 (make-variable-buffer-local 'tcode-current-switch-table)
 
 (defvar tcode-alnum-2-byte nil
-  "±Ñ¿ô»ú¤Î¥Ğ¥¤¥ÈÄ¹ÀÚ¤ê´¹¤¨¥Õ¥é¥°¡£t ¤Ç¤Ï2¥Ğ¥¤¥È·Ï¡¢nil ¤Ç1¥Ğ¥¤¥È·Ï¡£")
+  "è‹±æ•°å­—ã®ãƒã‚¤ãƒˆé•·åˆ‡ã‚Šæ›ãˆãƒ•ãƒ©ã‚°ã€‚t ã§ã¯2ãƒã‚¤ãƒˆç³»ã€nil ã§1ãƒã‚¤ãƒˆç³»ã€‚")
 (make-variable-buffer-local 'tcode-alnum-2-byte)
 
-(defvar tcode-katakana-mode nil "¸½ºß¥«¥¿¥«¥Ê¥â¡¼¥É¤«¤É¤¦¤«")
+(defvar tcode-katakana-mode nil "ç¾åœ¨ã‚«ã‚¿ã‚«ãƒŠãƒ¢ãƒ¼ãƒ‰ã‹ã©ã†ã‹")
 (make-variable-buffer-local 'tcode-katakana-mode)
 
 ;;
-;; ¥­¡¼ÇÛÃÖ¡¦¥­¡¼¥Ş¥Ã¥×¤ÎÀßÄê
+;; ã‚­ãƒ¼é…ç½®ãƒ»ã‚­ãƒ¼ãƒãƒƒãƒ—ã®è¨­å®š
 ;;
 (defvar tcode-key-layout "qwerty"
-  "*T¥³¡¼¥É¤òÍÑ¤¤¤ë¥­¡¼¤ÎÇÛÃÖ¡£
-`tcode-key-layout-list' ¤ËÅĞÏ¿¤µ¤ì¤Æ¤¤¤ëÌ¾Á°¤òÀßÄê¤¹¤ë¡£")
+  "*Tã‚³ãƒ¼ãƒ‰ã‚’ç”¨ã„ã‚‹ã‚­ãƒ¼ã®é…ç½®ã€‚
+`tcode-key-layout-list' ã«ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹åå‰ã‚’è¨­å®šã™ã‚‹ã€‚")
 
 (defvar tcode-key-layout-list
   '(("qwerty" . (?1 ?2 ?3 ?4 ?5 ?6 ?7 ?8 ?9 ?0
@@ -371,18 +371,18 @@ nil ¤Î¤È¤­¤Ï `tcode-mode' ¤«¤éÆÀ¤ë¡£")
 			  ?\" ?< ?> ?P ?Y ?F ?G ?C ?R ?L
 			  ?A ?O ?E ?U ?I ?D ?H ?T ?N ?S
 			  ?: ?Q ?J ?K ?X ?B ?M ?W ?V ?Z)))
-  "*T¥³¡¼¥É¤òÍÑ¤¤¤ë¥­¡¼ÇÛÃÖÍÑ¤Î¥Ç¡¼¥¿¡£
-¶ñÂÎÅª¤Ë¤Ï¡¢ÇÛÎóÌ¾¤È¥­¡¼ÊÂ¤Ó¤ÎÁÈ¤Î¥ê¥¹¥È¡£
-¥­¡¼ÊÂ¤Ó¤Ç¤Ï¡¢º¸¾å¤«¤é½ç¤Ë¡¢ÆşÎÏ¤µ¤ì¤ëÊ¸»ú¤ò40¸Ä¤Ş¤¿¤Ï80¸ÄÊÂ¤Ù¤ë¡£
-80¸ÄÊÂ¤Ù¤¿¾ì¹ç¡¢¸åÈ¾¤Î40¸Ä¤Ï¡¢Á°È¾¤Î40¸Ä¤Î¥·¥Õ¥È»ş¤ÎÊ¸»ú¤È¤·¤Æ°·¤¦¡£
+  "*Tã‚³ãƒ¼ãƒ‰ã‚’ç”¨ã„ã‚‹ã‚­ãƒ¼é…ç½®ç”¨ã®ãƒ‡ãƒ¼ã‚¿ã€‚
+å…·ä½“çš„ã«ã¯ã€é…åˆ—åã¨ã‚­ãƒ¼ä¸¦ã³ã®çµ„ã®ãƒªã‚¹ãƒˆã€‚
+ã‚­ãƒ¼ä¸¦ã³ã§ã¯ã€å·¦ä¸Šã‹ã‚‰é †ã«ã€å…¥åŠ›ã•ã‚Œã‚‹æ–‡å­—ã‚’40å€‹ã¾ãŸã¯80å€‹ä¸¦ã¹ã‚‹ã€‚
+80å€‹ä¸¦ã¹ãŸå ´åˆã€å¾ŒåŠã®40å€‹ã¯ã€å‰åŠã®40å€‹ã®ã‚·ãƒ•ãƒˆæ™‚ã®æ–‡å­—ã¨ã—ã¦æ‰±ã†ã€‚
 
-¥³¥Ş¥ó¥É`tcode-set-key-layout'¤ÇÍÑ¤¤¤ë¡£")
+ã‚³ãƒãƒ³ãƒ‰`tcode-set-key-layout'ã§ç”¨ã„ã‚‹ã€‚")
 
 (defun tcode-set-key-layout (layout)
-  "T¥³¡¼¥É¤ÇÍÑ¤¤¤ë¥­¡¼ÇÛÃÖ¤òÀßÄê¤¹¤ë¡£"
+  "Tã‚³ãƒ¼ãƒ‰ã§ç”¨ã„ã‚‹ã‚­ãƒ¼é…ç½®ã‚’è¨­å®šã™ã‚‹ã€‚"
   (interactive (let ((layout (completing-read
 			      (format
-			       "¥­¡¼ÇÛÃÖ¤òÁªÂò¤·¤Æ¤¯¤À¤µ¤¤¡£[%s] "
+			       "ã‚­ãƒ¼é…ç½®ã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚[%s] "
 			       (car (car tcode-key-layout-list)))
 			      tcode-key-layout-list)))
 		 (list layout)))
@@ -392,12 +392,12 @@ nil ¤Î¤È¤­¤Ï `tcode-mode' ¤«¤éÆÀ¤ë¡£")
       (if (or (null layout)
 	      (= (length layout) 0))
 	  (unless (setq list (car tcode-key-layout-list))
-	    (error "¥­¡¼ÇÛÃÖ(tcode-key-layout-list)¤¬ÄêµÁ¤µ¤ì¤Æ¤¤¤Ş¤»¤ó¡£"))
+	    (error "ã‚­ãƒ¼é…ç½®(tcode-key-layout-list)ãŒå®šç¾©ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚"))
 	(let ((i 0))
 	  (while (< i 40)
 	    (if (= i 0)
-		(message "¥­¡¼¥Ü¡¼¥É¤Î¥­¡¼¤òº¸¾å¤«¤é½ç¤Ë²¡¤·¤Æ¤¯¤À¤µ¤¤¡£")
-	      (message "%d¹Ô%dÎóÌÜ>" (/ i 40) (% i 40)))
+		(message "ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ã‚­ãƒ¼ã‚’å·¦ä¸Šã‹ã‚‰é †ã«æŠ¼ã—ã¦ãã ã•ã„ã€‚")
+	      (message "%dè¡Œ%dåˆ—ç›®>" (/ i 40) (% i 40)))
 	    (setq list (cons (read-char) list)
 		  i (1+ i)))
 	  (setq list (cons layout (nreverse list))))))
@@ -431,24 +431,24 @@ nil ¤Î¤È¤­¤Ï `tcode-mode' ¤«¤éÆÀ¤ë¡£")
     list))
 
 (defun tcode-set-key (key func &optional type)
-  "T¥³¡¼¥É¥â¡¼¥É¤Î¥­¡¼¤òÀßÄê¤¹¤ë¡£
-°ú¿ô¤Ï¼¡¤Î¤È¤ª¤ê¡£
+  "Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã®ã‚­ãƒ¼ã‚’è¨­å®šã™ã‚‹ã€‚
+å¼•æ•°ã¯æ¬¡ã®ã¨ãŠã‚Šã€‚
 
-KEY  ... ÀßÄê¤¹¤ë¥­¡¼¡£string¡¢char¡¢vector ¤Î¤¤¤º¤ì¤«¡£
-FUNC ... TYPE ¤¬¥³¥Ş¥ó¥É¤Î¾ì¹ç¤Î´Ø¿ôÌ¾¡£ TYPE ¤¬ 'command ¤Ş¤¿¤Ï -3 °Ê³°¤Î
-         ¾ì¹ç¤Ï°ÕÌ£¤ò»ı¤¿¤Ê¤¤¡£(nil ¤Ë¤·¤Æ¤ª¤±¤Ğ¤è¤¤)
-TYPE ... µ¡Ç½¤Î¼ïÎà¡£(ÊÑ¿ô `tcode-key-translation-rule-table' »²¾È)
-         ¾ÊÎ¬»ş¤Ï¡¢FUNC ¤¬ nil ¤Î¤È¤­ 'literal ¤Ç¡¢¤½¤¦¤Ç¤Ê¤¤¤È¤­¤Ï
-         'command¡£
-         °Ê²¼¤Î¥·¥ó¥Ü¥ë¤â»È¤¨¤ë¡£
+KEY  ... è¨­å®šã™ã‚‹ã‚­ãƒ¼ã€‚stringã€charã€vector ã®ã„ãšã‚Œã‹ã€‚
+FUNC ... TYPE ãŒã‚³ãƒãƒ³ãƒ‰ã®å ´åˆã®é–¢æ•°åã€‚ TYPE ãŒ 'command ã¾ãŸã¯ -3 ä»¥å¤–ã®
+         å ´åˆã¯æ„å‘³ã‚’æŒãŸãªã„ã€‚(nil ã«ã—ã¦ãŠã‘ã°ã‚ˆã„)
+TYPE ... æ©Ÿèƒ½ã®ç¨®é¡ã€‚(å¤‰æ•° `tcode-key-translation-rule-table' å‚ç…§)
+         çœç•¥æ™‚ã¯ã€FUNC ãŒ nil ã®ã¨ã 'literal ã§ã€ãã†ã§ãªã„ã¨ãã¯
+         'commandã€‚
+         ä»¥ä¸‹ã®ã‚·ãƒ³ãƒœãƒ«ã‚‚ä½¿ãˆã‚‹ã€‚
 
-         literal      ¤½¤ÎÊ¸»ú¡£
-         lowercase    ÂĞ±ş¤¹¤ë±Ñ¾®Ê¸»ú¡£
-         command      tcode-mode-map ¤Ë¤·¤¿¤¬¤Ã¤¿¥³¥Ş¥ó¥É¡£"
+         literal      ãã®æ–‡å­—ã€‚
+         lowercase    å¯¾å¿œã™ã‚‹è‹±å°æ–‡å­—ã€‚
+         command      tcode-mode-map ã«ã—ãŸãŒã£ãŸã‚³ãƒãƒ³ãƒ‰ã€‚"
   (interactive (list (progn
-		       (message "T¥³¡¼¥É¥â¡¼¥É¤ÇÀßÄê¤ò¹Ô¤¦¥­¡¼¤Ï? ")
+		       (message "Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã§è¨­å®šã‚’è¡Œã†ã‚­ãƒ¼ã¯? ")
 		       (setq key (read-char)))
-		     (read-command (format "¡Ö%c¡×¤Ë³ä¤êÅö¤Æ¤ë¥³¥Ş¥ó¥É¤Ï? "
+		     (read-command (format "ã€Œ%cã€ã«å‰²ã‚Šå½“ã¦ã‚‹ã‚³ãƒãƒ³ãƒ‰ã¯? "
 					   key))
 		     prefix-arg))
   ;; type
@@ -463,7 +463,7 @@ TYPE ... µ¡Ç½¤Î¼ïÎà¡£(ÊÑ¿ô `tcode-key-translation-rule-table' »²¾È)
 	((eq type 'command)
 	 (setq type -3))
 	(t
-	 (error "TYPE ¤¬¤ª¤«¤·¤¤¡£")))
+	 (error "TYPE ãŒãŠã‹ã—ã„ã€‚")))
   ;; key
   (cond ((char-or-string-p key)
 	 (or (stringp key)
@@ -471,14 +471,14 @@ TYPE ... µ¡Ç½¤Î¼ïÎà¡£(ÊÑ¿ô `tcode-key-translation-rule-table' »²¾È)
 	((vectorp key)
 	 (setq key (char-to-string (aref key 0))))
 	(t
-	 (error "KEY ¤¬¤ª¤«¤·¤¤¡£")))
+	 (error "KEY ãŒãŠã‹ã—ã„ã€‚")))
   ;; set keymap address
   (let ((addr (string-to-char key)))
     (if (and (>= addr ? )
 	     (<= addr ?~))
 	(when (> 0 (aref tcode-key-translation-rule-table (- addr ? )))
 	  (aset tcode-key-translation-rule-table (- addr ? ) type))
-      (error "¡Ö%s¡×¤Ë¤Ï³ä¤êÅö¤Æ¤é¤ì¤Ş¤»¤ó¡£" key)))
+      (error "ã€Œ%sã€ã«ã¯å‰²ã‚Šå½“ã¦ã‚‰ã‚Œã¾ã›ã‚“ã€‚" key)))
   ;; set key binding
   (define-key tcode-mode-map key (and (= type -3)
 				      func)))
@@ -486,15 +486,15 @@ TYPE ... µ¡Ç½¤Î¼ïÎà¡£(ÊÑ¿ô `tcode-key-translation-rule-table' »²¾È)
 (unless tcode-mode-map
   (setq tcode-mode-map (make-sparse-keymap))
   (tcode-set-key "?" 'tcode-mode-help)
-  ;; tcode-mode ¤Î¤È¤­¤Ë¡¢¡Ö|¡×¤ÇÅĞÏ¿¡¦ÊÑ´¹
+  ;; tcode-mode ã®ã¨ãã«ã€ã€Œ|ã€ã§ç™»éŒ²ãƒ»å¤‰æ›
   (tcode-set-key "|" 'tcode-mazegaki-make-entry-and-finish)
-  ;; tcode-mode ¤Î¤È¤­¤Ë¡¢¡Ö!¡×¤Çºï½ü
+  ;; tcode-mode ã®ã¨ãã«ã€ã€Œ!ã€ã§å‰Šé™¤
   (tcode-set-key "!" 'tcode-mazegaki-delete-entry-by-last-yomi)
-  ;; tcode-mode ¤Î¤È¤­¤Ë¡¢¡Ö=¡×¤ÇÊä´°¡¦³ÎÄê
+  ;; tcode-mode ã®ã¨ãã«ã€ã€Œ=ã€ã§è£œå®Œãƒ»ç¢ºå®š
   (tcode-set-key "=" 'tcode-mazegaki-complete-and-convert))
 
 (defun tcode-substitute-command-keys (string)
-  "`substitute-command-keys' ¤ò `tcode-mode-map' ¤Î¤â¤È¤ÇÅ¬ÍÑ¤¹¤ë¡£"
+  "`substitute-command-keys' ã‚’ `tcode-mode-map' ã®ã‚‚ã¨ã§é©ç”¨ã™ã‚‹ã€‚"
   (let ((orig-map (current-local-map)))
     (prog2
 	(use-local-map tcode-mode-map)
@@ -502,7 +502,7 @@ TYPE ... µ¡Ç½¤Î¼ïÎà¡£(ÊÑ¿ô `tcode-key-translation-rule-table' »²¾È)
       (use-local-map orig-map))))
 
 (defun tcode-key-to-char (key)
-  "¥­¡¼¤ÎÈÖ¹æ¤«¤éÂĞ±ş¤¹¤ëÊ¸»ú¤òÆÀ¤ë¡£"
+  "ã‚­ãƒ¼ã®ç•ªå·ã‹ã‚‰å¯¾å¿œã™ã‚‹æ–‡å­—ã‚’å¾—ã‚‹ã€‚"
   (let ((max (length tcode-key-translation-rule-table))
 	(i 0))
     (catch 'found
@@ -524,7 +524,7 @@ See also `tcode-key-translation-rule-table'."
 ;;
 
 (defun tcode-on-p ()
-  "T¥³¡¼¥É¥â¡¼¥É¤¬¥ª¥ó¤Ë¤Ê¤Ã¤Æ¤¤¤ë¤«¤É¤¦¤«¤òÊÖ¤¹¡£"
+  "Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ãŒã‚ªãƒ³ã«ãªã£ã¦ã„ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™ã€‚"
   (if (window-minibuffer-p (selected-window))
       tcode-mode-in-minibuffer
     tcode-mode))
@@ -655,11 +655,11 @@ t ... cancel"
 	 (undo-boundary)
 	 (if (commandp action)
 	     (progn
-	       ;; ¥³¥Ş¥ó¥É¤Î¼Â¹Ô
+	       ;; ã‚³ãƒãƒ³ãƒ‰ã®å®Ÿè¡Œ
 	       (setq prefix-arg current-prefix-arg
 		     this-command action)
 	       (command-execute action))
-	   ;; ¥³¥Ş¥ó¥É¤Ç¤Ê¤¤´Ø¿ô¤Î¼Â¹Ô
+	   ;; ã‚³ãƒãƒ³ãƒ‰ã§ãªã„é–¢æ•°ã®å®Ÿè¡Œ
 	   (funcall action)
 	   (setq this-command 'lambda))	; dummy
 	 (setq tcode-special-occurrence
@@ -732,7 +732,7 @@ t ... cancel"
 	  result)))))
 
 (defun tcode-insert (ch)
-  "CH¤ò¥Ğ¥Ã¥Õ¥¡¤ËÁŞÆş¤¹¤ë¡£"
+  "CHã‚’ãƒãƒƒãƒ•ã‚¡ã«æŒ¿å…¥ã™ã‚‹ã€‚"
   (unless (stringp ch)
     (setq ch (char-to-string ch)))
   (let* ((p (point))
@@ -754,14 +754,14 @@ t ... cancel"
     (run-hooks 'input-method-after-insert-chunk-hook)))
 
 ;;
-;; 2¥Ğ¥¤¥È±Ñ¿ô»ú
+;; 2ãƒã‚¤ãƒˆè‹±æ•°å­—
 ;;
 
 (defvar tcode-alnum-1-to-2-table
-  (concat "¡¡¡ª¡É¡ô¡ğ¡ó¡õ¡Ç¡Ê¡Ë¡ö¡Ü¡¤¡İ¡¥¡¿£°£±£²£³£´£µ£¶£·£¸£¹¡§¡¨¡ã¡á¡ä¡©"
-	  "¡÷£Á£Â£Ã£Ä£Å£Æ£Ç£È£É£Ê£Ë£Ì£Í£Î£Ï£Ğ£Ñ£Ò£Ó£Ô£Õ£Ö£×£Ø£Ù£Ú¡Î¡ï¡Ï¡°¡²"
-	  "¡Æ£á£â£ã£ä£å£æ£ç£è£é£ê£ë£ì£í£î£ï£ğ£ñ£ò£ó£ô£õ£ö£÷£ø£ù£ú¡Ğ¡Ã¡Ñ¡±")
-  "1¥Ğ¥¤¥È±Ñ¿ô»ú ' '..'~' ¤ò2¥Ğ¥¤¥È±Ñ¿ô»ú¤ØÊÑ´¹/µÕÊÑ´¹¤¹¤ë¤¿¤á¤Î¥Æ¡¼¥Ö¥ë")
+  (concat "ã€€ï¼â€ï¼ƒï¼„ï¼…ï¼†â€™ï¼ˆï¼‰ï¼Šï¼‹ï¼Œâˆ’ï¼ï¼ï¼ï¼‘ï¼’ï¼“ï¼”ï¼•ï¼–ï¼—ï¼˜ï¼™ï¼šï¼›ï¼œï¼ï¼ï¼Ÿ"
+	  "ï¼ ï¼¡ï¼¢ï¼£ï¼¤ï¼¥ï¼¦ï¼§ï¼¨ï¼©ï¼ªï¼«ï¼¬ï¼­ï¼®ï¼¯ï¼°ï¼±ï¼²ï¼³ï¼´ï¼µï¼¶ï¼·ï¼¸ï¼¹ï¼ºï¼»Â¥ï¼½ï¼¾ï¼¿"
+	  "â€˜ï½ï½‚ï½ƒï½„ï½…ï½†ï½‡ï½ˆï½‰ï½Šï½‹ï½Œï½ï½ï½ï½ï½‘ï½’ï½“ï½”ï½•ï½–ï½—ï½˜ï½™ï½šï½›ï½œï½â€¾")
+  "1ãƒã‚¤ãƒˆè‹±æ•°å­— ' '..'~' ã‚’2ãƒã‚¤ãƒˆè‹±æ•°å­—ã¸å¤‰æ›/é€†å¤‰æ›ã™ã‚‹ãŸã‚ã®ãƒ†ãƒ¼ãƒ–ãƒ«")
 
 (defun tcode-toggle-alnum-mode ()
   (interactive)
@@ -774,7 +774,7 @@ t ... cancel"
 	    (vconcat (string-to-list tcode-alnum-1-to-2-table)))))
 
 (defun tcode-1-to-2-region (beg end)
-  "¥ê¡¼¥¸¥ç¥óÆâ¤Î1¥Ğ¥¤¥È±Ñ¿ô»ú¤ò2¥Ğ¥¤¥È¤ËÊÑ´¹¤¹¤ë¡£"
+  "ãƒªãƒ¼ã‚¸ãƒ§ãƒ³å†…ã®1ãƒã‚¤ãƒˆè‹±æ•°å­—ã‚’2ãƒã‚¤ãƒˆã«å¤‰æ›ã™ã‚‹ã€‚"
   (interactive "*r")
   (tcode-check-alnum-1-to-2-table)
   (save-excursion
@@ -789,14 +789,14 @@ t ... cancel"
 	  (insert (char-to-string (tcode-1-to-2 char))))))))
 
 (defun tcode-1-to-2 (char)
-  "1¥Ğ¥¤¥È±Ñ¿ô»úCHAR¤ò2¥Ğ¥¤¥È¤ËÊÑ´¹¤¹¤ë¡£"
+  "1ãƒã‚¤ãƒˆè‹±æ•°å­—CHARã‚’2ãƒã‚¤ãƒˆã«å¤‰æ›ã™ã‚‹ã€‚"
   (tcode-check-alnum-1-to-2-table)
   (if (and (<= ?! char) (<= char ?~))
       (aref tcode-alnum-1-to-2-table (- char ? ))
     char))
 
 (defun tcode-2-to-1-region (beg end)
-  "¥ê¡¼¥¸¥ç¥óÆâ¤Î2¥Ğ¥¤¥È±Ñ¿ô»ú¤ò1¥Ğ¥¤¥È¤ËÊÑ´¹¤¹¤ë¡£"
+  "ãƒªãƒ¼ã‚¸ãƒ§ãƒ³å†…ã®2ãƒã‚¤ãƒˆè‹±æ•°å­—ã‚’1ãƒã‚¤ãƒˆã«å¤‰æ›ã™ã‚‹ã€‚"
   (interactive "*r")
   (tcode-check-alnum-1-to-2-table)
   (save-excursion
@@ -818,7 +818,7 @@ t ... cancel"
 			     nil)))))))
 
 (defun tcode-2-to-1 (char)
-  "2¥Ğ¥¤¥È±Ñ¿ô»úCHAR¤ò1¥Ğ¥¤¥È¤ËÊÑ´¹¤¹¤ë¡£"
+  "2ãƒã‚¤ãƒˆè‹±æ•°å­—CHARã‚’1ãƒã‚¤ãƒˆã«å¤‰æ›ã™ã‚‹ã€‚"
   (tcode-check-alnum-1-to-2-table)
   (let ((ch 0))
     (catch 'found
@@ -829,13 +829,13 @@ t ... cancel"
       char)))
 
 ;;
-;; ¥³¡¼¥ÉÉ½
+;; ã‚³ãƒ¼ãƒ‰è¡¨
 ;;
 
 (defun tcode-switch-variable (&optional arg)
-  "(`tcode-table' Ãæ¤Î) ÊÑ¿ô¤ÎÃÍ¤òÀÚ¤êÂØ¤¨¤ë¡£
-ÀÚ¤êÂØ¤¨¤ëÊÑ¿ô¤È¤½¤ÎÃÍ¤Ï `tcode-switch-table-list' ¤Ç»ØÄê¤¹¤ë¡£
-ARG ¤¬ nil ¤Ç¤Ê¤¤¤È¤­¡¢ARG ÈÖÌÜ¤ÎÁÈ¤ËÀÚ¤êÂØ¤¨¤ë¡£"
+  "(`tcode-table' ä¸­ã®) å¤‰æ•°ã®å€¤ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ã€‚
+åˆ‡ã‚Šæ›¿ãˆã‚‹å¤‰æ•°ã¨ãã®å€¤ã¯ `tcode-switch-table-list' ã§æŒ‡å®šã™ã‚‹ã€‚
+ARG ãŒ nil ã§ãªã„ã¨ãã€ARG ç•ªç›®ã®çµ„ã«åˆ‡ã‚Šæ›¿ãˆã‚‹ã€‚"
   (interactive "P")
   (message
    (mapconcat
@@ -926,7 +926,7 @@ ARG ¤¬ nil ¤Ç¤Ê¤¤¤È¤­¡¢ARG ÈÖÌÜ¤ÎÁÈ¤ËÀÚ¤êÂØ¤¨¤ë¡£"
 	(t (setcdr pointer value))))
 
 (defun tcode-set-action (table-pointer strokes value)
-  "TABLE-POINTER Ãæ¤Î¡¢¥­¡¼ÆşÎÏ STROKES ¤ËÁêÅö¤¹¤ë½ê¤Ë VALUE ¤òÀßÄê¤¹¤ë¡£"
+  "TABLE-POINTER ä¸­ã®ã€ã‚­ãƒ¼å…¥åŠ› STROKES ã«ç›¸å½“ã™ã‚‹æ‰€ã« VALUE ã‚’è¨­å®šã™ã‚‹ã€‚"
   (let ((table (tcode-pointer-ref table-pointer))
 	(key (car strokes)))
     (unless (consp strokes)
@@ -954,18 +954,18 @@ ARG ¤¬ nil ¤Ç¤Ê¤¤¤È¤­¡¢ARG ÈÖÌÜ¤ÎÁÈ¤ËÀÚ¤êÂØ¤¨¤ë¡£"
 	))))
 
 (defun tcode-set-action-to-table (strokes value)
-  "¥³¡¼¥ÉÆşÎÏÍÑ¤ÎÆâÉô¥Æ¡¼¥Ö¥ë¤ËÆşÎÏÎó STROKES ¤ËÂĞ¤¹¤ë VALUE ¤òÀßÄê¤¹¤ë¡£
-Æ°ºî(VALUE)¤È¤·¤Æ»ØÄê¤Ç¤­¤ë¤Î¤Ï°Ê²¼¤Î¤È¤ª¤ê¡£
-    - ¥³¥Ş¥ó¥É (symbol)		¤½¤Î¥³¥Ş¥ó¥É¤ò¼Â¹Ô¤¹¤ë¡£
-    - ´Ø¿ô (symbol, lambda¼°)	¤½¤Î´Ø¿ô¤ò°ú¿ô¤Ê¤·¤Ç¸Æ¤Ö¡£
-    - ÊÑ¿ô (symbol)		É¾²Á¤·¤¿·ë²Ì¤ÎÆ°ºî¤ò¹Ô¤¦¡£
-    - É½ (vector)		¹¹¤Ë¤½¤ÎÉ½¤Ë½¾¤Ã¤¿Æ°ºî¤ò¹Ô¤¦¡£
-    - ¥ê¥¹¥È (list)		¹¹¤Ë¤½¤Î¥ê¥¹¥È¤Ë½¾¤Ã¤¿Æ°ºî¤ò¹Ô¤¦¡£
-    - Ê¸»úÎó (string)		¤½¤ÎÊ¸»úÎó¤òÁŞÆş¤¹¤ë¡£
-    - Ê¸»ú (char)		¤½¤ÎÊ¸»ú¤òÁŞÆş¤¹¤ë¡£
+  "ã‚³ãƒ¼ãƒ‰å…¥åŠ›ç”¨ã®å†…éƒ¨ãƒ†ãƒ¼ãƒ–ãƒ«ã«å…¥åŠ›åˆ— STROKES ã«å¯¾ã™ã‚‹ VALUE ã‚’è¨­å®šã™ã‚‹ã€‚
+å‹•ä½œ(VALUE)ã¨ã—ã¦æŒ‡å®šã§ãã‚‹ã®ã¯ä»¥ä¸‹ã®ã¨ãŠã‚Šã€‚
+    - ã‚³ãƒãƒ³ãƒ‰ (symbol)		ãã®ã‚³ãƒãƒ³ãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã€‚
+    - é–¢æ•° (symbol, lambdaå¼)	ãã®é–¢æ•°ã‚’å¼•æ•°ãªã—ã§å‘¼ã¶ã€‚
+    - å¤‰æ•° (symbol)		è©•ä¾¡ã—ãŸçµæœã®å‹•ä½œã‚’è¡Œã†ã€‚
+    - è¡¨ (vector)		æ›´ã«ãã®è¡¨ã«å¾“ã£ãŸå‹•ä½œã‚’è¡Œã†ã€‚
+    - ãƒªã‚¹ãƒˆ (list)		æ›´ã«ãã®ãƒªã‚¹ãƒˆã«å¾“ã£ãŸå‹•ä½œã‚’è¡Œã†ã€‚
+    - æ–‡å­—åˆ— (string)		ãã®æ–‡å­—åˆ—ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
+    - æ–‡å­— (char)		ãã®æ–‡å­—ã‚’æŒ¿å…¥ã™ã‚‹ã€‚
 
-  ÆşÎÏÎó¤Ï¥­¡¼¤ÎÈÖÃÏ¤Î¥ê¥¹¥È¤Ş¤¿¤Ï¥­¡¼¤ÎÈÖÃÏ¡£
-¥­¡¼¤ÎÈÖÃÏ¤ò»ØÄê¤¹¤ë¤È¡¢ºÇ¸å¤Ë SPC ¤ò²¡¤·¤¿¤È¤­¤ÎÆ°ºî¤òÀßÄê¤¹¤ë¡£"
+  å…¥åŠ›åˆ—ã¯ã‚­ãƒ¼ã®ç•ªåœ°ã®ãƒªã‚¹ãƒˆã¾ãŸã¯ã‚­ãƒ¼ã®ç•ªåœ°ã€‚
+ã‚­ãƒ¼ã®ç•ªåœ°ã‚’æŒ‡å®šã™ã‚‹ã¨ã€æœ€å¾Œã« SPC ã‚’æŠ¼ã—ãŸã¨ãã®å‹•ä½œã‚’è¨­å®šã™ã‚‹ã€‚"
   (cond ((consp strokes)
 	 (tcode-set-stroke-property value strokes)
 	 (tcode-set-action 'tcode-table strokes value))
@@ -977,7 +977,7 @@ ARG ¤¬ nil ¤Ç¤Ê¤¤¤È¤­¡¢ARG ÈÖÌÜ¤ÎÁÈ¤ËÀÚ¤êÂØ¤¨¤ë¡£"
 	((null strokes)
 	 (setq tcode-table value))
 	(t
-	 (error "ÆşÎÏÎó¤Î»ØÄê¤¬Ìµ¸ú¤Ç¤¹¡£"))))
+	 (error "å…¥åŠ›åˆ—ã®æŒ‡å®šãŒç„¡åŠ¹ã§ã™ã€‚"))))
 
 (defun tcode-load-table-1 (filename &optional prefix)
   (let ((k1 0) k2 newval char new-table)
@@ -1002,10 +1002,10 @@ ARG ¤¬ nil ¤Ç¤Ê¤¤¤È¤­¡¢ARG ÈÖÌÜ¤ÎÁÈ¤ËÀÚ¤êÂØ¤¨¤ë¡£"
 	    (setq k2 (1+ k2)))))
       (setq k1 (1+ k1)))
     (setq tcode-tbl nil)		; free
-    ;; 'stroke property ¤òÆş¤ì¤ë¡£
+    ;; 'stroke property ã‚’å…¥ã‚Œã‚‹ã€‚
     (tcode-set-action-to-table prefix new-table)
     (tcode-set-stroke-property new-table nil t prefix)
-    ;; ¥³¥Ş¥ó¥É¤ò¥Æ¡¼¥Ö¥ë¤ËÅĞÏ¿¤¹¤ë¡£
+    ;; ã‚³ãƒãƒ³ãƒ‰ã‚’ãƒ†ãƒ¼ãƒ–ãƒ«ã«ç™»éŒ²ã™ã‚‹ã€‚
     (mapcar (lambda (elm)
 	      (tcode-set-action-to-table (append prefix (car elm)) (cdr elm)))
 	    tcode-special-commands-alist)
@@ -1041,19 +1041,19 @@ ARG ¤¬ nil ¤Ç¤Ê¤¤¤È¤­¡¢ARG ÈÖÌÜ¤ÎÁÈ¤ËÀÚ¤êÂØ¤¨¤ë¡£"
   (tcode-mode-line-redisplay))
 
 (defun tcode-encode (char)
-  "Ê¸»úCHAR¤òÂÇ¤ÁÊı(¥­¡¼¤Î¥ê¥¹¥È)¤ËÊÑ´¹¤¹¤ë¡£Ä¾ÀÜÆşÎÏ¤Ç¤­¤Ê¤±¤ì¤Ğnil¤òÊÖ¤¹¡£"
+  "æ–‡å­—CHARã‚’æ‰“ã¡æ–¹(ã‚­ãƒ¼ã®ãƒªã‚¹ãƒˆ)ã«å¤‰æ›ã™ã‚‹ã€‚ç›´æ¥å…¥åŠ›ã§ããªã‘ã‚Œã°nilã‚’è¿”ã™ã€‚"
   (let ((ch (char-to-string char)))
     (or (append (get (intern-soft ch tcode-stroke-table) 'stroke) nil)
 	(let ((ch (char-to-string (tcode-2-to-1 char))))
 	  (append (get (intern-soft ch tcode-stroke-table) 'stroke) nil)))))
 
 ;;
-;; ½é´üÀßÄê
+;; åˆæœŸè¨­å®š
 ;;
 
 (defun tcode-bushu-init (level)
-  "Éô¼ó¹çÀ®ÊÑ´¹¤Î½é´ü²½¤ò¹Ô¤¦¡£
-°ú¿ôLEVEL¤¬ÊÑ¿ô`tcode-bushu-on-demand'¤è¤ê¾®¤µ¤«¤Ã¤¿¤é¹Ô¤ï¤Ê¤¤¡£"
+  "éƒ¨é¦–åˆæˆå¤‰æ›ã®åˆæœŸåŒ–ã‚’è¡Œã†ã€‚
+å¼•æ•°LEVELãŒå¤‰æ•°`tcode-bushu-on-demand'ã‚ˆã‚Šå°ã•ã‹ã£ãŸã‚‰è¡Œã‚ãªã„ã€‚"
   (interactive (list 999))
   (when (>= level tcode-bushu-on-demand)
     (require 'tc-bushu)
@@ -1061,18 +1061,18 @@ ARG ¤¬ nil ¤Ç¤Ê¤¤¤È¤­¡¢ARG ÈÖÌÜ¤ÎÁÈ¤ËÀÚ¤êÂØ¤¨¤ë¡£"
     (run-hooks 'tcode-bushu-ready-hook)))
 
 (defun tcode-initialize ()
-  "¥³¡¼¥ÉÉ½¤Ê¤É¤Î½é´ü²½¤ò¹Ô¤¦¡£
-Emacs¤¬µ¯Æ°¤µ¤ì¤Æ¤«¤éºÇ½é¤Îtcode-mode¤Ç¼Â¹Ô¤µ¤ì¤ë¡£
-`tcode-ready-hook' ¤ò¸Æ¤Ö¡£"
+  "ã‚³ãƒ¼ãƒ‰è¡¨ãªã©ã®åˆæœŸåŒ–ã‚’è¡Œã†ã€‚
+EmacsãŒèµ·å‹•ã•ã‚Œã¦ã‹ã‚‰æœ€åˆã®tcode-modeã§å®Ÿè¡Œã•ã‚Œã‚‹ã€‚
+`tcode-ready-hook' ã‚’å‘¼ã¶ã€‚"
   (when (and tcode-init-file-name
 	     (not (file-exists-p tcode-init-file-name)))
-    (if (y-or-n-p (format "ÀßÄê¥Õ¥¡¥¤¥ë%s¤¬¤¢¤ê¤Ş¤»¤ó¡£ºîÀ®¤·¤Ş¤¹¤«?"
+    (if (y-or-n-p (format "è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«%sãŒã‚ã‚Šã¾ã›ã‚“ã€‚ä½œæˆã—ã¾ã™ã‹?"
 			  tcode-init-file-name))
 	(tcode-install)
       (call-interactively 'tcode-set-key-layout)))
   (if (and tcode-data-directory
 	   (not (file-exists-p tcode-data-directory)))
-      (error "`tcode-data-directory'(%s)¤¬Â¸ºß¤·¤Ş¤»¤ó¡£"
+      (error "`tcode-data-directory'(%s)ãŒå­˜åœ¨ã—ã¾ã›ã‚“ã€‚"
 	     tcode-data-directory))
   (if tcode-use-isearch
       (require tcode-isearch-type))
@@ -1098,10 +1098,10 @@ Emacs¤¬µ¯Æ°¤µ¤ì¤Æ¤«¤éºÇ½é¤Îtcode-mode¤Ç¼Â¹Ô¤µ¤ì¤ë¡£
   (run-hooks 'tcode-ready-hook)
   (tcode-verbose-message
    (tcode-substitute-command-keys
-    "T¥³¡¼¥É¥â¡¼¥É¤Ç¤Ï¡Ö\\[tcode-mode-help]¡×¤Ç¥Ø¥ë¥×¤¬É½¼¨¤µ¤ì¤Ş¤¹¡£")))
+    "Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã§ã¯ã€Œ\\[tcode-mode-help]ã€ã§ãƒ˜ãƒ«ãƒ—ãŒè¡¨ç¤ºã•ã‚Œã¾ã™ã€‚")))
 
 ;;
-;; ¥â¡¼¥É¤ÎÀÚ¤êÂØ¤¨
+;; ãƒ¢ãƒ¼ãƒ‰ã®åˆ‡ã‚Šæ›¿ãˆ
 ;;
 
 (defun tcode-mode-line-redisplay ()
@@ -1121,17 +1121,17 @@ Emacs¤¬µ¯Æ°¤µ¤ì¤Æ¤«¤éºÇ½é¤Îtcode-mode¤Ç¼Â¹Ô¤µ¤ì¤ë¡£
   (set-buffer-modified-p (buffer-modified-p)))
 
 (defun tcode-clear ()
-  "¤ä¤ä¤³¤·¤¤¥â¡¼¥É¤ËÆş¤Ã¤Æ¤¤¤ë¤Î¤òÁ´Éô¥¯¥ê¥¢¤¹¤ë¡£
-¥Ø¥ë¥×ÍÑ¥¦¥£¥ó¥É¥¦¤â¾Ãµî¤¹¤ë¡£"
+  "ã‚„ã‚„ã“ã—ã„ãƒ¢ãƒ¼ãƒ‰ã«å…¥ã£ã¦ã„ã‚‹ã®ã‚’å…¨éƒ¨ã‚¯ãƒªã‚¢ã™ã‚‹ã€‚
+ãƒ˜ãƒ«ãƒ—ç”¨ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚‚æ¶ˆå»ã™ã‚‹ã€‚"
   (interactive)
   (tcode-auto-remove-help t)
   (run-hooks 'tcode-clear-hook))
 
 ;;;###autoload
 (defun tcode-activate (&optional arg)
-  "T¥³¡¼¥É¥â¡¼¥É¤òÍ­¸ú¤Ë¤¹¤ë¡£ARG¤¬Éé¤ÎÀ°¿ô¤Î¤È¤­¤ÏÌµ¸ú¤Ë¤¹¤ë¡£
+  "Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’æœ‰åŠ¹ã«ã™ã‚‹ã€‚ARGãŒè² ã®æ•´æ•°ã®ã¨ãã¯ç„¡åŠ¹ã«ã™ã‚‹ã€‚
 
-T¥³¡¼¥É¥â¡¼¥É¤Ë¤Ä¤¤¤Æ¤Ï¡¢\\[tcode-mode-help] ¤ÇÉ½¼¨¤µ¤ì¤ë¥Ø¥ë¥×¤ò»²¾È¡£"
+Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã«ã¤ã„ã¦ã¯ã€\\[tcode-mode-help] ã§è¡¨ç¤ºã•ã‚Œã‚‹ãƒ˜ãƒ«ãƒ—ã‚’å‚ç…§ã€‚"
   (if (and arg
 	   (< (prefix-numeric-value arg) 0))
       ;; inactivate T-Code mode
@@ -1152,7 +1152,7 @@ T¥³¡¼¥É¥â¡¼¥É¤Ë¤Ä¤¤¤Æ¤Ï¡¢\\[tcode-mode-help] ¤ÇÉ½¼¨¤µ¤ì¤ë¥Ø¥ë¥×¤ò»²¾È¡£"
     (unless (featurep 'tcode-ready)
       (tcode-initialize))
     (unless tcode-ready-in-this-buffer
-      ;; ¥Ğ¥Ã¥Õ¥¡¤´¤È¤ÎT¥³¡¼¥É¤Î½é´ü²½¤ò¹Ô¤¦¡£`tcode-mode-hook'¤ò¸Æ¤Ö¡£
+      ;; ãƒãƒƒãƒ•ã‚¡ã”ã¨ã®Tã‚³ãƒ¼ãƒ‰ã®åˆæœŸåŒ–ã‚’è¡Œã†ã€‚`tcode-mode-hook'ã‚’å‘¼ã¶ã€‚
       (setq tcode-ready-in-this-buffer t)
       (run-hooks 'tcode-mode-hook))
     (run-hooks 'input-method-activate-hook)
@@ -1163,7 +1163,7 @@ T¥³¡¼¥É¥â¡¼¥É¤Ë¤Ä¤¤¤Æ¤Ï¡¢\\[tcode-mode-help] ¤ÇÉ½¼¨¤µ¤ì¤ë¥Ø¥ë¥×¤ò»²¾È¡£"
   (tcode-mode-line-redisplay))
 
 (defun tcode-inactivate ()
-  "T¥³¡¼¥É¥â¡¼¥É¤òÌµ¸ú¤Ë¤¹¤ë¡£"
+  "Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’ç„¡åŠ¹ã«ã™ã‚‹ã€‚"
   (tcode-activate -1))
 
 (defun tcode-exit-minibuffer ()
@@ -1173,7 +1173,7 @@ T¥³¡¼¥É¥â¡¼¥É¤Ë¤Ä¤¤¤Æ¤Ï¡¢\\[tcode-mode-help] ¤ÇÉ½¼¨¤µ¤ì¤ë¥Ø¥ë¥×¤ò»²¾È¡£"
       (setq minibuffer-preprompt nil)))
 
 (defun tcode-toggle-katakana-mode (arg)
-  "¥«¥¿¥«¥Ê¥â¡¼¥É¤òÀÚ¤êÂØ¤¨¤ë¡£"
+  "ã‚«ã‚¿ã‚«ãƒŠãƒ¢ãƒ¼ãƒ‰ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ã€‚"
   (interactive "P")
   (setq tcode-katakana-mode (if (null arg)
 				(not tcode-katakana-mode)
@@ -1214,7 +1214,7 @@ The remaining arguments are libraries to be loaded before using the package."
 (defvar tcode-cancel-undo-boundary-commands '(self-insert-command))
 
 (defun tcode-cancel-undo-boundary ()
-  "Ê¸»ú¤òÁŞÆş¤·¤¿¤È¤­¤Ë¡¢¤Ş¤È¤á¤Æ undo ¤Ç¤­¤ë¤è¤¦¤ËÄ´À°¤¹¤ë¡£"
+  "æ–‡å­—ã‚’æŒ¿å…¥ã—ãŸã¨ãã«ã€ã¾ã¨ã‚ã¦ undo ã§ãã‚‹ã‚ˆã†ã«èª¿æ•´ã™ã‚‹ã€‚"
   (if (or (not (memq last-command
 		     (if (memq this-command
 			       tcode-cancel-undo-boundary-commands)
@@ -1250,7 +1250,7 @@ The remaining arguments are libraries to be loaded before using the package."
       (setq events (cdr events)))))
 
 (unless tcode-use-input-method
-  ;; ¥Ş¥¤¥Ê¡¼¥â¡¼¥É
+  ;; ãƒã‚¤ãƒŠãƒ¼ãƒ¢ãƒ¼ãƒ‰
   (unless (assq 'tcode-mode minor-mode-alist)
     (setq minor-mode-alist
 	  (cons (list 'tcode-mode nil) minor-mode-alist)))
@@ -1267,7 +1267,7 @@ The remaining arguments are libraries to be loaded before using the package."
 		(char-to-string i)
 		'tcode-self-insert-command)
 	      (setq i (1+ i)))))
-	;; ¼«Æ°Åª¤Ë¥Ş¥¤¥Ê¡¼¥â¡¼¥É¥­¡¼¥Ş¥Ã¥×¤ËÊÑ¹¹
+	;; è‡ªå‹•çš„ã«ãƒã‚¤ãƒŠãƒ¼ãƒ¢ãƒ¼ãƒ‰ã‚­ãƒ¼ãƒãƒƒãƒ—ã«å¤‰æ›´
 	(or (assq 'tcode-mode minor-mode-map-alist)
 	    (setq minor-mode-map-alist
 		  (cons (cons 'tcode-mode tcode-minor-mode-map)
@@ -1290,7 +1290,7 @@ Type \\[tcode-mode-help] for more detail."
 	  (tcode-activate (or arg
 			      (if tcode-mode -1 1)))
 	  (force-mode-line-update)))
-    ;; ¼«Á°¤Ç¥Ş¥¤¥Ê¡¼¥â¡¼¥É¥­¡¼¥Ş¥Ã¥×¤ËÊÑ¹¹
+    ;; è‡ªå‰ã§ãƒã‚¤ãƒŠãƒ¼ãƒ¢ãƒ¼ãƒ‰ã‚­ãƒ¼ãƒãƒƒãƒ—ã«å¤‰æ›´
     (make-variable-buffer-local 'tcode-minor-mode-map)
     (defvar tcode-original-local-map nil)
     (make-variable-buffer-local 'tcode-original-local-map)
@@ -1342,7 +1342,7 @@ Type \\[tcode-mode-help] for more detail."
 	 "*")))
 
 (defun tcode-draw-current-table (table)
-  "TABLE ¤«¤é¡¢¼¡¤ÎÆşÎÏ¤Ë¤è¤êÁŞÆş¤µ¤ì¤ëÊ¸»úÅù¤òÉ½¤¹°ìÍ÷É½¤òÉÁ¤¯¡£"
+  "TABLE ã‹ã‚‰ã€æ¬¡ã®å…¥åŠ›ã«ã‚ˆã‚ŠæŒ¿å…¥ã•ã‚Œã‚‹æ–‡å­—ç­‰ã‚’è¡¨ã™ä¸€è¦§è¡¨ã‚’æãã€‚"
   (tcode-draw-table
    (if (vectorp table)
        (let ((draw-table (copy-sequence table))
@@ -1351,7 +1351,7 @@ Type \\[tcode-mode-help] for more detail."
 	   (aset draw-table i (tcode-action-to-printable (aref draw-table i)))
 	   (setq i (1+ i)))
 	 draw-table)
-     ;; table ¤Ï¥ê¥¹¥È
+     ;; table ã¯ãƒªã‚¹ãƒˆ
      (let ((draw-table (make-vector 40 nil)))
        (mapcar (lambda (elm)
 		 (aset draw-table
@@ -1362,14 +1362,14 @@ Type \\[tcode-mode-help] for more detail."
    1 1))
 
 (defun tcode-verbose-message (message &optional non-verbose-message)
-  "ÊÑ¿ô `tcode-verbose-message' ¤¬ non-nil ¤Î¾ì¹ç¤Ë¤Ï¡¢ MESSAGE ¤òÉ½¼¨¤¹¤ë¡£
-¤½¤¦¤Ç¤Ê¤¤¤È¤­¡¢ NON-VERBOSE-MESSAGE ¤¬¤¢¤ì¤Ğ¡¢¤³¤ì¤òÉ½¼¨¤¹¤ë¡£"
+  "å¤‰æ•° `tcode-verbose-message' ãŒ non-nil ã®å ´åˆã«ã¯ã€ MESSAGE ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
+ãã†ã§ãªã„ã¨ãã€ NON-VERBOSE-MESSAGE ãŒã‚ã‚Œã°ã€ã“ã‚Œã‚’è¡¨ç¤ºã™ã‚‹ã€‚"
   (if (or tcode-verbose-message
 	  non-verbose-message)
       (message (if tcode-verbose-message message non-verbose-message))))
 
 (defun tcode-draw-table (table page whole-page)
-  "°ìÍ÷É½¤ò TABLE ¤Ë´ğ¤Å¤­ÉÁ¤¯¡£É½¼¨¤Ï¤·¤Ê¤¤¡£"
+  "ä¸€è¦§è¡¨ã‚’ TABLE ã«åŸºã¥ãæãã€‚è¡¨ç¤ºã¯ã—ãªã„ã€‚"
   (let ((buf (get-buffer-create " *tcode: table*"))
         (sep0 [" " " " " " " " "  " "  " "  " " " " " " " ""])
         (sep1 ["[" " " " " " " "] " "  " " [" " " " " " " "]"])
@@ -1408,16 +1408,16 @@ Type \\[tcode-mode-help] for more detail."
     buf))
 
 (defun tcode-display-help-buffer (buffer &optional display-only append)
-  "\"*T-Code Help*\" ¤È¤¤¤¦¥Ğ¥Ã¥Õ¥¡¤Ë BUFFER ¤ÎÆâÍÆ¤òÉ½¼¨¤¹¤ë¡£
-É½¼¨¤·¤¿Ä¾¸å¤Ë¶õÇò¤¬ÆşÎÏ¤µ¤ì¤ë¤È¡¢ DISPLAY-ONLY ¤¬ nil ¤Ê¤é¤Ğ¤³¤Î¥Ğ¥Ã¥Õ¥¡
-¤ò¾Ãµî¤¹¤ë¡£ APPEND ¤¬ nil ¤Ç¤Ê¤¤¤È¤­¤Ï¡¢Á°¤ÎÆâÍÆ¤ËÄÉ²Ã¤·¤ÆÉ½¼¨¤¹¤ë¡£"
-  ;; ¥¦¥£¥ó¥É¥¦¹½À®¤ÎÊİÂ¸
+  "\"*T-Code Help*\" ã¨ã„ã†ãƒãƒƒãƒ•ã‚¡ã« BUFFER ã®å†…å®¹ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
+è¡¨ç¤ºã—ãŸç›´å¾Œã«ç©ºç™½ãŒå…¥åŠ›ã•ã‚Œã‚‹ã¨ã€ DISPLAY-ONLY ãŒ nil ãªã‚‰ã°ã“ã®ãƒãƒƒãƒ•ã‚¡
+ã‚’æ¶ˆå»ã™ã‚‹ã€‚ APPEND ãŒ nil ã§ãªã„ã¨ãã¯ã€å‰ã®å†…å®¹ã«è¿½åŠ ã—ã¦è¡¨ç¤ºã™ã‚‹ã€‚"
+  ;; ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦æ§‹æˆã®ä¿å­˜
   (unless (get-buffer-window tcode-help-buffer-name)
     (setq tcode-window-configuration-before-help
 	  (if (one-window-p)
 	      nil
 	    (current-window-configuration))))
-  ;; É½¼¨¤¹¤ëÆâÍÆ¤òºîÀ®¤·¡¢É½¼¨¤¹¤ë
+  ;; è¡¨ç¤ºã™ã‚‹å†…å®¹ã‚’ä½œæˆã—ã€è¡¨ç¤ºã™ã‚‹
   (let (previous-contents)
     (if append
 	(let ((buf (get-buffer tcode-help-buffer-name)))
@@ -1434,7 +1434,7 @@ Type \\[tcode-mode-help] for more detail."
 	(save-excursion
 	  (set-buffer (get-buffer tcode-help-buffer-name))
 	  (help-mode))))
-  ;; ¥¦¥£¥ó¥É¥¦¤ÎÂç¤­¤µ¤ÎÄ´À°
+  ;; ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å¤§ãã•ã®èª¿æ•´
   (let ((orig-win (selected-window))
 	(new-win (get-buffer-window tcode-help-buffer-name))
 	(window-min-height 2))
@@ -1450,11 +1450,11 @@ Type \\[tcode-mode-help] for more detail."
       (set-window-start (selected-window) (point-min))
       (unless (one-window-p)
 	(select-window orig-win))))
-  ;; É½¼¨¸å¤Î½èÍı
+  ;; è¡¨ç¤ºå¾Œã®å‡¦ç†
   (setq tcode-auto-remove-help-current-count 0)
   (unless (or display-only
 	      (memq this-command tcode-no-wait-display-help-command-list))
-    (tcode-verbose-message "¥¹¥Ú¡¼¥¹¥­¡¼¤Ç¥Ø¥ë¥×¤¬¾Ã¤¨¤Ş¤¹¡£" " ")
+    (tcode-verbose-message "ã‚¹ãƒšãƒ¼ã‚¹ã‚­ãƒ¼ã§ãƒ˜ãƒ«ãƒ—ãŒæ¶ˆãˆã¾ã™ã€‚" " ")
     (let ((ch (read-char)))
       (if (/= ch ? )
 	  (tcode-redo-command ch)
@@ -1462,9 +1462,9 @@ Type \\[tcode-mode-help] for more detail."
       (message ""))))
 
 (defun tcode-auto-remove-help (&optional immediate)
-  "¥Ø¥ë¥×¤ò¼«Æ°Åª¤Ë¾Ãµî¤¹¤ë¡£
-¾Ãµî¤µ¤ì¤ë¤Î¤Ï¡¢¥Ø¥ë¥×¤¬É½¼¨¤µ¤ì¤Æ¤«¤é
-¤³¤Î´Ø¿ô¤¬ `tcode-auto-remove-help-count' ²ó¸Æ¤Ğ¤ì¤¿¤È¤­¡£"
+  "ãƒ˜ãƒ«ãƒ—ã‚’è‡ªå‹•çš„ã«æ¶ˆå»ã™ã‚‹ã€‚
+æ¶ˆå»ã•ã‚Œã‚‹ã®ã¯ã€ãƒ˜ãƒ«ãƒ—ãŒè¡¨ç¤ºã•ã‚Œã¦ã‹ã‚‰
+ã“ã®é–¢æ•°ãŒ `tcode-auto-remove-help-count' å›å‘¼ã°ã‚ŒãŸã¨ãã€‚"
   (when (or immediate
 	    (and tcode-auto-remove-help-count
 		 (>= (setq tcode-auto-remove-help-current-count
@@ -1494,14 +1494,14 @@ Type \\[tcode-mode-help] for more detail."
 	   (kill-buffer help-buf)))))
 
 ;;;
-;;; ³Æ¥â¥¸¥å¡¼¥ë¤Ç»ÈÍÑ¤¹¤ëÈÆÍÑ´Ø¿ô
+;;; å„ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã§ä½¿ç”¨ã™ã‚‹æ±ç”¨é–¢æ•°
 ;;;
 
 (defun tcode-removable-fill-prefix-p ()
-  "¼è¤ê½ü¤¤¤Æ¤â¤è¤¤ fill-prefix ¤«¡£
-¼è¤ê½ü¤¤¤Æ¤â¤è¤¤ fill-prefix ¤È¤Ï¡¢
-¹ÔÆ¬¤«¤é point ¤Ş¤Ç¤¬ fill-prefix ¤Ç¤¢¤ê¡¢¤«¤Ä
-¤½¤ÎÁ°¤Î¹Ô¤â fill-prefix ¤Ç»Ï¤Ş¤Ã¤Æ¤¤¤ë¾ì¹ç¤ò¤¤¤¦¡£"
+  "å–ã‚Šé™¤ã„ã¦ã‚‚ã‚ˆã„ fill-prefix ã‹ã€‚
+å–ã‚Šé™¤ã„ã¦ã‚‚ã‚ˆã„ fill-prefix ã¨ã¯ã€
+è¡Œé ­ã‹ã‚‰ point ã¾ã§ãŒ fill-prefix ã§ã‚ã‚Šã€ã‹ã¤
+ãã®å‰ã®è¡Œã‚‚ fill-prefix ã§å§‹ã¾ã£ã¦ã„ã‚‹å ´åˆã‚’ã„ã†ã€‚"
   (and fill-prefix
        (and (string= fill-prefix
 		     (buffer-substring (save-excursion
@@ -1513,8 +1513,8 @@ Type \\[tcode-mode-help] for more detail."
 		   (looking-at (regexp-quote fill-prefix)))))))
 
 (defun tcode-skip-blank-backward ()
-  "¹ÔÆ¬¤«¤é point ¤Ş¤Ç¤¬¶õÇò¤Ê¤é point ¤òÁ°¤Î¹Ô¤Î¹ÔËö¤Ë°ÜÆ°¤¹¤ë¡£
-`fill-prefix'¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤ë¤È¤­¤Ï¡¢¤½¤ÎÊ¸»úÎó¤âÌµ»ë¤¹¤ë¡£"
+  "è¡Œé ­ã‹ã‚‰ point ã¾ã§ãŒç©ºç™½ãªã‚‰ point ã‚’å‰ã®è¡Œã®è¡Œæœ«ã«ç§»å‹•ã™ã‚‹ã€‚
+`fill-prefix'ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã¨ãã¯ã€ãã®æ–‡å­—åˆ—ã‚‚ç„¡è¦–ã™ã‚‹ã€‚"
   (let ((p (point))
 	(fill-prefix-end (and fill-prefix
 			      (save-excursion
@@ -1524,19 +1524,19 @@ Type \\[tcode-mode-help] for more detail."
     (cond ((bobp)
 	   nil)
 	  ((bolp)
-	   ;; Á°¤Î¹Ô¤Ø
+	   ;; å‰ã®è¡Œã¸
 	   (forward-line -1)
 	   (end-of-line)
 	   (if (bobp)
 	       nil
 	     (point)))
-	  ((null fill-prefix-end) ; fill-prefix ¤¬¤Ê¤¤¾ì¹ç¡£
+	  ((null fill-prefix-end) ; fill-prefix ãŒãªã„å ´åˆã€‚
 	   (if (save-excursion
 		 (beginning-of-line)
 		 (or (not (re-search-forward "^\\s +" p t))
 		     (/= (point) p)))
 	       p
-	     ;; ¹ÔÆ¬¤«¤é¤Î¶õÇò¤ò¤È¤Ğ¤¹
+	     ;; è¡Œé ­ã‹ã‚‰ã®ç©ºç™½ã‚’ã¨ã°ã™
 	     (forward-line -1)
 	     (end-of-line)
 	     (if (bobp)
@@ -1545,17 +1545,17 @@ Type \\[tcode-mode-help] for more detail."
 	  ((not (save-excursion
 		  (goto-char fill-prefix-end)
 		  (tcode-removable-fill-prefix-p)))
-	   ;; Ä¾Á°¤Î¹Ô¤¬ fill-prefix ¤Ç»Ï¤Ş¤Ã¤Æ¤¤¤Ê¤¤¾ì¹ç¡£
+	   ;; ç›´å‰ã®è¡ŒãŒ fill-prefix ã§å§‹ã¾ã£ã¦ã„ãªã„å ´åˆã€‚
 	   (if (= fill-prefix-end p)
-	       nil    ; ¼è¤ê½ü¤¤¤Æ¤Ï¤¤¤±¤Ê¤¤ fill-prefix
+	       nil    ; å–ã‚Šé™¤ã„ã¦ã¯ã„ã‘ãªã„ fill-prefix
 	     p))
-	  ((<= p fill-prefix-end) ; fill-prefix ¤ÎÃæ¤Ë¤¤¤ë¾ì¹ç¡£
+	  ((<= p fill-prefix-end) ; fill-prefix ã®ä¸­ã«ã„ã‚‹å ´åˆã€‚
 	   (forward-line -1)
 	   (end-of-line)
 	   (if (bobp)
 	       nil
 	     (point)))
-	  (t		  ; fill-prefix + Ê¸»úÎó¤Î¾ì¹ç¡£
+	  (t		  ; fill-prefix + æ–‡å­—åˆ—ã®å ´åˆã€‚
 	   (if (save-excursion
 		 (beginning-of-line)
 		 (or (not (re-search-forward
@@ -1563,17 +1563,17 @@ Type \\[tcode-mode-help] for more detail."
 			   p t))
 		     (/= (point) p)))
 	       p
-	     ;; fill-prefix + ¶õÇò¤ò¤È¤Ğ¤¹¡£
+	     ;; fill-prefix + ç©ºç™½ã‚’ã¨ã°ã™ã€‚
 	     (forward-line -1)
 	     (end-of-line)
 	     (point))))))
 
 (defun tcode-scan-backward (max &optional terminate-char-list)
-  "¸½ point ¤è¤êÀèÆ¬Êı¸ş¤Ë¤¢¤ëÆüËÜ¸ìÎó¤Ş¤¿¤Ï±ÑÃ±¸ì°ì¤Ä¤Î¥ê¥¹¥È¤òÊÖ¤¹¡£
-¥ê¥¹¥È¤ÎÍ×ÁÇ¤Ï(POINT . \"Ê¸»úÎó\")¤Ç¤¢¤ë¡£
-¤³¤³¤Ç¡¢¡ÖÊ¸»úÎó¡×¤Ï¡¢ÆüËÜ¸ìÊ¸»ú¤Î¾ì¹ç1Ê¸»ú¡¢±ÑÊ¸»ú¤Î¾ì¹ç¤Ï1Ã±¸ì¤Ç¤¢¤ë¡£
-¥ê¥¹¥È¤Î½çÈÖ¤È¤·¤Æ¤Ï¡¢¥Ğ¥Ã¥Õ¥¡¤ÎÀèÆ¬¤Ë¶á¤¤Ê¸»úÎó¤¬ÀèÆ¬¤ÎÂ¦¤Ë¤Ê¤ë¡£
-¥ê¥¹¥È¤ÎÄ¹¤µ¤ÏºÇÂç MAX Ê¸»ú¤Ç¤¢¤ë¡£"
+  "ç¾ point ã‚ˆã‚Šå…ˆé ­æ–¹å‘ã«ã‚ã‚‹æ—¥æœ¬èªåˆ—ã¾ãŸã¯è‹±å˜èªä¸€ã¤ã®ãƒªã‚¹ãƒˆã‚’è¿”ã™ã€‚
+ãƒªã‚¹ãƒˆã®è¦ç´ ã¯(POINT . \"æ–‡å­—åˆ—\")ã§ã‚ã‚‹ã€‚
+ã“ã“ã§ã€ã€Œæ–‡å­—åˆ—ã€ã¯ã€æ—¥æœ¬èªæ–‡å­—ã®å ´åˆ1æ–‡å­—ã€è‹±æ–‡å­—ã®å ´åˆã¯1å˜èªã§ã‚ã‚‹ã€‚
+ãƒªã‚¹ãƒˆã®é †ç•ªã¨ã—ã¦ã¯ã€ãƒãƒƒãƒ•ã‚¡ã®å…ˆé ­ã«è¿‘ã„æ–‡å­—åˆ—ãŒå…ˆé ­ã®å´ã«ãªã‚‹ã€‚
+ãƒªã‚¹ãƒˆã®é•·ã•ã¯æœ€å¤§ MAX æ–‡å­—ã§ã‚ã‚‹ã€‚"
   (save-excursion
     (let (ch context)
       (while (and (< (length context) max)
@@ -1583,25 +1583,25 @@ Type \\[tcode-mode-help] for more detail."
 		      (null context))
 		  (not (bobp)))
 	(if (<= ch 255)
-  	    ;; ¥¢¥ë¥Õ¥¡¥Ù¥Ã¥È¤Î¾ì¹ç
+  	    ;; ã‚¢ãƒ«ãƒ•ã‚¡ãƒ™ãƒƒãƒˆã®å ´åˆ
 	    (let ((end (point))
 		  (beg (progn
 			 (if (= (char-syntax ch) ?w)
-			     ;; ¸ì
+			     ;; èª
 			     (while (and (not (bobp))
 					 (= (char-syntax
 					     (setq ch (tcode-preceding-char)))
 					    ?w)
 					 (<= ch 255))
 			       (tcode-forward-char -1))
-			   ;; µ­¹æ
+			   ;; è¨˜å·
 			   (tcode-forward-char -1))
 			 (point))))
 	      (setq context (cons
 			     (cons beg
 				   (buffer-substring-no-properties beg end))
 			     context)))
-	  ;; ÆüËÜ¸ìÊ¸»ú¤Î¾ì¹ç(1»úÆÀ¤ë)
+	  ;; æ—¥æœ¬èªæ–‡å­—ã®å ´åˆ(1å­—å¾—ã‚‹)
 	  (tcode-forward-char -1)
 	  (setq context (cons (cons (point) (char-to-string ch))
 			      context))))
@@ -1617,13 +1617,13 @@ Type \\[tcode-mode-help] for more detail."
   (expand-file-name file tcode-data-directory))
 
 (defun tcode-set-work-buffer (bufname filename &optional force noerror)
-  "ÊÔ½¸ÂĞ¾İ¥Ğ¥Ã¥Õ¥¡¤ò¡¢FILENAME ¤ÎÆâÍÆ¤ò»ı¤Ä¥Ğ¥Ã¥Õ¥¡ BUFNAME ¤Ë¤¹¤ë¡£
-¥Õ¥¡¥¤¥ë FILENAME ¤¬¤Ş¤ÀÆÉ¤ß¹ş¤Ş¤ì¤Æ¤¤¤Ê¤¤¾ì¹ç¤Ë¤ÏÆÉ¤ß¹ş¤à¡£
-ÊÖ¤êÃÍ¤È¤·¤Æ¡¢ÀßÄê¤µ¤ì¤¿¥Ğ¥Ã¥Õ¥¡¤òÊÖ¤¹¡£
+  "ç·¨é›†å¯¾è±¡ãƒãƒƒãƒ•ã‚¡ã‚’ã€FILENAME ã®å†…å®¹ã‚’æŒã¤ãƒãƒƒãƒ•ã‚¡ BUFNAME ã«ã™ã‚‹ã€‚
+ãƒ•ã‚¡ã‚¤ãƒ« FILENAME ãŒã¾ã èª­ã¿è¾¼ã¾ã‚Œã¦ã„ãªã„å ´åˆã«ã¯èª­ã¿è¾¼ã‚€ã€‚
+è¿”ã‚Šå€¤ã¨ã—ã¦ã€è¨­å®šã•ã‚ŒãŸãƒãƒƒãƒ•ã‚¡ã‚’è¿”ã™ã€‚
 
-FORCE ¤¬ nil ¤Ç¤Ê¤¤¤È¤­¤Ï¡¢ºÆÆÉ¤ß¹ş¤ß¤ò¹Ô¤¦¡£
-NOERROR ¤¬ nil ¤Ç¤Ê¤¤¤È¤­¤Ï¡¢FILENAME ¤¬»ØÄê¤µ¤ì¤Æ¤¤¤Ê¤¤¾ì¹ç¤ä
-¥Õ¥¡¥¤¥ë¤¬Â¸ºß¤·¤Ê¤¤¾ì¹ç¤Ç¤â¡¢¶õ¤Î¥Ğ¥Ã¥Õ¥¡¤òºîÀ®¤¹¤ë¡£"
+FORCE ãŒ nil ã§ãªã„ã¨ãã¯ã€å†èª­ã¿è¾¼ã¿ã‚’è¡Œã†ã€‚
+NOERROR ãŒ nil ã§ãªã„ã¨ãã¯ã€FILENAME ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã‚„
+ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆã§ã‚‚ã€ç©ºã®ãƒãƒƒãƒ•ã‚¡ã‚’ä½œæˆã™ã‚‹ã€‚"
   (let ((buffer (get-buffer bufname))
 	(file (tcode-path-for-read filename)))
     (if (and buffer
@@ -1632,21 +1632,21 @@ NOERROR ¤¬ nil ¤Ç¤Ê¤¤¤È¤­¤Ï¡¢FILENAME ¤¬»ØÄê¤µ¤ì¤Æ¤¤¤Ê¤¤¾ì¹ç¤ä
       (if (and file (file-exists-p file))
 	  (prog2
 	      (when tcode-verbose-message
-		(message "¥Õ¥¡¥¤¥ë %s ÆÉ¤ß¹ş¤ßÃæ..." file))
+		(message "ãƒ•ã‚¡ã‚¤ãƒ« %s èª­ã¿è¾¼ã¿ä¸­..." file))
 	      (set-buffer (get-buffer-create bufname))
 	    (erase-buffer)
 	    (insert-file-contents file)
 	    (set-buffer-modified-p nil)
 	    (when tcode-verbose-message
-	      (message "¥Õ¥¡¥¤¥ë %s ÆÉ¤ß¹ş¤ßÃæ...´°Î»" file)))
+	      (message "ãƒ•ã‚¡ã‚¤ãƒ« %s èª­ã¿è¾¼ã¿ä¸­...å®Œäº†" file)))
 	(if noerror
 	    (set-buffer (get-buffer-create bufname))
-	  (error "¥Õ¥¡¥¤¥ë %s ¤¬Â¸ºß¤·¤Ş¤»¤ó¡£" file))))))
+	  (error "ãƒ•ã‚¡ã‚¤ãƒ« %s ãŒå­˜åœ¨ã—ã¾ã›ã‚“ã€‚" file))))))
 
 (defun tcode-save-buffer (bufname filename &optional backup-inhibited)
-  "BUFNAME¤Î¥Ğ¥Ã¥Õ¥¡¤¬ÊÑ¹¹¤µ¤ì¤Æ¤¤¤ì¤ĞFILENAME¤Î¥Õ¥¡¥¤¥ë¤ËÊİÂ¸¤¹¤ë¡£
-BACKUP-INHIBITED ¤¬ nil ¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢¥Ğ¥Ã¥¯¥¢¥Ã¥×¥Õ¥¡¥¤¥ë¤ÎºîÀ®¤ò
-¹Ô¤ï¤Ê¤¤¡£"
+  "BUFNAMEã®ãƒãƒƒãƒ•ã‚¡ãŒå¤‰æ›´ã•ã‚Œã¦ã„ã‚Œã°FILENAMEã®ãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜ã™ã‚‹ã€‚
+BACKUP-INHIBITED ãŒ nil ã§ãªã„å ´åˆã¯ã€ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆã‚’
+è¡Œã‚ãªã„ã€‚"
   (let ((buffer (get-buffer bufname))
 	(file-path (tcode-path-for-write filename)))
     (when (and tcode-data-directory
@@ -1662,11 +1662,11 @@ BACKUP-INHIBITED ¤¬ nil ¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢¥Ğ¥Ã¥¯¥¢¥Ã¥×¥Õ¥¡¥¤¥ë¤ÎºîÀ®¤ò
 	(set-buffer-modified-p nil)))))
 
 ;;
-;; Emacs½ªÎ»»ş¤Î¥Ç¡¼¥¿ÊİÂ¸
+;; Emacsçµ‚äº†æ™‚ã®ãƒ‡ãƒ¼ã‚¿ä¿å­˜
 ;;
 
 (defun tcode-save-dictionaries (&optional backup-inhibited)
-  "T¥³¡¼¥É¤ÇÍÑ¤¤¤ë¼­½ñÎà¤ò¡¢ÊÑ¹¹¤µ¤ì¤Æ¤¤¤ì¤ĞÊİÂ¸¤¹¤ë¡£"
+  "Tã‚³ãƒ¼ãƒ‰ã§ç”¨ã„ã‚‹è¾æ›¸é¡ã‚’ã€å¤‰æ›´ã•ã‚Œã¦ã„ã‚Œã°ä¿å­˜ã™ã‚‹ã€‚"
   (interactive)
   (mapcar (lambda (dic)
 	    (let ((bufname (car dic))
@@ -1689,8 +1689,8 @@ BACKUP-INHIBITED ¤¬ nil ¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢¥Ğ¥Ã¥¯¥¢¥Ã¥×¥Õ¥¡¥¤¥ë¤ÎºîÀ®¤ò
 	(tcode-set-work-buffer bufname tcode-record-file-name nil t)
 	(goto-char (point-max))
 	(insert
-	 (format (concat "%s  Ê¸»ú: %4d  Éô¼ó: %3d(%d%%)  "
-			 "¸ò¤¼½ñ¤­: %3d(%d%%)  µ¡Ç½: %3d(%d%%)\n")
+	 (format (concat "%s  æ–‡å­—: %4d  éƒ¨é¦–: %3d(%d%%)  "
+			 "äº¤ãœæ›¸ã: %3d(%d%%)  æ©Ÿèƒ½: %3d(%d%%)\n")
 		 (let ((time (current-time-string)))
 		   (if (not (string-match "^... \\(.*:.*\\):" time))
 		       ""
@@ -1706,7 +1706,7 @@ BACKUP-INHIBITED ¤¬ nil ¤Ç¤Ê¤¤¾ì¹ç¤Ï¡¢¥Ğ¥Ã¥¯¥¢¥Ã¥×¥Õ¥¡¥¤¥ë¤ÎºîÀ®¤ò
 
 (provide 'tc)
 
-;; Éô¼ó¹çÀ®ÊÑ´¹¤Î½é´üÀßÄê
+;; éƒ¨é¦–åˆæˆå¤‰æ›ã®åˆæœŸè¨­å®š
 (tcode-bushu-init 0)
 
 ;;; tc.el ends here

@@ -22,19 +22,19 @@
 (defvar search-jwrap-char ?\C-v
   "*Character to toggle canonical mode in incremental search.")
 (defvar search-jwrap-start-state 'auto
-  "*¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥Á³«»Ï»ş¤Î¹Ô¥é¥Ã¥×¥â¡¼¥É¤ò»ØÄê¤¹¤ë¡£
-nil, t ¤Ï¤½¤ì¤¾¤ì¹Ô¥é¥Ã¥×¤¢¤ê¡¢¤Ê¤·¤òÉ½¤ï¤¹¡£
-nil ¤Ç¤â t ¤Ç¤â¤Ê¤±¤ì¤Ğ tcode-ready-in-this-buffer ¤ò»È¤¦(¥Ç¥Õ¥©¥ë¥È)¡£")
+  "*ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒé–‹å§‹æ™‚ã®è¡Œãƒ©ãƒƒãƒ—ãƒ¢ãƒ¼ãƒ‰ã‚’æŒ‡å®šã™ã‚‹ã€‚
+nil, t ã¯ãã‚Œãã‚Œè¡Œãƒ©ãƒƒãƒ—ã‚ã‚Šã€ãªã—ã‚’è¡¨ã‚ã™ã€‚
+nil ã§ã‚‚ t ã§ã‚‚ãªã‘ã‚Œã° tcode-ready-in-this-buffer ã‚’ä½¿ã†(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ)ã€‚")
 
 (defvar search-string-char ?\C-k)
 (defvar search-string-char-prompt "Enter string... ")
 
 (defvar search-tcode-start-state nil
-  "*¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥Á³«»Ï»ş¤ÎT¥³¡¼¥É¥â¡¼¥É¤ò»ØÄê¤¹¤ë¡£
-	nil: ¥Ğ¥Ã¥Õ¥¡¤ÎT¥³¡¼¥É¥â¡¼¥É¤ËÆ±´ü(¥Ç¥Õ¥©¥ë¥È)¡£
-	t:   ¥Ğ¥Ã¥Õ¥¡¤ÎT¥³¡¼¥É¥â¡¼¥É¤ÈÆÈÎ©¡£³«»Ï»ş¤Ï¥Ğ¥Ã¥Õ¥¡¤ÈÆ±¤¸¡£
-	0:   ¥Ğ¥Ã¥Õ¥¡¤ÈÆÈÎ©¤Ë¾ï¤ËÈóT¥³¡¼¥É¥µ¡¼¥Á¤«¤é³«»Ï¡£
-	1:   ¥Ğ¥Ã¥Õ¥¡¤ÈÆÈÎ©¤Ë¾ï¤ËT¥³¡¼¥É¥µ¡¼¥Á¤«¤é³«»Ï¡£")
+  "*ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒé–‹å§‹æ™‚ã®Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’æŒ‡å®šã™ã‚‹ã€‚
+	nil: ãƒãƒƒãƒ•ã‚¡ã®Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã«åŒæœŸ(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ)ã€‚
+	t:   ãƒãƒƒãƒ•ã‚¡ã®Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã¨ç‹¬ç«‹ã€‚é–‹å§‹æ™‚ã¯ãƒãƒƒãƒ•ã‚¡ã¨åŒã˜ã€‚
+	0:   ãƒãƒƒãƒ•ã‚¡ã¨ç‹¬ç«‹ã«å¸¸ã«éTã‚³ãƒ¼ãƒ‰ã‚µãƒ¼ãƒã‹ã‚‰é–‹å§‹ã€‚
+	1:   ãƒãƒƒãƒ•ã‚¡ã¨ç‹¬ç«‹ã«å¸¸ã«Tã‚³ãƒ¼ãƒ‰ã‚µãƒ¼ãƒã‹ã‚‰é–‹å§‹ã€‚")
 (make-variable-buffer-local 'search-tcode-start-state)
 (setq-default search-tcode-start-state nil)
 
@@ -52,7 +52,7 @@ The space character will be deleted.")
     (tcode-mazegaki-begin-alternate-conversion . tcode-isearch-prefix-mazegaki)
     (tcode-mazegaki-begin-conversion . tcode-isearch-postfix-mazegaki)
     (tcode-toggle-alnum-mode))
-  "*isearchÃæ¤Ç¤ÎÆÃ¼ì¤Ê¥³¥Ş¥ó¥É¤ÎÆşÎÏ¤ËÂĞ¤¹¤ëÂåÂØ¥³¥Ş¥ó¥É¤Î alist¡£")
+  "*isearchä¸­ã§ã®ç‰¹æ®Šãªã‚³ãƒãƒ³ãƒ‰ã®å…¥åŠ›ã«å¯¾ã™ã‚‹ä»£æ›¿ã‚³ãƒãƒ³ãƒ‰ã® alistã€‚")
 
 (or (fboundp 'tcode-on-p)
     (defun tcode-on-p ()))		; dummy function
@@ -437,24 +437,24 @@ The space character will be deleted.")
       (set-window-start (selected-window) found-start t))))
 
 (defun tcode-isearch-bushu ()
-  "isearch-messageÃæ¤ÎÉô¼ó¹çÀ®¤ÎÊ¸»ú¤òÄ´¤Ù¤ë"
+  "isearch-messageä¸­ã®éƒ¨é¦–åˆæˆã®æ–‡å­—ã‚’èª¿ã¹ã‚‹"
   (cond
-   ((string-match "¢¥$" search-message)
+   ((string-match "â–²$" search-message)
     t)
-   ((string-match "¢¥.$" search-message)
+   ((string-match "â–².$" search-message)
     (substring search-message (string-match ".$" search-message)))
    (t
     nil)))
 
 (defun tcode-isearch-start-bushu ()
-  "T¥³¡¼¥É¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥ÁÃæ¤Î prefix Éô¼óÊÑ´¹¤ò»Ï¤á¤ë¡£"
+  "Tã‚³ãƒ¼ãƒ‰ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒä¸­ã® prefix éƒ¨é¦–å¤‰æ›ã‚’å§‹ã‚ã‚‹ã€‚"
   (tcode-bushu-init 2)
   (setq search-added-string ""
-	search-desc-string "¢¥"))
+	search-desc-string "â–²"))
 
 (defun tcode-isearch-process-string (str prev)
-  "Ê¸»ú STR ¤ò¸¡º÷Ê¸»úÎó¤Ë²Ã¤¨¤Æ¸¡º÷¤¹¤ë¡£
-PREV ¤È¹çÀ®¤Ç¤­¤ë¤È¤­¤Ï¤½¤Î¹çÀ®¤·¤¿Ê¸»ú¤Ç¸¡º÷¤¹¤ë¡£"
+  "æ–‡å­— STR ã‚’æ¤œç´¢æ–‡å­—åˆ—ã«åŠ ãˆã¦æ¤œç´¢ã™ã‚‹ã€‚
+PREV ã¨åˆæˆã§ãã‚‹ã¨ãã¯ãã®åˆæˆã—ãŸæ–‡å­—ã§æ¤œç´¢ã™ã‚‹ã€‚"
   (if (not (stringp prev))
       (setq search-added-string str
 	    search-desc-string str)
@@ -477,21 +477,21 @@ PREV ¤È¹çÀ®¤Ç¤­¤ë¤È¤­¤Ï¤½¤Î¹çÀ®¤·¤¿Ê¸»ú¤Ç¸¡º÷¤¹¤ë¡£"
 
 
 (defun tcode-isearch-bushu-alternate-conversion-command ()
-  "isearchÃæ¤ÇÄÌ¾ï¤È¤ÏµÕ¤Î·¿¤ÎÉô¼ó¹çÀ®ÊÑ´¹¤ò»Ï¤á¤ë¡£"
+  "isearchä¸­ã§é€šå¸¸ã¨ã¯é€†ã®å‹ã®éƒ¨é¦–åˆæˆå¤‰æ›ã‚’å§‹ã‚ã‚‹ã€‚"
   (interactive)
   (if tcode-use-postfix-bushu-as-default
       (tcode-isearch-start-bushu)
     (tcode-isearch-postfix-bushu)))
 
 (defun tcode-isearch-bushu-conversion-command ()
-  "isearchÃæ¤ÇÉô¼ó¹çÀ®ÊÑ´¹¤ò»Ï¤á¤ë¡£"
+  "isearchä¸­ã§éƒ¨é¦–åˆæˆå¤‰æ›ã‚’å§‹ã‚ã‚‹ã€‚"
   (interactive)
   (if (not tcode-use-postfix-bushu-as-default)
       (tcode-isearch-start-bushu)
     (tcode-isearch-postfix-bushu)))
 
 (defun tcode-isearch-postfix-bushu ()
-  "T¥³¡¼¥É¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥ÁÃæ¤Î  postfix Éô¼óÊÑ´¹¡£"
+  "Tã‚³ãƒ¼ãƒ‰ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒä¸­ã®  postfix éƒ¨é¦–å¤‰æ›ã€‚"
   (let ((p1 (string-match "..$" search-message))
 	(p2 (string-match ".$"  search-message)))
     (if (null p1)
@@ -599,14 +599,14 @@ PREV ¤È¹çÀ®¤Ç¤­¤ë¤È¤­¤Ï¤½¤Î¹çÀ®¤·¤¿Ê¸»ú¤Ç¸¡º÷¤¹¤ë¡£"
 
 
 (defun tcode-isearch-read-string ()
-  "¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥ÁÃæ¤ËÊ¸»úÎó¤òÆÉ¤ß¹ş¤à¡£"
+  "ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒä¸­ã«æ–‡å­—åˆ—ã‚’èª­ã¿è¾¼ã‚€ã€‚"
   (let* ((string (read-string (concat "Isearch read: " current-isearch-message))))
     (unless (string= string "")
       (tcode-isearch-process-string string nil))))
 
 
 (defun tcode-isearch-postfix-mazegaki ()
-  "¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥ÁÃæ¤Ë¸åÃÖ·¿¤Î¸ò¤¼½ñ¤­ÊÑ´¹¤ò¹Ô¤¦¡£"
+  "ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒä¸­ã«å¾Œç½®å‹ã®äº¤ãœæ›¸ãå¤‰æ›ã‚’è¡Œã†ã€‚"
   (let ((orig-isearch-cmds cmds))
     (unwind-protect
 	(let ((current-string current-isearch-message))

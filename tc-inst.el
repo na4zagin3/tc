@@ -28,24 +28,24 @@
 
 ;;;###autoload
 (defun tcode-install ()
-  "T¥³¡¼¥ÉÍÑ¤Î¥Ç¡¼¥¿¤òÀßÄê¤¹¤ë¡£"
+  "Tã‚³ãƒ¼ãƒ‰ç”¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’è¨­å®šã™ã‚‹ã€‚"
   (interactive)
   (if (file-exists-p tcode-init-file-name)
-      (error "%s¤òÊÔ½¸¤·¤Æ¤¯¤À¤µ¤¤¡£" tcode-init-file-name)
-    (let ((dir (read-string "T¥³¡¼¥ÉÍÑ¤Î¥Ç¡¼¥¿¤òÃÖ¤¯¥Ç¥£¥ì¥¯¥È¥ê¤Ï? " 
+      (error "%sã‚’ç·¨é›†ã—ã¦ãã ã•ã„ã€‚" tcode-init-file-name)
+    (let ((dir (read-string "Tã‚³ãƒ¼ãƒ‰ç”¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’ç½®ããƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¯? " 
 			    "~/tcode/")))
-      ;; ¥Ç¥£¥ì¥¯¥È¥ê¤ÎºîÀ®
+      ;; ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä½œæˆ
       (unless (file-exists-p dir)
 	(if (not (fboundp 'make-directory))
-	    (error "¥Ç¥£¥ì¥¯¥È¥ê%s¤òºîÀ®¤·¤Æ¤¯¤À¤µ¤¤¡£" dir))
-	(if (y-or-n-p (format "¥Ç¥£¥ì¥¯¥È¥ê%s¤òºî¤ê¤Ş¤¹¤«?" dir))
+	    (error "ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª%sã‚’ä½œæˆã—ã¦ãã ã•ã„ã€‚" dir))
+	(if (y-or-n-p (format "ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª%sã‚’ä½œã‚Šã¾ã™ã‹?" dir))
 	    (make-directory dir)))
       (unless (file-directory-p dir)
-	(error "¥Ç¥£¥ì¥¯¥È¥ê%s¤Î»ØÄê¤¬´Ö°ã¤Ã¤Æ¤¤¤Ş¤¹¡£" dir))
+	(error "ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª%sã®æŒ‡å®šãŒé–“é•ã£ã¦ã„ã¾ã™ã€‚" dir))
       (if (/= (aref dir (1- (length dir))) ?/)
 	  (setq dir (concat dir "/")))
       (setq dir (expand-file-name dir))
-      ;; .tc¤ÎºîÀ®
+      ;; .tcã®ä½œæˆ
       (save-excursion
 	(set-buffer (get-buffer-create "*tcode: .tc *"))
 	(erase-buffer)
@@ -64,6 +64,6 @@
 		  "\")\n"))
 	(write-file tcode-init-file-name))
       (setq tcode-data-directory dir)
-      (message "¾Ü¤·¤¤ÀßÄêË¡¤ÏInfo¤Îtc¤Î¹àÌÜ¤ò¸«¤Æ¤¯¤À¤µ¤¤¡£"))))
+      (message "è©³ã—ã„è¨­å®šæ³•ã¯Infoã®tcã®é …ç›®ã‚’è¦‹ã¦ãã ã•ã„ã€‚"))))
 
 ;;; tc-inst.el ends here

@@ -7,101 +7,101 @@
 
 ;;; Commentary
 
-;; Å‹ß‚Í‘SŠp‚Æ”¼Šp‚ª“ü‚è¬‚¶‚Á‚½
-;; ƒeƒLƒXƒg‚ðŒ©‚éŽ–‚ª‘½‚­‚ÄŒŸõ‚·‚é‚Ì‚ª–Ê“|‚¾‚ÆŠ´‚¶‚é‚æ‚¤‚É‚È‚Á‚½‚Ì‚Å
-;; ‘SŠp‚Æ”¼Šp‚ð‹æ•Ê‚¹‚¸‚ÉŒŸõ‚·‚éƒvƒƒOƒ‰ƒ€‚ð‘‚¢‚Ä‚Ý‚Ü‚µ‚½B
+;; æœ€è¿‘ã¯å…¨è§’ã¨åŠè§’ãŒå…¥ã‚Šæ··ã˜ã£ãŸ
+;; ãƒ†ã‚­ã‚¹ãƒˆã‚’è¦‹ã‚‹äº‹ãŒå¤šãã¦æ¤œç´¢ã™ã‚‹ã®ãŒé¢å€’ã ã¨æ„Ÿã˜ã‚‹ã‚ˆã†ã«ãªã£ãŸã®ã§
+;; å…¨è§’ã¨åŠè§’ã‚’åŒºåˆ¥ã›ãšã«æ¤œç´¢ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’æ›¸ã„ã¦ã¿ã¾ã—ãŸã€‚
 
-;; Meadow-2.11 based on GNU Emacs 21.4.1 ‚ÅƒeƒXƒg‚µ‚Ä‚¢‚Ü‚·B
-;; emacs21 ‚È‚ç‘½•ª“®‚­‚Å‚µ‚å‚¤B
-;; emacs20.2 ˆÈ‘O‚Å‚Í‘½•ª“®‚«‚Ü‚¹‚ñB
-;; (•¶Žš—ñ’†‚Ìƒ}ƒ‹ƒ`ƒoƒCƒg•¶Žš‚ð aref ‚ÅŽQÆ‚µ‚Ä‚¢‚é)
+;; Meadow-2.11 based on GNU Emacs 21.4.1 ã§ãƒ†ã‚¹ãƒˆã—ã¦ã„ã¾ã™ã€‚
+;; emacs21 ãªã‚‰å¤šåˆ†å‹•ãã§ã—ã‚‡ã†ã€‚
+;; emacs20.2 ä»¥å‰ã§ã¯å¤šåˆ†å‹•ãã¾ã›ã‚“ã€‚
+;; (æ–‡å­—åˆ—ä¸­ã®ãƒžãƒ«ãƒãƒã‚¤ãƒˆæ–‡å­—ã‚’ aref ã§å‚ç…§ã—ã¦ã„ã‚‹)
 
-;; tcode-isearch-enable-wrapped-search ‚Æ
-;; tcode-isearch-enable-unification-search ‚ª
-;; ‹¤‚É non-nil ‚ÌŽž‚É“­‚«‚Ü‚·B(‚¿‚å‚Á‚ÆŽè”²‚«)
+;; tcode-isearch-enable-wrapped-search ã¨
+;; tcode-isearch-enable-unification-search ãŒ
+;; å…±ã« non-nil ã®æ™‚ã«åƒãã¾ã™ã€‚(ã¡ã‚‡ã£ã¨æ‰‹æŠœã)
 
-;; “‡ŒŸõ‚Ìƒ‹[ƒ‹‚Í tcode-isearch-unification-list ‚É‹Lq‚µ‚Ü‚·B
-;; ‚±‚Ì•Ï”‚ÍƒŠƒXƒg‚ÅŠe—v‘f‚Í•¶Žš—ñ‚Ü‚½‚ÍƒŠƒXƒg‚Å‚·B
+;; çµ±åˆæ¤œç´¢ã®ãƒ«ãƒ¼ãƒ«ã¯ tcode-isearch-unification-list ã«è¨˜è¿°ã—ã¾ã™ã€‚
+;; ã“ã®å¤‰æ•°ã¯ãƒªã‚¹ãƒˆã§å„è¦ç´ ã¯æ–‡å­—åˆ—ã¾ãŸã¯ãƒªã‚¹ãƒˆã§ã™ã€‚
 
-;; —v‘f‚ª•¶Žš—ñ‚Ìê‡‚Í•¶Žš—ñ‚ÌŠe•¶Žš‚ª“ü—Í‚³‚ê‚½Žž‚ÉŒÝ‚¢‚É‹æ•Ê‚¹‚¸‚É
-;; ŒŸõ‚·‚é•¶Žš‚Æ‚È‚è‚Ü‚·B
+;; è¦ç´ ãŒæ–‡å­—åˆ—ã®å ´åˆã¯æ–‡å­—åˆ—ã®å„æ–‡å­—ãŒå…¥åŠ›ã•ã‚ŒãŸæ™‚ã«äº’ã„ã«åŒºåˆ¥ã›ãšã«
+;; æ¤œç´¢ã™ã‚‹æ–‡å­—ã¨ãªã‚Šã¾ã™ã€‚
 
-;;   —á: '("ˆŸ˜±" "Hˆªâs" ...) ‚Æ‚·‚é‚ÆˆÙ‘ÌŽš‚ð‹æ•Ê‚¹‚¸‚ÉŒŸõ‚µ‚Ü‚·B
+;;   ä¾‹: '("äºœäºž" "ç§‹ç©é¾" ...) ã¨ã™ã‚‹ã¨ç•°ä½“å­—ã‚’åŒºåˆ¥ã›ãšã«æ¤œç´¢ã—ã¾ã™ã€‚
 
-;; ‚ ‚é•¶Žš‚ª“ü—Í‚³‚ê‚½ŽžA‘Î‰ž‚·‚é•¶Žš—ñ•\Œ»(“ñ•¶ŽšˆÈã)‚àŒŸõ‚µ‚½‚¢ê‡‚É
-;; —v‘f‚Æ‚µ‚ÄƒŠƒXƒg‚ðŽw’è‚µ‚Ü‚·B‚±‚ÌƒŠƒXƒg‚Ì—v‘f‚Í•¶Žš‚Ü‚½‚Í•¶Žš—ñ‚Å‚·B
+;; ã‚ã‚‹æ–‡å­—ãŒå…¥åŠ›ã•ã‚ŒãŸæ™‚ã€å¯¾å¿œã™ã‚‹æ–‡å­—åˆ—è¡¨ç¾(äºŒæ–‡å­—ä»¥ä¸Š)ã‚‚æ¤œç´¢ã—ãŸã„å ´åˆã«
+;; è¦ç´ ã¨ã—ã¦ãƒªã‚¹ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚ã“ã®ãƒªã‚¹ãƒˆã®è¦ç´ ã¯æ–‡å­—ã¾ãŸã¯æ–‡å­—åˆ—ã§ã™ã€‚
 
-;;   —á: '((?ƒK "ƒJJ") (?ƒM "ƒLJ") ...) ‚Æ‚·‚é‚ÆuƒKv‚ð“ü—Í‚·‚éŽ–‚Å
-;;       uƒJJv‚àŒŸõ‚³‚ê‚Ü‚·B
-;;       ‚½‚¾‚µuƒJJv‚ð“ü—Í‚µ‚Ä‚àuƒKv‚ÍŒŸõ‚Å‚«‚Ü‚¹‚ñB
+;;   ä¾‹: '((?ã‚¬ "ã‚«ã‚›") (?ã‚® "ã‚­ã‚›") ...) ã¨ã™ã‚‹ã¨ã€Œã‚¬ã€ã‚’å…¥åŠ›ã™ã‚‹äº‹ã§
+;;       ã€Œã‚«ã‚›ã€ã‚‚æ¤œç´¢ã•ã‚Œã¾ã™ã€‚
+;;       ãŸã ã—ã€Œã‚«ã‚›ã€ã‚’å…¥åŠ›ã—ã¦ã‚‚ã€Œã‚¬ã€ã¯æ¤œç´¢ã§ãã¾ã›ã‚“ã€‚
 
-;; tcode-isearch-unification-list ‚ðÝ’è‚·‚éê‡‚Í tc-is20u.el ‚ðƒ[ƒh‚·‚é
-;; ‘O‚É’l‚ðÝ’è‚·‚é‚©Atc-is20u.el ‚ðŠù‚Éƒ[ƒh‚µ‚Ä‚¢‚éê‡‚Í–¾Ž¦“I‚É
-;; (tcode-isearch-unification-setup nil) ‚ð•]‰¿‚µ‚Ä‰º‚³‚¢B
+;; tcode-isearch-unification-list ã‚’è¨­å®šã™ã‚‹å ´åˆã¯ tc-is20u.el ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
+;; å‰ã«å€¤ã‚’è¨­å®šã™ã‚‹ã‹ã€tc-is20u.el ã‚’æ—¢ã«ãƒ­ãƒ¼ãƒ‰ã—ã¦ã„ã‚‹å ´åˆã¯æ˜Žç¤ºçš„ã«
+;; (tcode-isearch-unification-setup nil) ã‚’è©•ä¾¡ã—ã¦ä¸‹ã•ã„ã€‚
 
-;; •¶Žš‚ðŒÝ‚¢‚É‹æ•Ê‚µ‚È‚¢‚Ì‚Å‚Í‚È‚­A”ñ‘ÎÌ‚É‚µ‚½‚¢ê‡‚Í
-;; tcode-isearch-unification-reverse ‚ð nil ‚É‚µ‚Ä tc-is20u.el ‚ðƒ[ƒh‚·‚é
-;; ‚©A(tcode-isearch-unification-setup t) ‚ð•]‰¿‚µ‚Ä‰º‚³‚¢B
+;; æ–‡å­—ã‚’äº’ã„ã«åŒºåˆ¥ã—ãªã„ã®ã§ã¯ãªãã€éžå¯¾ç§°ã«ã—ãŸã„å ´åˆã¯
+;; tcode-isearch-unification-reverse ã‚’ nil ã«ã—ã¦ tc-is20u.el ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
+;; ã‹ã€(tcode-isearch-unification-setup t) ã‚’è©•ä¾¡ã—ã¦ä¸‹ã•ã„ã€‚
 
-;; ‚±‚Ìê‡‚ÍŒÝ‚¢‚É‹æ•Ê‚µ‚È‚­‚Ä—Ç‚¢•¶Žš‚Ì‘g‚É‚Â‚¢‚Ä‚Í‘S‚Ä‚Ì•¶Žš‚É‚Â‚¢‚Ä
-;; tcode-isearch-unification-list ‚É‹æ•Ê‚µ‚È‚¢Ž–‚ð–¾Ž¦‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
+;; ã“ã®å ´åˆã¯äº’ã„ã«åŒºåˆ¥ã—ãªãã¦è‰¯ã„æ–‡å­—ã®çµ„ã«ã¤ã„ã¦ã¯å…¨ã¦ã®æ–‡å­—ã«ã¤ã„ã¦
+;; tcode-isearch-unification-list ã«åŒºåˆ¥ã—ãªã„äº‹ã‚’æ˜Žç¤ºã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
 
-;;   —á: tcode-isearch-unification-reverse ‚ª nil ‚Å
-;;       A,‚` ‚ðŒÝ‚¢‚É‹æ•Ê‚µ‚È‚¢ê‡‚ÍˆÈ‰º‚Ì‚æ‚¤‚ÉŽw’è‚·‚éB
-;;       '("A‚`" "‚`A")
-;;       ”¼Šp‚Ì A ‚ð“ü—Í‚µ‚½Žž‚Í‘SŠp‚Ì‚`‚ðŒŸõ‚µ‚½‚¢‚ª
-;;       ‘SŠp‚Ì‚`‚ð“ü—Í‚µ‚½Žž‚É‚Í”¼Šp‚Ì A ‚ðŒŸõ‚µ‚È‚­‚Ä—Ç‚¢ê‡‚Í
-;;       '("A‚`")
-;;       ‚¾‚¯‚ðŽw’è‚·‚éB
+;;   ä¾‹: tcode-isearch-unification-reverse ãŒ nil ã§
+;;       A,ï¼¡ ã‚’äº’ã„ã«åŒºåˆ¥ã—ãªã„å ´åˆã¯ä»¥ä¸‹ã®ã‚ˆã†ã«æŒ‡å®šã™ã‚‹ã€‚
+;;       '("Aï¼¡" "ï¼¡A")
+;;       åŠè§’ã® A ã‚’å…¥åŠ›ã—ãŸæ™‚ã¯å…¨è§’ã®ï¼¡ã‚’æ¤œç´¢ã—ãŸã„ãŒ
+;;       å…¨è§’ã®ï¼¡ã‚’å…¥åŠ›ã—ãŸæ™‚ã«ã¯åŠè§’ã® A ã‚’æ¤œç´¢ã—ãªãã¦è‰¯ã„å ´åˆã¯
+;;       '("Aï¼¡")
+;;       ã ã‘ã‚’æŒ‡å®šã™ã‚‹ã€‚
 
 ;;; Code:
 (require 'tc-is20)
 
 (defvar tcode-isearch-enable-unification-search t
-  "*2ƒoƒCƒg•¶Žš‚ÅƒT[ƒ`‚·‚é‚Æ‚«‚ÉAŽšŽí“‡ŒŸõ‚ð‚·‚éB")
+  "*2ãƒã‚¤ãƒˆæ–‡å­—ã§ã‚µãƒ¼ãƒã™ã‚‹ã¨ãã«ã€å­—ç¨®çµ±åˆæ¤œç´¢ã‚’ã™ã‚‹ã€‚")
 
 (put 'tcode-isearch-unification-char-table 'char-table-extra-slots 0)
 
 (defvar tcode-isearch-unification-char-table nil
-  "ŽšŽí“‡ŒŸõ‚·‚é‚Æ‚«‚Ì“‡ƒ‹[ƒ‹‚ð’è‚ß‚é•\B")
+  "å­—ç¨®çµ±åˆæ¤œç´¢ã™ã‚‹ã¨ãã®çµ±åˆãƒ«ãƒ¼ãƒ«ã‚’å®šã‚ã‚‹è¡¨ã€‚")
 
 (defvar tcode-isearch-unification-list
-  '(" @" "!I" "\"h" "#”" "$" "%“" "&•" "'f"
-    "(i" ")j" "*–" "+{" ",C" "-|" ".D" "/^"
-    "0‚O" "1‚P" "2‚Q" "3‚R" "4‚S" "5‚T" "6‚U" "7‚V" "8‚W" "9‚X"
-    ":F" ";G" "<ƒ" "=" ">„" "?H"
-    "@—" "A‚`" "B‚a" "C‚b" "D‚c" "E‚d" "F‚e" "G‚f"
-    "H‚g" "I‚h" "J‚i" "K‚j" "L‚k" "M‚l" "N‚m" "O‚n"
-    "P‚o" "Q‚p" "R‚q" "S‚r" "T‚s" "U‚t" "V‚u" "W‚v"
-    "X‚w" "Y‚x" "Z‚y" "[m" "\\" "]n" "^O" "_Q"
-    "`e" "a‚" "b‚‚" "c‚ƒ" "d‚„" "e‚…" "f‚†" "g‚‡"
-    "h‚ˆ" "i‚‰" "j‚Š" "k‚‹" "l‚Œ" "m‚" "n‚Ž" "o‚"
-    "p‚" "q‚‘" "r‚’" "s‚“" "t‚”" "u‚•" "v‚–" "w‚—"
-    "x‚˜" "y‚™" "z‚š" "{o" "|b" "}p" "~P"
-    "B¡" "u¢" "v£" "A¤" "E¥" "JÞ" "Kß" "[°"
-    "ƒA±" "ƒC²" "ƒE³" "ƒG´" "ƒIµ"
-    "ƒJ¶" "ƒL·" "ƒN¸" "ƒP¹" "ƒRº"
-    "ƒT»" "ƒV¼" "ƒX½" "ƒZ¾" "ƒ\¿"
-    "ƒ^À" "ƒ`Á" "ƒcÂ" "ƒeÃ" "ƒgÄ"
-    "ƒiÅ" "ƒjÆ" "ƒkÇ" "ƒlÈ" "ƒmÉ"
-    "ƒnÊ" "ƒqË" "ƒtÌ" "ƒwÍ" "ƒzÎ"
-    "ƒ}Ï" "ƒ~Ð" "ƒ€Ñ" "ƒÒ" "ƒ‚Ó"
-    "ƒ„Ô" "ƒ†Õ" "ƒˆÖ"
-    "ƒ‰×" "ƒŠØ" "ƒ‹Ù" "ƒŒÚ" "ƒÛ"
-    "ƒÜ" "ƒ’¦" "ƒ“Ý"
-    "ƒ@§" "ƒB¨" "ƒD©" "ƒFª" "ƒH«"
-    "ƒƒ¬" "ƒ…­" "ƒ‡®" "ƒb¯"
-    (?ƒK "¶Þ") (?ƒM "·Þ") (?ƒO "¸Þ") (?ƒQ "¹Þ") (?ƒS "ºÞ")
-    (?ƒU "»Þ") (?ƒW "¼Þ") (?ƒY "½Þ") (?ƒ[ "¾Þ") (?ƒ] "¿Þ")
-    (?ƒ_ "ÀÞ") (?ƒa "ÁÞ") (?ƒd "ÂÞ") (?ƒf "ÃÞ") (?ƒh "ÄÞ")
-    (?ƒo "ÊÞ") (?ƒr "ËÞ") (?ƒu "ÌÞ") (?ƒx "ÍÞ") (?ƒ{ "ÎÞ")
-    (?ƒp "Êß") (?ƒs "Ëß") (?ƒv "Ìß") (?ƒy "Íß") (?ƒ| "Îß")
-    (?ƒ” "³Þ"))
-  "ŽšŽí“‡ŒŸõ‚·‚é‚Æ‚«‚Ì“‡ƒ‹[ƒ‹‚ð’è‚ß‚éƒŠƒXƒgB")
+  '(" ã€€" "!ï¼" "\"â€" "#ï¼ƒ" "$ï¼„" "%ï¼…" "&ï¼†" "'â€™"
+    "(ï¼ˆ" ")ï¼‰" "*ï¼Š" "+ï¼‹" ",ï¼Œ" "-âˆ’" ".ï¼Ž" "/ï¼"
+    "0ï¼" "1ï¼‘" "2ï¼’" "3ï¼“" "4ï¼”" "5ï¼•" "6ï¼–" "7ï¼—" "8ï¼˜" "9ï¼™"
+    ":ï¼š" ";ï¼›" "<ï¼œ" "=ï¼" ">ï¼ž" "?ï¼Ÿ"
+    "@ï¼ " "Aï¼¡" "Bï¼¢" "Cï¼£" "Dï¼¤" "Eï¼¥" "Fï¼¦" "Gï¼§"
+    "Hï¼¨" "Iï¼©" "Jï¼ª" "Kï¼«" "Lï¼¬" "Mï¼­" "Nï¼®" "Oï¼¯"
+    "Pï¼°" "Qï¼±" "Rï¼²" "Sï¼³" "Tï¼´" "Uï¼µ" "Vï¼¶" "Wï¼·"
+    "Xï¼¸" "Yï¼¹" "Zï¼º" "[ï¼»" "\\Â¥" "]ï¼½" "^ï¼¾" "_ï¼¿"
+    "`â€˜" "aï½" "bï½‚" "cï½ƒ" "dï½„" "eï½…" "fï½†" "gï½‡"
+    "hï½ˆ" "iï½‰" "jï½Š" "kï½‹" "lï½Œ" "mï½" "nï½Ž" "oï½"
+    "pï½" "qï½‘" "rï½’" "sï½“" "tï½”" "uï½•" "vï½–" "wï½—"
+    "xï½˜" "yï½™" "zï½š" "{ï½›" "|ï½œ" "}ï½" "~â€¾"
+    "ã€‚ã€‚" "ã€Œã€Œ" "ã€ã€" "ã€ã€" "ãƒ»ãƒ»" "ã‚›ã‚›" "ã‚œã‚œ" "ãƒ¼ãƒ¼"
+    "ã‚¢ã‚¢" "ã‚¤ã‚¤" "ã‚¦ã‚¦" "ã‚¨ã‚¨" "ã‚ªã‚ª"
+    "ã‚«ã‚«" "ã‚­ã‚­" "ã‚¯ã‚¯" "ã‚±ã‚±" "ã‚³ã‚³"
+    "ã‚µã‚µ" "ã‚·ã‚·" "ã‚¹ã‚¹" "ã‚»ã‚»" "ã‚½ã‚½"
+    "ã‚¿ã‚¿" "ãƒãƒ" "ãƒ„ãƒ„" "ãƒ†ãƒ†" "ãƒˆãƒˆ"
+    "ãƒŠãƒŠ" "ãƒ‹ãƒ‹" "ãƒŒãƒŒ" "ãƒãƒ" "ãƒŽãƒŽ"
+    "ãƒãƒ" "ãƒ’ãƒ’" "ãƒ•ãƒ•" "ãƒ˜ãƒ˜" "ãƒ›ãƒ›"
+    "ãƒžãƒž" "ãƒŸãƒŸ" "ãƒ ãƒ " "ãƒ¡ãƒ¡" "ãƒ¢ãƒ¢"
+    "ãƒ¤ãƒ¤" "ãƒ¦ãƒ¦" "ãƒ¨ãƒ¨"
+    "ãƒ©ãƒ©" "ãƒªãƒª" "ãƒ«ãƒ«" "ãƒ¬ãƒ¬" "ãƒ­ãƒ­"
+    "ãƒ¯ãƒ¯" "ãƒ²ãƒ²" "ãƒ³ãƒ³"
+    "ã‚¡ã‚¡" "ã‚£ã‚£" "ã‚¥ã‚¥" "ã‚§ã‚§" "ã‚©ã‚©"
+    "ãƒ£ãƒ£" "ãƒ¥ãƒ¥" "ãƒ§ãƒ§" "ãƒƒãƒƒ"
+    (?ã‚¬ "ã‚¬") (?ã‚® "ã‚®") (?ã‚° "ã‚°") (?ã‚² "ã‚²") (?ã‚´ "ã‚´")
+    (?ã‚¶ "ã‚¶") (?ã‚¸ "ã‚¸") (?ã‚º "ã‚º") (?ã‚¼ "ã‚¼") (?ã‚¾ "ã‚¾")
+    (?ãƒ€ "ãƒ€") (?ãƒ‚ "ãƒ‚") (?ãƒ… "ãƒ…") (?ãƒ‡ "ãƒ‡") (?ãƒ‰ "ãƒ‰")
+    (?ãƒ "ãƒ") (?ãƒ“ "ãƒ“") (?ãƒ– "ãƒ–") (?ãƒ™ "ãƒ™") (?ãƒœ "ãƒœ")
+    (?ãƒ‘ "ãƒ‘") (?ãƒ” "ãƒ”") (?ãƒ— "ãƒ—") (?ãƒš "ãƒš") (?ãƒ "ãƒ")
+    (?ãƒ´ "ãƒ´"))
+  "å­—ç¨®çµ±åˆæ¤œç´¢ã™ã‚‹ã¨ãã®çµ±åˆãƒ«ãƒ¼ãƒ«ã‚’å®šã‚ã‚‹ãƒªã‚¹ãƒˆã€‚")
 
 (defvar tcode-isearch-unification-reverse t
-  "*non-nil ‚ÌŽž‚Í tcode-isearch-unification-list ‚Ì•¶Žš‚ðí‚É‹æ•Ê‚µ‚È‚¢B
-nil ‚ÌŽž‚Í alist ‚Ìæ“ª—v‘f‚Ì•¶Žš‚ª“ü—Í‚³‚ê‚½Žž‚¾‚¯‹æ•Ê‚µ‚È‚¢B")
+  "*non-nil ã®æ™‚ã¯ tcode-isearch-unification-list ã®æ–‡å­—ã‚’å¸¸ã«åŒºåˆ¥ã—ãªã„ã€‚
+nil ã®æ™‚ã¯ alist ã®å…ˆé ­è¦ç´ ã®æ–‡å­—ãŒå…¥åŠ›ã•ã‚ŒãŸæ™‚ã ã‘åŒºåˆ¥ã—ãªã„ã€‚")
 
 (defun tcode-isearch-unification-setup (&optional no-reverse)
   (interactive "P")
@@ -218,8 +218,8 @@ nil ‚ÌŽž‚Í alist ‚Ìæ“ª—v‘f‚Ì•¶Žš‚ª“ü—Í‚³‚ê‚½Žž‚¾‚¯‹æ•Ê‚µ‚È‚¢B")
       string)))
 
 (defun tcode-isearch-remove-ignore-regexp (str)
-  "•Ï” `tcode-isearch-enable-wrapped-search' ‚ª nil ‚Å‚È‚¢‚Æ‚«A
-STR ‚©‚ç `tcode-isearch-ignore-regexp' ‚ðŽæ‚èœ‚­B"
+  "å¤‰æ•° `tcode-isearch-enable-wrapped-search' ãŒ nil ã§ãªã„ã¨ãã€
+STR ã‹ã‚‰ `tcode-isearch-ignore-regexp' ã‚’å–ã‚Šé™¤ãã€‚"
   (if (or (not tcode-isearch-enable-wrapped-search)
 	  isearch-regexp)
       str

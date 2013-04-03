@@ -91,10 +91,10 @@ function, it is changed to a list of functions."
 
 (unless (fboundp 'japanese-hiragana)
   (defun japanese-hiragana (char)
-    "Ê¸»ú CHAR ¤¬¥«¥¿¥«¥Ê¤Ê¤é¤Ò¤é¤¬¤Ê¤ËÊÑ´¹¤¹¤ë¡£
-¥«¥¿¥«¥Ê¤Ç¤Ê¤¤¾ì¹ç¤Ï¤½¤Î¤Ş¤Ş¤ÎÃÍ¤òÊÖ¤¹¡£"
+    "æ–‡å­— CHAR ãŒã‚«ã‚¿ã‚«ãƒŠãªã‚‰ã²ã‚‰ãŒãªã«å¤‰æ›ã™ã‚‹ã€‚
+ã‚«ã‚¿ã‚«ãƒŠã§ãªã„å ´åˆã¯ãã®ã¾ã¾ã®å€¤ã‚’è¿”ã™ã€‚"
     (let ((str (char-to-string char)))
-      (if (string-match (concat "^[¥¡-¥ó]$") str)
+      (if (string-match (concat "^[ã‚¡-ãƒ³]$") str)
 	  (if (tcode-nemacs-p)
 	      (let ((ch (mod char 256)))
 		(+ (* ?\244 256) ch))
@@ -104,10 +104,10 @@ function, it is changed to a list of functions."
 
 (unless (fboundp 'japanese-katakana)
   (defun japanese-katakana (char)
-    "Ê¸»ú CHAR ¤¬¤Ò¤é¤¬¤Ê¤Ê¤é¥«¥¿¥«¥Ê¤ËÊÑ´¹¤¹¤ë¡£
-¤Ò¤é¤¬¤Ê¤Ç¤Ê¤¤¾ì¹ç¤Ï¤½¤Î¤Ş¤Ş¤ÎÃÍ¤òÊÖ¤¹¡£"
+    "æ–‡å­— CHAR ãŒã²ã‚‰ãŒãªãªã‚‰ã‚«ã‚¿ã‚«ãƒŠã«å¤‰æ›ã™ã‚‹ã€‚
+ã²ã‚‰ãŒãªã§ãªã„å ´åˆã¯ãã®ã¾ã¾ã®å€¤ã‚’è¿”ã™ã€‚"
     (let ((str (char-to-string char)))
-      (if (string-match (concat "^[¤¡-¤ó]$") str)
+      (if (string-match (concat "^[ã-ã‚“]$") str)
 	  (if (tcode-nemacs-p)
 	      (let ((ch (mod char 256)))
 		(+ (* ?\245 256) ch))
@@ -231,7 +231,7 @@ BODY should be a list of lisp expressions."
 (if (string-match "^\\(19\\|2[01234]\\)" emacs-version)
     (progn
       (defun tcode-redo-command (ch)
-	"¥­¡¼ CH ¤ò¸½ºß¤Î¥­¡¼¥Ş¥Ã¥×¤ÇºÆ¼Â¹Ô¤¹¤ë"
+	"ã‚­ãƒ¼ CH ã‚’ç¾åœ¨ã®ã‚­ãƒ¼ãƒãƒƒãƒ—ã§å†å®Ÿè¡Œã™ã‚‹"
 	(setq unread-command-events
 	      (cons (character-to-event ch) unread-command-events)))
       (or (fboundp 'character-to-event)
@@ -245,7 +245,7 @@ BODY should be a list of lisp expressions."
 	  (setq search-upper-case 'not-yanks)))
   ;; NEmacs
   (defun tcode-redo-command (ch)
-    "¥­¡¼ CH ¤ò¸½ºß¤Î¥­¡¼¥Ş¥Ã¥×¤ÇºÆ¼Â¹Ô¤¹¤ë"
+    "ã‚­ãƒ¼ CH ã‚’ç¾åœ¨ã®ã‚­ãƒ¼ãƒãƒƒãƒ—ã§å†å®Ÿè¡Œã™ã‚‹"
     (setq unread-command-char ch)))
 
 (if (not (tcode-nemacs-p))
@@ -260,9 +260,9 @@ BODY should be a list of lisp expressions."
 	    (string-to-char-list s)))
       (defmacro tcode-delete-char (p) (list 'delete-char p)))
   ;;;
-  ;;; NEmacs ÍÑ¤ÎÄêµÁ
-  ;;; °Ê²¼¤Î´Ø¿ô¤Ç¤Ï¡¤2¥Ğ¥¤¥ÈÊ¸»ú¤ò¿ôÃÍ¤ËÊÑ´¹¤¹¤ë¤È¡¤
-  ;;; (1¥Ğ¥¤¥ÈÌÜ*256 + 2¥Ğ¥¤¥ÈÌÜ)¤Ë¤Ê¤ë¡£
+  ;;; NEmacs ç”¨ã®å®šç¾©
+  ;;; ä»¥ä¸‹ã®é–¢æ•°ã§ã¯ï¼Œ2ãƒã‚¤ãƒˆæ–‡å­—ã‚’æ•°å€¤ã«å¤‰æ›ã™ã‚‹ã¨ï¼Œ
+  ;;; (1ãƒã‚¤ãƒˆç›®*256 + 2ãƒã‚¤ãƒˆç›®)ã«ãªã‚‹ã€‚
   ;;;
   (defun char-width (c)
     (if (> c 256) 2 1))
@@ -407,8 +407,8 @@ See also the variable `input-method-verbose-flag'."
 ;;; mode-line
 
 (defun tcode-find-symbol-in-tree (item tree)
-  "ITEM ¤òÇ¤°Õ¤Î¹½Â¤¤Î¥ê¥¹¥È TREE ¤«¤éequal¤ÇÃµ¤¹¡£
-¸«¤Ä¤«¤ë¤Èt, ¸«¤Ä¤«¤é¤Ê¤±¤ì¤Ğ nil¡£"
+  "ITEM ã‚’ä»»æ„ã®æ§‹é€ ã®ãƒªã‚¹ãƒˆ TREE ã‹ã‚‰equalã§æ¢ã™ã€‚
+è¦‹ã¤ã‹ã‚‹ã¨t, è¦‹ã¤ã‹ã‚‰ãªã‘ã‚Œã° nilã€‚"
   (if (consp tree)
       (or (tcode-find-symbol-in-tree item (car tree))
 	  (tcode-find-symbol-in-tree item (cdr tree)))

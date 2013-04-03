@@ -44,9 +44,9 @@
 
 (setq tcode-transparent-mode-indicator "------"
       tcode-tcode-mode-indicator "TUT"
-      tcode-alnum-2byte-tcode-mode-indicator "£Ô "
-      tcode-hiragana-mode-indicator " ¤Ò"
-      tcode-katakana-mode-indicator " ¥«")
+      tcode-alnum-2byte-tcode-mode-indicator "ï¼´ "
+      tcode-hiragana-mode-indicator " ã²"
+      tcode-katakana-mode-indicator " ã‚«")
 
 ;;  1  2  3  4	5    6	7  8  9	 0
 ;;  q  w  e  r	t    y	u  i  o	 p
@@ -58,812 +58,812 @@
 ;; 20 21 22 23 24   25 26 27 28 29
 ;; 30 31 32 33 34   35 36 37 38 39
 
-;;  ---> °ìÂÇÌÜ¤Î¥­¡¼
+;;  ---> ä¸€æ‰“ç›®ã®ã‚­ãƒ¼
 ;; |
-;; v ÆóÂÇÌÜ¤Î¥­¡¼
+;; v äºŒæ‰“ç›®ã®ã‚­ãƒ¼
 ; 1 2 3 4 5 6 7 8 9 0 q w e r t y u i o p a s d f g h j k l ; z x c v b n m , . /
 (setq tcode-tbl [
 nil nil nil nil nil nil nil nil nil nil ; 1-0
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£ÊÂÂÖÎ¾¾èÀì¶½¸ýÍÎÁ¥µ×°­ÉÂÁá»å»î¾¾°ÂÅÔÍ¿À¶¿­±©ÀÅºâ»Ï²Ï±ÛÅý½¨Ìý" ;q
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£ÅÁ·òÂÔÇò¹Á¿å»ºÌ³±ØÆ¬º¬»ÅÌµ°Æ³ÛÆ°ÀîµëÌÚº´Î¢Ã»²¿ÀÑ·Þ¸µÂ¢¸©ÃÛ³Ñ" ;w
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£ÀÄ³è·ëÍ¥ºÇ¶âÃÏËü·úÅ´Å·º£³Æ´Ø±¿¹â¹ñ»°È¬ËÌÎàÈóÊä·ÚÎ¨ºê½É²Ä¼¼½Â" ;e
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£À°¾¯¿®ÊóÂÀÄ®¼·µþÍý±ÄÎÀ¹­Ê¿²»·×»³ÅÅ¸Þ¾®¸¶ÉüÍ·»Üµ¢ÊØÈ¾²¬ÀÐµÙË­" ;r
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¢¢¢¢¢¢¢¢¢¢ÂèÏÂ¶èÀ¾ÉÙ¢¢¢¢¢¢¢¢¢¢Ì¾Éô¶ÈÌä¶á¢¢¢¢¢¢¢¢¢¢ÎÓÌç³ÊµÈÎð" ;t
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¿©»ý»Ò½Ð¹Ô¢¢¢¢¢¢¢¢¢¢½ñ¾ì²ñ¾åÄÌ¢¢¢¢¢¢¢¢¢¢Íî¾ð»ä¼èÊÌ¢¢¢¢¢¢¢¢¢¢" ;y
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¤æ¤à¤¯¤¦¤Õ³äµÚ³Ú±à½ªÌÜ¤¹¤Ä¤Ì¤ëÀ½¼ïÍÑ³¦ÍÆ¹¥´ÛÄ´ÃÎÀÚÄ£Ç·Î¹Ãç¶Ë" ;u
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£Áê¤ß¤­¤¤¤ÒÌ±É½É×²ÃÇ½¤ð¤·¤Á¤Ë¤êÏ¢¼Ö°Ê´°µ»´ï¿ÊÂÐÍ×°ÕÁ³ÃÇ¸±¹½Í¹" ;i
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£²òµ¤¼Ô¼êÅªµå±¡ÈÖ¾ïÎÎ´üÈ¯¿Í°÷À¸Í³¶ÉÂÎÌôÃÊÆÉµá±é½Ñ¿È»úÍÜ·â»Êµï" ;o
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£ÇÛÍ½µÄÆÃË¡²ÌÅù¼óÌÓ·ôÂ³ÁíÄê½÷À®µé²Ý°é¿§µðÃ£¸Â±þÇã´¶³ÕÃ´¾­³£¸î" ;p
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£Ç°±¦»ÄÀÖ·Á¶ø°æÅç»ÎÄÚ¿¼´É¶ÐÁý½¬Æ£ÉÕ·ÐÀµ¾ÞÁÕ¼¨»ù»ÖÌ¤¸¦ÍÕÁÒÉ©Íá" ;a
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£ÀÇ¼ÁÃÄ»²´ðµ¡ÌîÁ°É´ÀÜËèÊ¡Â¾ÊÆÍøÂå·îÅÄ¸å¾¦°åÃ±ÂßÄÉµó´ÝÂ´Ä«ÇÀ²¯" ;s
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¹õ»ñ¿ôÉÊºÂ³ØËÜÂçÏ»³ôÌóÍ­Á´¼«½»ÅìÆóÆü»þÉÔÉ¾Äí²þÌò²ÖµÞ³¤»Ô»Ù¿¹" ;d
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£·ÙÂ÷¸øºÙÈñ¹©»öÃæ¶å¸áÄ¾Á÷ÊÝÀ¤¸½¿·Ç¯°ìÆ±ÊâÆ¤¶ñËÉÁÇ²ð¸÷ÏºÊ¸ÂôÇÏ" ;f
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¢¢¢¢¢¢¢¢¢¢ÆâÀéÊ¬Î©³°¢¢¢¢¢¢¢¢¢¢±ß»Í½½ÌÌ¶µ¢¢¢¢¢¢¢¢¢¢¼¡ÂðÂ¼¸ÅÂÞ" ;g
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¼ç¤á¤±¤¨¤Ø¢¢¢¢¢¢¢¢¢¢¤ñ¤»¤Æ¤Í¤ì¢¢¢¢¢¢¢¢¢¢È½ÅêÀïÁÈÂ¿¢¢¢¢¢¢¢¢¢¢" ;h
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¤è¤â¤³¤ª¤Û¾¡»á²è¿´ÈÎ¤ò¤½¤È¤Î¤íÎÏ¸³´ÖÀß¹æºöÈ÷ÅöÍè¶¯ÎÉÍÍ¾Ê·¿¸Î" ;j
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¤ä¤Þ¤«¤¢¤ÏºÐÅÙ¹»¶äÅ¾¤ï¤µ¤¿¤Ê¤é²½²¼²óÎò·¸¼ãµ­°ÑÆþ¼ÂÏÀÃÍÏ©ÁõÆ¯" ;k
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¢¢¸«¢¢¢¢¢¢»æ±ÑÂê¹ðÀª¢¢¢¢¢¢¤ó¼ÒÌëÊª½êºÝÂ¦Ç¤°úÅÞ¼õ»×ÈÌÊÔ°õÇÔ¼ø" ;l
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¶õÀþ¹ç²È½¸²¦±Ò·à¿ÆÇú²ÎÌÀÄ¹ÊýÀ¯°Ìºß¼°ºÑµæÃÖÁèµÁººÇÉËöÎÝ¾õÂ¨ÊÕ" ;;
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£ÊÖ¶¥ÊìÇ®Âà´ëÉþ¹ÝÄä½£À±µö³¹ÎëÄëÀºÍ§¼ý»ûÍú»¨¿äÅÏ¸ú±§¿¶¹ÛÉßÍ»±º" ;z
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£º×Ë¬½ô½¤ÈÇ°Ë½µ³¬Ï«ÈÄÂ²½¾Æ²Ê¼´ÆÉÍ¸ÍÎÁ²Ðºä´©ÆÁÅÐÎä¶ÁÄÅÄÍÈøÃÝÀô" ;x
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£ÆÞÃíÌÈÃãºò²Ê²°±Çºå¾ºÄÂÀ²ÆÈ´ÑÊÑÆîÃ«Æ»¶¦¹¾¼ò¸æ¼éÄø»ËÁð¾ò±É¸ËÇÈ" ;c
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¢¢¢¢¢¢¢¢¢¢±ûÃÓÀ©¾ÚÀõ¢¢¢¢¢¢¢¢¢¢²£Âæ¶¶ÉðÊõ¢¢¢¢¢¢¢¢¢¢¼Ç¹¬¶ÌÍË´Ä" ;v
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¢¢¢¢¢¢¢¢¢¢¾¼µÜ¿¦Íº½Õ¢¢¢¢¢¢¢¢¢¢·³ÅÚ¿ÀÂ¤·Ý¢¢¢¢¢¢¢¢¢¢´ä¾ë±Ê½©Î¦" ;b
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£É¬´±¼£Àè½é¢¢¢¢¢¢¢¢¢¢½õÀ­ÏÃ¸ìÅÀ¢¢¢¢¢¢¢¢¢¢ÉéÇ§°¦Ãå¾Ã¢¢¢¢¢¢¢¢¢¢" ;n
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£¹ÖÉÜÃÌ¶¨È¿¢¢¢¢¢¢¢¢¢¢¼ÌÊçºî¸ò½Å¢¢¢¢¢¢¢¢¢¢¼ºÁÛÎ®¸¡ºÆ¢¢¢¢¢¢¢¢¢¢" ;m
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£»È¿¿³«·èÈþÂâÈô¹Ò´óËþ¸¢ÁªÇäÅ¹ÃË´ÞÊ¹·ï»ÕÄãµ¯Ì¿ÀâÉØ¸À½ð³²¸Ä´¬±«" ;,
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£º¸»»»Ø¸þÊü¸ºÍÛÊ§´éÉá¿½É÷ÂÇ²Á¹þÈæ»ß¿³»¦ÎãÈ´Æ³ÀÊÏ¿Ä¥²ÚÎÌ»ëÈàºÍ" ;.
-"¢£¢£¢£¢£¢£¢£¢£¢£¢£¢£Å¸ÆÀ»àÍ¢Ì£ÃúÁ±ºàº¹Àö³ÎÂ­¹ÍË¾µ¬½àÆñºÛÅ¬¿Þ°ãÀ¼ÄóÅú²á¸üÆÄÎý¶··Ê" ;/
+"â– â– â– â– â– â– â– â– â– â– ä¸¦æ…‹ä¸¡ä¹—å°‚èˆˆå£æ´‹èˆ¹ä¹…æ‚ªç—…æ—©ç³¸è©¦æ¾å®‰éƒ½ä¸Žæ¸…ä¼¸ç¾½é™è²¡å§‹æ²³è¶Šçµ±ç§€æ²¹" ;q
+"â– â– â– â– â– â– â– â– â– â– ä¼å¥å¾…ç™½æ¸¯æ°´ç”£å‹™é§…é ­æ ¹ä»•ç„¡æ¡ˆé¡å‹•å·çµ¦æœ¨ä½è£çŸ­ä½•ç©è¿Žå…ƒè”µçœŒç¯‰è§’" ;w
+"â– â– â– â– â– â– â– â– â– â– é’æ´»çµå„ªæœ€é‡‘åœ°ä¸‡å»ºé‰„å¤©ä»Šå„é–¢é‹é«˜å›½ä¸‰å…«åŒ—é¡žéžè£œè»½çŽ‡å´Žå®¿å¯å®¤æ¸‹" ;e
+"â– â– â– â– â– â– â– â– â– â– æ•´å°‘ä¿¡å ±å¤ªç”ºä¸ƒäº¬ç†å–¶å¯®åºƒå¹³éŸ³è¨ˆå±±é›»äº”å°åŽŸå¾©éŠæ–½å¸°ä¾¿åŠå²¡çŸ³ä¼‘è±Š" ;r
+"â– â– â– â– â– â– â– â– â– â– â–¡â–¡â–¡â–¡â–¡ç¬¬å’ŒåŒºè¥¿å¯Œâ–¡â–¡â–¡â–¡â–¡åéƒ¨æ¥­å•è¿‘â–¡â–¡â–¡â–¡â–¡æž—é–€æ ¼å‰é½¢" ;t
+"â– â– â– â– â– â– â– â– â– â– é£ŸæŒå­å‡ºè¡Œâ–¡â–¡â–¡â–¡â–¡æ›¸å ´ä¼šä¸Šé€šâ–¡â–¡â–¡â–¡â–¡è½æƒ…ç§å–åˆ¥â–¡â–¡â–¡â–¡â–¡" ;y
+"â– â– â– â– â– â– â– â– â– â– ã‚†ã‚€ãã†ãµå‰²åŠæ¥½åœ’çµ‚ç›®ã™ã¤ã¬ã‚‹è£½ç¨®ç”¨ç•Œå®¹å¥½é¤¨èª¿çŸ¥åˆ‡åºä¹‹æ—…ä»²æ¥µ" ;u
+"â– â– â– â– â– â– â– â– â– â– ç›¸ã¿ãã„ã²æ°‘è¡¨å¤«åŠ èƒ½ã‚ã—ã¡ã«ã‚Šé€£è»Šä»¥å®ŒæŠ€å™¨é€²å¯¾è¦æ„ç„¶æ–­é™ºæ§‹éƒµ" ;i
+"â– â– â– â– â– â– â– â– â– â– è§£æ°—è€…æ‰‹çš„çƒé™¢ç•ªå¸¸é ˜æœŸç™ºäººå“¡ç”Ÿç”±å±€ä½“è–¬æ®µèª­æ±‚æ¼”è¡“èº«å­—é¤Šæ’ƒå¸å±…" ;o
+"â– â– â– â– â– â– â– â– â– â– é…äºˆè­°ç‰¹æ³•æžœç­‰é¦–æ¯›åˆ¸ç¶šç·å®šå¥³æˆç´šèª²è‚²è‰²å·¨é”é™å¿œè²·æ„Ÿé–£æ‹…å°†æ¢°è­·" ;p
+"â– â– â– â– â– â– â– â– â– â– å¿µå³æ®‹èµ¤å½¢é‡äº•å³¶å£«åªæ·±ç®¡å‹¤å¢—ç¿’è—¤ä»˜çµŒæ­£è³žå¥ç¤ºå…å¿—æœªç ”è‘‰å€‰è±æµ´" ;a
+"â– â– â– â– â– â– â– â– â– â– ç¨Žè³ªå›£å‚åŸºæ©Ÿé‡Žå‰ç™¾æŽ¥æ¯Žç¦ä»–ç±³åˆ©ä»£æœˆç”°å¾Œå•†åŒ»å˜è²¸è¿½æŒ™ä¸¸å’æœè¾²å„„" ;s
+"â– â– â– â– â– â– â– â– â– â– é»’è³‡æ•°å“åº§å­¦æœ¬å¤§å…­æ ªç´„æœ‰å…¨è‡ªä½æ±äºŒæ—¥æ™‚ä¸è©•åº­æ”¹å½¹èŠ±æ€¥æµ·å¸‚æ”¯æ£®" ;d
+"â– â– â– â– â– â– â– â– â– â– è­¦è¨—å…¬ç´°è²»å·¥äº‹ä¸­ä¹åˆç›´é€ä¿ä¸–ç¾æ–°å¹´ä¸€åŒæ­©è¨Žå…·é˜²ç´ ä»‹å…‰éƒŽæ–‡æ²¢é¦¬" ;f
+"â– â– â– â– â– â– â– â– â– â– â–¡â–¡â–¡â–¡â–¡å†…åƒåˆ†ç«‹å¤–â–¡â–¡â–¡â–¡â–¡å††å››åé¢æ•™â–¡â–¡â–¡â–¡â–¡æ¬¡å®…æ‘å¤è¢‹" ;g
+"â– â– â– â– â– â– â– â– â– â– ä¸»ã‚ã‘ãˆã¸â–¡â–¡â–¡â–¡â–¡ã‚‘ã›ã¦ã­ã‚Œâ–¡â–¡â–¡â–¡â–¡åˆ¤æŠ•æˆ¦çµ„å¤šâ–¡â–¡â–¡â–¡â–¡" ;h
+"â– â– â– â– â– â– â– â– â– â– ã‚ˆã‚‚ã“ãŠã»å‹æ°ç”»å¿ƒè²©ã‚’ãã¨ã®ã‚åŠ›é¨“é–“è¨­å·ç­–å‚™å½“æ¥å¼·è‰¯æ§˜çœåž‹æ•…" ;j
+"â– â– â– â– â– â– â– â– â– â– ã‚„ã¾ã‹ã‚ã¯æ­³åº¦æ ¡éŠ€è»¢ã‚ã•ãŸãªã‚‰åŒ–ä¸‹å›žæ­´ä¿‚è‹¥è¨˜å§”å…¥å®Ÿè«–å€¤è·¯è£…åƒ" ;k
+"â– â– â– â– â– â– â– â– â– â– â–¡è¦‹â–¡â–¡â–¡ç´™è‹±é¡Œå‘Šå‹¢â–¡â–¡â–¡ã‚“ç¤¾å¤œç‰©æ‰€éš›å´ä»»å¼•å…šå—æ€èˆ¬ç·¨å°æ•—æŽˆ" ;l
+"â– â– â– â– â– â– â– â– â– â– ç©ºç·šåˆå®¶é›†çŽ‹è¡›åŠ‡è¦ªçˆ†æ­Œæ˜Žé•·æ–¹æ”¿ä½åœ¨å¼æ¸ˆç©¶ç½®äº‰ç¾©æŸ»æ´¾æœ«å¡çŠ¶å³è¾º" ;;
+"â– â– â– â– â– â– â– â– â– â– è¿”ç«¶æ¯ç†±é€€ä¼æœé‹¼åœå·žæ˜Ÿè¨±è¡—éˆ´å¸ç²¾å‹åŽå¯ºå±¥é›‘æŽ¨æ¸¡åŠ¹å®‡æŒ¯é‰±æ•·èžæµ¦" ;z
+"â– â– â– â– â– â– â– â– â– â– ç¥­è¨ªè«¸ä¿®ç‰ˆä¼Šé€±éšŽåŠ´æ¿æ—å¾“å ‚å…µç›£æµœæˆ¸æ–™ç«å‚åˆŠå¾³ç™»å†·éŸ¿æ´¥å¡šå°¾ç«¹æ³‰" ;x
+"â– â– â– â– â– â– â– â– â– â– æ›‡æ³¨å…èŒ¶æ˜¨ç§‘å±‹æ˜ é˜ªæ˜‡è³ƒæ™´ç‹¬è¦³å¤‰å—è°·é“å…±æ±Ÿé…’å¾¡å®ˆç¨‹å²è‰æ¡æ „åº«æ³¢" ;c
+"â– â– â– â– â– â– â– â– â– â– â–¡â–¡â–¡â–¡â–¡å¤®æ± åˆ¶è¨¼æµ…â–¡â–¡â–¡â–¡â–¡æ¨ªå°æ©‹æ­¦å®â–¡â–¡â–¡â–¡â–¡èŠå¹¸çŽ‰æ›œç’°" ;v
+"â– â– â– â– â– â– â– â– â– â– â–¡â–¡â–¡â–¡â–¡æ˜­å®®è·é›„æ˜¥â–¡â–¡â–¡â–¡â–¡è»åœŸç¥žé€ èŠ¸â–¡â–¡â–¡â–¡â–¡å²©åŸŽæ°¸ç§‹é™¸" ;b
+"â– â– â– â– â– â– â– â– â– â– å¿…å®˜æ²»å…ˆåˆâ–¡â–¡â–¡â–¡â–¡åŠ©æ€§è©±èªžç‚¹â–¡â–¡â–¡â–¡â–¡è² èªæ„›ç€æ¶ˆâ–¡â–¡â–¡â–¡â–¡" ;n
+"â– â– â– â– â– â– â– â– â– â– è¬›åºœè«‡å”åâ–¡â–¡â–¡â–¡â–¡å†™å‹Ÿä½œäº¤é‡â–¡â–¡â–¡â–¡â–¡å¤±æƒ³æµæ¤œå†â–¡â–¡â–¡â–¡â–¡" ;m
+"â– â– â– â– â– â– â– â– â– â– ä½¿çœŸé–‹æ±ºç¾ŽéšŠé£›èˆªå¯„æº€æ¨©é¸å£²åº—ç”·å«èžä»¶å¸«ä½Žèµ·å‘½èª¬å©¦è¨€ç½²å®³å€‹å·»é›¨" ;,
+"â– â– â– â– â– â– â– â– â– â– å·¦ç®—æŒ‡å‘æ”¾æ¸›é™½æ‰•é¡”æ™®ç”³é¢¨æ‰“ä¾¡è¾¼æ¯”æ­¢å¯©æ®ºä¾‹æŠœå°Žå¸­éŒ²å¼µè¯é‡è¦–å½¼æ‰" ;.
+"â– â– â– â– â– â– â– â– â– â– å±•å¾—æ­»è¼¸å‘³ä¸å–„æå·®æ´—ç¢ºè¶³è€ƒæœ›è¦æº–é›£è£é©å›³é•å£°æç­”éŽåŽšç£ç·´æ³æ™¯" ;/
 ])
 
-(setq tcode-non-2-stroke-char-list (list (tcode-string-to-char "¢£")
-					 (tcode-string-to-char "¢¢")))
+(setq tcode-non-2-stroke-char-list (list (tcode-string-to-char "â– ")
+					 (tcode-string-to-char "â–¡")))
 
 (setq tcode-another-table
       [ nil  nil  nil  nil  nil	   nil	nil  nil  nil  nil
-	"¡È" "¢©" "¡¼" "¡Ú" "¡Ö"   "¡×" "¡Û" "¡Ä" "¡¦" "¡É"
-	"¡Æ" "¡ù" tcode-touten tcode-kuten "¡Ø"	  "¡Ù" "¡¹" "¢¨" "¡À" "¡Ç"
-	"¡º" "¡ø" "¡û" "¡à" "¢«"   "¢ª" "¡ß" "¡Ô" "¡Õ" "¡¿"])
+	"â€œ" "ã€’" "ãƒ¼" "ã€" "ã€Œ"   "ã€" "ã€‘" "â€¦" "ãƒ»" "â€"
+	"â€˜" "â˜†" tcode-touten tcode-kuten "ã€Ž"	  "ã€" "ã€…" "â€»" "ï¼¼" "â€™"
+	"ã€†" "Â§" "â—‹" "Ã·" "â†"   "â†’" "Ã—" "ã€Š" "ã€‹" "ï¼"])
 
 (defconst tut-over-2-strokes-table
   '((10 ; q
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "ÃÒ" "Ëº" "Ì¥" "²Ç" "Ã²"
-	     nil nil nil nil nil   "ÈÏ" "µß" "·Ñ" "µÍ" "À£"
-	     nil nil nil nil nil   "ËÛ" "¿±" "ÃÀ" "Ë°" "ÃÞ"])
+	     nil nil nil nil nil   "æ™º" "å¿˜" "é­…" "å«" "å˜†"
+	     nil nil nil nil nil   "ç¯„" "æ•‘" "ç¶™" "è©°" "å¯¸"
+	     nil nil nil nil nil   "å¥”" "å¨ " "èƒ†" "é£½" "ç­‘"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Å¯" "¶Ó" "³÷" "Í¶" "¾¢"
-	     nil nil nil nil nil   "¾°" "»í" "²÷" "¹ü" "·¤"
-	     nil nil nil nil nil   "¶ô" "Éä" "ÉÝ" "±Â" "È»"])
+	     nil nil nil nil nil   "å“²" "éŒ¦" "è’²" "èª˜" "åŒ "
+	     nil nil nil nil nil   "å°š" "è©©" "å¿«" "éª¨" "é´"
+	     nil nil nil nil nil   "å–°" "ç¬¦" "æ€–" "é¤Œ" "éš¼"])
 	(28 ; l
-	 (16 . "¤å") ; u
-	 (26 . "¤ç") ; j
-	 (27 . "¤ã")) ; k
+	 (16 . "ã‚…") ; u
+	 (26 . "ã‚‡") ; j
+	 (27 . "ã‚ƒ")) ; k
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "»·" "¿Ö" "·ù" "Êå" "ÆÑ"
-	     nil nil nil nil nil   "Á¶" "Ê·" "Ë¦" "°É" "¼ö"
-	     nil nil nil nil nil   "Ï¾" "±í" "µä" "¹í" "·ñ"])
+	     nil nil nil nil nil   "æ¡Ÿ" "è¨Š" "å«Œ" "è¼”" "è‹«"
+	     nil nil nil nil nil   "ç¹•" "é›°" "èƒž" "æ" "å‘ª"
+	     nil nil nil nil nil   "è‚‹" "ç‡•" "ç¸" "éº¹" "å€¦"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "¼¥" "°ª" "Åé" "ËÓ" "³ò"
-	     nil nil nil nil nil   "°±" "°ò" "Æé" "°ý" "³±"
-	     nil nil nil nil nil   "¼Þ" "Éµ" "°Ð" "Ã¾" "Ï®"]))
+	     nil nil nil nil nil   "ç’½" "è‘µ" "æ‚¼" "ç¦" "æ¨º"
+	     nil nil nil nil nil   "è‘¦" "èŠ‹" "é‹" "èƒ¤" "å’³"
+	     nil nil nil nil nil   "ç¼" "è¬¬" "å¤·" "ç¶»" "å¼„"]))
 
     (11 ; w
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "À¿" "³Ð" "½Ò" "Â»" "¼á"
-	     nil nil nil nil nil   "¾Ò" "Î×" "º½" "ÁÐ" "¸®"
-	     nil nil nil nil nil   "ÃÔ" "Â·" "ÉÏ" "Ï°" "±¤"])
+	     nil nil nil nil nil   "èª " "è¦š" "è¿°" "æ" "é‡ˆ"
+	     nil nil nil nil nil   "ç´¹" "è‡¨" "ç ‚" "åŒ" "è»’"
+	     nil nil nil nil nil   "ç—´" "æƒ" "è²§" "æ¥¼" "éŸ»"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "ÃÆ" "ºá" "¸õ" "ºÞ" "Ê¥"
-	     nil nil nil nil nil   "·û" "²­" "Ëã" "Áñ" "´ñ"
-	     nil nil nil nil nil   "Ãâ" "Ï­" "Ëä" "²º" "»±"])
+	     nil nil nil nil nil   "å¼¾" "ç½ª" "å€™" "å‰¤" "æ·µ"
+	     nil nil nil nil nil   "æ†²" "æ²–" "éº»" "è˜" "å¥‡"
+	     nil nil nil nil nil   "çª’" "å»Š" "åŸ‹" "ç©" "å‚˜"])
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "º¢" "Éº" "ÈÉ" "Æ¿" "ËØ"
-	     nil nil nil nil nil   "»÷" "ÄÔ" "Í÷" "½Á" "Í©"
-	     nil nil nil nil nil   "ÊË" "ºñ" "Ç¨" "ºª" "Æç"])
+	     nil nil nil nil nil   "é ƒ" "æ¼‚" "ç­" "åŒ¿" "æ®†"
+	     nil nil nil nil nil   "ä¼¼" "è¾»" "è¦§" "æ±" "å¹½"
+	     nil nil nil nil nil   "ç¢§" "æ¾" "æ¿¡" "æ˜" "ç˜"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Æô" "´÷" "Å©" "³æ" "±ù"
-	     nil nil nil nil nil   "Ë¿" "¾±" "»ð" "¸Õ" "¿ó"
-	     nil nil nil nil nil   "Ã¡" "Æø" "°ü" "±°" "Æè"]))
+	     nil nil nil nil nil   "å°¼" "å¿Œ" "æ»´" "æ°" "ç”¥"
+	     nil nil nil nil nil   "æŸ" "åº„" "è«®" "èƒ¡" "åµ©"
+	     nil nil nil nil nil   "å©" "è³‘" "æ·«" "ç¢“" "æº"]))
 
     (12 ; e
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Ìõ" "Èë" "Îá" "ÎÙ" "¸·"
-	     nil nil nil nil nil   "Áö" "ºÊ" "³×" "Â°" "Ç¾"
-	     nil nil nil nil nil   "°Ò" "´µ" "Î¬" "À§" "ºï"])
+	     nil nil nil nil nil   "è¨³" "ç§˜" "ä»¤" "éš£" "åŽ³"
+	     nil nil nil nil nil   "èµ°" "å¦»" "é©" "å±ž" "è„³"
+	     nil nil nil nil nil   "å¨" "æ‚£" "ç•¥" "æ˜¯" "å‰Š"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Ãº" "ÀÓ" "À¹" "ÊÛ" "½¡"
-	     nil nil nil nil nil   "Æù" "µÖ" "¿ù" "ÂÓ" "¹È"
-	     nil nil nil nil nil   "¿¯" "²«" "¹Ë" "°ß" "±´"])
+	     nil nil nil nil nil   "ç‚­" "ç¸¾" "ç››" "å¼" "å®—"
+	     nil nil nil nil nil   "è‚‰" "ä¸˜" "æ‰" "å¸¯" "ç´…"
+	     nil nil nil nil nil   "ä¾µ" "é»„" "ç¶±" "èƒƒ" "å”„"])
 	(28 ; l
-	 (12 (25 . "¥ö")  ; e h
-	     (27 . "¥õ"))  ; e k
-	 (16 . "¤°") ; u
-	 (17 . "¤®") ; i
-	 (25 . "¤²") ; h
-	 (26 . "¤´") ; j
-	 (27 . "¤¬")) ; k
+	 (12 (25 . "ãƒ¶")  ; e h
+	     (27 . "ãƒµ"))  ; e k
+	 (16 . "ã") ; u
+	 (17 . "ãŽ") ; i
+	 (25 . "ã’") ; h
+	 (26 . "ã”") ; j
+	 (27 . "ãŒ")) ; k
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "ÊÓ" "ÃÜ" "ËÏ" "·é" "»Ã"
-	     nil nil nil nil nil   "ÂÙ" "Ä°" "Çµ" "²ü" "ÍÓ"
-	     nil nil nil nil nil   "Á­" "Êî" "º²" "°Ô" "°È"])
+	     nil nil nil nil nil   "ç¯‡" "ç•œ" "å¢¨" "æ½”" "æš«"
+	     nil nil nil nil nil   "æ³°" "è´" "ä¹ƒ" "æˆ’" "ç¾Š"
+	     nil nil nil nil nil   "éŠ‘" "è©" "é­‚" "æƒŸ" "éž"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "ÇÒ" "ÂÚ" "¶Ý" "ÏÅ" "ÄÒ"
-	     nil nil nil nil nil   "ºý" "ÈÕ" "¼Í" "È±" "ÍÉ"
-	     nil nil nil nil nil   "ËË" "Êº" "²ö" "·½" "Á×"]))
+	     nil nil nil nil nil   "æ‹" "æ»ž" "èŒ" "è³„" "æ¼¬"
+	     nil nil nil nil nil   "å†Š" "æ™©" "å°„" "é«ª" "æº"
+	     nil nil nil nil nil   "é ¬" "ä¸™" "å»»" "åœ­" "å®‹"]))
 
     (13 ; r
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "¸»" "Àã" "Â¬" "·Ä" "ÏÇ"
-	     nil nil nil nil nil   "¹á" "½è" "ÀÁ" "¹³" "À×"
-	     nil nil nil nil nil   "ÂÑ" "¶ç" "¹î" "Âò" "¹¦"])
+	     nil nil nil nil nil   "æº" "é›ª" "æ¸¬" "æ…¶" "æƒ‘"
+	     nil nil nil nil nil   "é¦™" "å‡¦" "è«‹" "æŠ—" "è·¡"
+	     nil nil nil nil nil   "è€" "å¥" "å…‹" "æŠž" "å­”"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "°ð" "Ãë" "·ã" "»õ" "µ´"
-	     nil nil nil nil nil   "°á" "»¶" "Êá" "ÁÜ" "Áë"
-	     nil nil nil nil nil   "Êè" "µÓ" "Â£" "À»" "È³"])
+	     nil nil nil nil nil   "ç¨²" "æ˜¼" "æ¿€" "æ­¯" "é¬¼"
+	     nil nil nil nil nil   "è¡£" "æ•£" "æ•" "æœ" "çª“"
+	     nil nil nil nil nil   "å¢“" "è„š" "è´ˆ" "è–" "ç½°"])
 	(28 ; l
-	 (13 (16 . "¥ô")) ; r u
-	 (16 . "¤¥") ; u
-	 (17 . "¤£") ; i
-	 (25 . "¤§") ; h
-	 (26 . "¤©") ; j
-	 (27 . "¤¡")) ; k
+	 (13 (16 . "ãƒ´")) ; r u
+	 (16 . "ã…") ; u
+	 (17 . "ãƒ") ; i
+	 (25 . "ã‡") ; h
+	 (26 . "ã‰") ; j
+	 (27 . "ã")) ; k
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "±î" "Ë×" "Èä" "ËÃ" "¾í"
-	     nil nil nil nil nil   "ÈÂ" "»ã" "½Ö" "¾¬" "´½"
-	     nil nil nil nil nil   "¸Ñ" "Íô" "¾÷" "º¯" "Æä"])
+	     nil nil nil nil nil   "çŒ¿" "æ²¡" "æŠ«" "è‚ª" "å£Œ"
+	     nil nil nil nil nil   "æ¬" "ç¥‰" "çž¬" "å®µ" "æ£º"
+	     nil nil nil nil nil   "ç‹" "æ¿«" "ç©£" "ç—•" "å‡ª"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "µÝ" "Îõ" "Éú" "·ß" "À¨"
-	     nil nil nil nil nil   "Ìæ" "Àø" "Â¡" "¶î" "´¸"
-	     nil nil nil nil nil   "Äª" "¶©" "Àå" "Î¼" "Äü"]))
+	     nil nil nil nil nil   "å¼“" "çƒˆ" "ä¼" "é¯¨" "å‡„"
+	     nil nil nil nil nil   "ç´‹" "æ½œ" "è‡“" "é§†" "æ†¾"
+	     nil nil nil nil nil   "æš¢" "åŒ¡" "èˆŒ" "äº®" "è«¦"]))
 
     (14 ; t
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "¶²" "¿Â" "Ï¯" "´û" "·Æ"
-	     nil nil nil nil nil   "ÁØ" "Î±" "°¡" "È¼" "¶¸"
-	     nil nil nil nil nil   "»ø" "Å«" "¶à" "¶§" "´à"])
+	     nil nil nil nil nil   "æ" "ç´³" "æœ—" "æ—¢" "æ†©"
+	     nil nil nil nil nil   "å±¤" "ç•™" "äºœ" "ä¼´" "ç‹‚"
+	     nil nil nil nil nil   "ä¾" "ç¬›" "è¬¹" "å‡¶" "å·Œ"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "°Ù" "·§" "Èã" "¾Í" "´·"
-	     nil nil nil nil nil   "ÈË" "´ê" "ËÇ" "µÕ" "³Ý"
-	     nil nil nil nil nil   "ÁÆ" "°Ö" "³Í" "ËÍ" "²é"])
+	     nil nil nil nil nil   "ç‚º" "ç†Š" "æ‰¹" "ç¥¥" "æ…£"
+	     nil nil nil nil nil   "ç¹" "é¡˜" "è²¿" "é€†" "æŽ›"
+	     nil nil nil nil nil   "ç²—" "æ…°" "ç²" "åƒ•" "è‡¥"])
 	(28 ; l
 	 (14 ; t
-	  (16 . "¤×") ; u
-	  (17 . "¤Ô") ; i
-	  (25 . "¤Ú") ; h
-	  (26 . "¤Ý") ; j
-	  (27 . "¤Ñ")) ; k
-	 (16 . "¤Ö") ; u
-	 (17 . "¤Ó") ; i
-	 (25 . "¤Ù") ; h
-	 (26 . "¤Ü") ; j
-	 (27 . "¤Ð")) ; k
+	  (16 . "ã·") ; u
+	  (17 . "ã´") ; i
+	  (25 . "ãº") ; h
+	  (26 . "ã½") ; j
+	  (27 . "ã±")) ; k
+	 (16 . "ã¶") ; u
+	 (17 . "ã³") ; i
+	 (25 . "ã¹") ; h
+	 (26 . "ã¼") ; j
+	 (27 . "ã°")) ; k
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "ÀÏ" "Îö" "Çõ" "³ç" "±Ö"
-	     nil nil nil nil nil   "ÌÂ" "¶×" "Ë¥" "Íë" "³í"
-	     nil nil nil nil nil   "Ä±" "¶¬" "°ù" "ÎÊ" "´Ü"])
+	     nil nil nil nil nil   "æž" "è£‚" "èˆ¶" "æ‹¬" "ç–«"
+	     nil nil nil nil nil   "è¿·" "ç´" "ç¸«" "é›·" "è½„"
+	     nil nil nil nil nil   "è„¹" "å–¬" "å§»" "è«’" "èˆ˜"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Æ÷" "ÉÐ" "È¦" "²É" "´â"
-	     nil nil nil nil nil   "ÅÇ" "Ë³" "½Ú" "À«" "Âþ"
-	     nil nil nil nil nil   "Ì½" "Àù" "Çð" "Ç×" "´æ"]))
+	     nil nil nil nil nil   "åŒ‚" "è³“" "ç­ˆ" "å¯¡" "ç™Œ"
+	     nil nil nil nil nil   "å" "ä¹" "å‡†" "å§“" "åª"
+	     nil nil nil nil nil   "å†¥" "ç…Ž" "æŸ" "ç‰Œ" "è´‹"]))
 
     ;;
     (15 ; y
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¸¼" "É¹" "¿¢" "»Þ" "°Å"	nil nil nil nil nil
-	     "ÃÕ" "Æ«" "·²" "ÈÝ" "²Ù"	nil nil nil nil nil
-	     "µÌ" "µ¼" "ÂÌ" "ÄÃ" "Éæ"	nil nil nil nil nil])
+	     "çŽ„" "æ°·" "æ¤" "æž" "æš—"	nil nil nil nil nil
+	     "ç¨š" "é™¶" "ç¾¤" "å¦" "è·"	nil nil nil nil nil
+	     "æ©˜" "æ“¬" "é§„" "éŽ®" "è†š"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "È¡" "¼ì" "¹°" "Áã" "Ëà"	nil nil nil nil nil
-	     "½ß" "Î¸" "µª" "ÎØ" "Ï·"	nil nil nil nil nil
-	     "¿×" "°Î" "³À" "¿ë" "Ï§"	nil nil nil nil nil])
+	     "å‡½" "æ®Š" "å¼˜" "å·£" "æ‘©"	nil nil nil nil nil
+	     "æ·³" "æ…®" "ç´€" "è¼ª" "è€"	nil nil nil nil nil
+	     "è¿…" "å‰" "åž£" "é‚" "ç‚‰"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "ÏÄ" "±Ú" "¶ù" "Èâ" "Á·"	nil nil nil nil nil
-	     "Ãä" "Ì»" "ÇÃ" "ÇÙ" "´º"	nil nil nil nil nil
-	     "µø" "²å" "½§" "°à" "²ª"	nil nil nil nil nil])
+	     "æ­ª" "è¬" "éš…" "æ‰‰" "è†³"	nil nil nil nil nil
+	     "å«¡" "å©¿" "å·´" "è‚º" "æ•¢"	nil nil nil nil nil
+	     "é‹¸" "å³¨" "æ´²" "èŽ" "é´Ž"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¸Ô" "Íç" "´ý" "´Á" "»ç"	nil nil nil nil nil
-	     "°Þ" "Â¯" "¾â" "Âë" "Êí"	nil nil nil nil nil
-	     "¶Ü" "Îâ" "Ìì" "¶º" "ÄÕ"	nil nil nil nil nil]))
+	     "è‚¡" "è£¸" "æ£‹" "æ¼¢" "ç´«"	nil nil nil nil nil
+	     "ç·¯" "ä¿—" "é˜" "é·¹" "ç°¿"	nil nil nil nil nil
+	     "èŠ¹" "ä¼¶" "çˆº" "çŸ¯" "è”¦"	nil nil nil nil nil]))
 
     (16 ; u
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "´Õ" "ÌÐ" "µî" "±×" "ÁÊ"	nil nil nil nil nil
-	     "»¿" "Ë½" "¶ì" "»¡" "Â®"	nil nil nil nil nil
-	     "Áî" "É±" "±ì" "¿µ" "ÀÎ"	nil nil nil nil nil])
+	     "é‘‘" "èŒ‚" "åŽ»" "ç›Š" "è¨´"	nil nil nil nil nil
+	     "è³›" "æš´" "è‹¦" "å¯Ÿ" "é€Ÿ"	nil nil nil nil nil
+	     "ç¶œ" "å§«" "ç…™" "æ…Ž" "æ˜”"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¹§" "½þ" "±ä" "É¸" "µì"	nil nil nil nil nil
-	     "°¤" "Íð" "²ì" "½ã" "Æà"	nil nil nil nil nil
-	     "À·" "Âó" "ÇÓ" "Ä¬" "¶Ã"	nil nil nil nil nil])
+	     "å­" "å„Ÿ" "å»¶" "æ¨™" "æ—§"	nil nil nil nil nil
+	     "é˜¿" "ä¹±" "è³€" "ç´”" "å¥ˆ"	nil nil nil nil nil
+	     "ç‰²" "æ‹“" "æŽ’" "æ½®" "é©š"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "±½" "½Û" "±ý" "Æ­" "ºé"	nil nil nil nil nil
-	     "Åï" "´À" "¼ñ" "µã" "Ãû"	nil nil nil nil nil
-	     "ºÀ" "Îç" "¶ó" "¶Æ" "Äð"	nil nil nil nil nil])
+	     "å™‚" "å¾ª" "å¾€" "é¨°" "å’²"	nil nil nil nil nil
+	     "æ£Ÿ" "æ±—" "è¶£" "æ³£" "å…†"	nil nil nil nil nil
+	     "è£Ÿ" "æ€œ" "è™ž" "å°­" "æ‚Œ"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¿Å" "¹£" "·÷" "¸¸" "²ê"	nil nil nil nil nil
-	     "³³" "Ç¥" "Ë»" "Äû" "µ½"	nil nil nil nil nil
-	     "¼¶" "Ë±" "¿î" "Íõ" "ÁÉ"	nil nil nil nil nil]))
+	     "è–ª" "å‘" "åœ" "å¹»" "èŠ½"	nil nil nil nil nil
+	     "å´–" "å¦Š" "å¿™" "è¨‚" "æ¬º"	nil nil nil nil nil
+	     "é›«" "é³³" "éŒ˜" "è—" "è˜‡"	nil nil nil nil nil]))
 
     (17 ; i
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Î½" "Ê´" "°×" "Ä»" "Ëç"	nil nil nil nil nil
-	     "²ß" "·´" "ÌÏ" "´õ" "Å¡"	nil nil nil nil nil
-	     "µº" "Ä²" "¾É" "µò" "·ª"	nil nil nil nil nil])
+	     "åƒš" "ç²‰" "æ˜“" "é³¥" "æžš"	nil nil nil nil nil
+	     "è²¨" "éƒ¡" "æ¨¡" "å¸Œ" "é‚¸"	nil nil nil nil nil
+	     "æˆ¯" "è…¸" "ç—‡" "æ‹ " "æ —"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¿Ø" "Í¾" "É§" "²¡" "³Ë"	nil nil nil nil nil
-	     "ºþ" "Ë¼" "ÆÍ" "Åü" "´³"	nil nil nil nil nil
-	     "ÍÞ" "Äâ" "Æ¨" "º®" "²í"	nil nil nil nil nil])
+	     "é™£" "ä½™" "å½¦" "æŠ¼" "æ ¸"	nil nil nil nil nil
+	     "åˆ·" "æˆ¿" "çª" "ç³–" "å¹²"	nil nil nil nil nil
+	     "æŠ‘" "äº­" "é€ƒ" "æ··" "é›…"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¼´" "¶¹" "½Æ" "Ë¤" "µñ"	nil nil nil nil nil
-	     "ÇÚ" "ÄÀ" "Ä§" "Âá" "Ç¦"	nil nil nil nil nil
-	     "ËÖ" "·Ô" "»Ç" "º¨" "½¹"	nil nil nil nil nil])
+	     "è»¸" "ç‹­" "éŠƒ" "ç ²" "æ‹’"	nil nil nil nil nil
+	     "è¼©" "æ²ˆ" "å¾´" "é€®" "å¿"	nil nil nil nil nil
+	     "å‹ƒ" "èŒŽ" "ä¼º" "æ¨" "é†œ"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¸²" "Áø" "¾×" "Ëå" "Åë"	nil nil nil nil nil
-	     "´ö" "°²" "·Ë" "Äï" "´þ"	nil nil nil nil nil
-	     "±å" "°ë" "µ°" "Ëú" "ÆÝ"	nil nil nil nil nil]))
+	     "é¡•" "é­" "è¡" "å¦¹" "æ­"	nil nil nil nil nil
+	     "å¹¾" "èŠ¦" "æ¡‚" "å¼Ÿ" "æ£„"	nil nil nil nil nil
+	     "æ€¨" "ç£¯" "è»Œ" "ç¹­" "å‘‘"	nil nil nil nil nil]))
 
     (18 ; o
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¼ª" "Ãù" "¾Ï" "Äè" "½ä"	nil nil nil nil nil
-	     "±Ô" "µ®" "É¼" "ÇØ" "»É"	nil nil nil nil nil
-	     "²â" "»Â" "É¡" "ÌÇ" "»ì"	nil nil nil nil nil])
+	     "è€³" "è²¯" "ç« " "å‘ˆ" "å·¡"	nil nil nil nil nil
+	     "é‹­" "è²´" "ç¥¨" "èƒŒ" "åˆº"	nil nil nil nil nil
+	     "éœž" "æ–¬" "é¼»" "æ»…" "è©ž"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "´Ë" "Éõ" "¼ù" "Çß" "Î»"	nil nil nil nil nil
-	     "ËÀ" "ÅÉ" "¸ß" "Îµ" "Ì´"	nil nil nil nil nil
-	     "Ä¤" "³¶" "Â¹" "À¬" "ÁÎ"	nil nil nil nil nil])
+	     "ç·©" "å°" "æ¨¹" "æ¢…" "äº†"	nil nil nil nil nil
+	     "æ£’" "å¡—" "äº’" "ç«œ" "å¤¢"	nil nil nil nil nil
+	     "å¼”" "æ¶¯" "å­«" "å¾" "åƒ§"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¹¢" "´ò" "Ë¢" "·¢" "³Ô"	nil nil nil nil nil
-	     "ÁÚ" "ÂÄ" "ÍÀ" "ËÆ" "Âú"	nil nil nil nil nil
-	     "»¹" "·Ø" "Å£" "ÌÍ" "Çó"	nil nil nil nil nil])
+	     "å–‰" "å¬‰" "æ³¡" "çªŸ" "éƒ­"	nil nil nil nil nil
+	     "æƒ£" "å •" "èª‰" "è²Œ" "è«¾"	nil nil nil nil nil
+	     "çŠ" "è©£" "é‡˜" "éºº" "ç®”"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Êï" "ÅÒ" "´ô" "±ï" "¼Ø"	nil nil nil nil nil
-	     "½³" "¼¾" "Ëá" "½À" "Éå"	nil nil nil nil nil
-	     "Éª" "Ï¼" "Êò" "ºû" "Êã"	nil nil nil nil nil]))
+	     "å€£" "è³­" "å²" "ç¸" "è›‡"	nil nil nil nil nil
+	     "è¹´" "æ¹¿" "ç£¨" "æŸ”" "è…"	nil nil nil nil nil
+	     "è‚˜" "éº“" "å‘†" "ç¬¹" "ç”«"	nil nil nil nil nil]))
 
     (19 ; p
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Ëµ" "²æ" "Ä¶" "Áâ" "»ô"	nil nil nil nil nil
-	     "½á" "ÍÄ" "ÅÓ" "¾Â" "Â«"	nil nil nil nil nil
-	     "ÁÞ" "³´" "Ã¢" "¼À" "²û"	nil nil nil nil nil])
+	     "å‚" "æˆ‘" "è¶…" "æ›¹" "é£¼"	nil nil nil nil nil
+	     "æ½¤" "å¹¼" "é€”" "æ²¼" "æŸ"	nil nil nil nil nil
+	     "æŒ¿" "æ…¨" "ä½†" "ç–¾" "æ‡"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "ÂÅ" "Â¥" "Á¯" "Åß" "Íµ"	nil nil nil nil nil
-	     "¿¨" "Á¼" "Ãø" "¸¨" "Ê£"	nil nil nil nil nil
-	     "²ý" "Ê¾" "´×" "Ë¸" "´ù"	nil nil nil nil nil])
+	     "å¦¥" "ä¿ƒ" "é®®" "å†¬" "è£•"	nil nil nil nil nil
+	     "è§¦" "æŽª" "è‘—" "çµ¹" "è¤‡"	nil nil nil nil nil
+	     "æ‹" "å¹£" "é–‘" "å¦¨" "æœº"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "°»" "·Ö" "ºø" "ÈÁ" "»µ"	nil nil nil nil nil
-	     "Íü" "µ²" "´¾" "¼Ù" "Ë¶"	nil nil nil nil nil
-	     "ÂÏ" "´»" "Ã®" "ÎÇ" "É¨"	nil nil nil nil nil])
+	     "é£´" "è›" "éŒ¯" "å¸†" "æ’’"	nil nil nil nil nil
+	     "æ¢¨" "é£¢" "æ¬¾" "é‚ª" "å‰–"	nil nil nil nil nil
+	     "å †" "æŸ‘" "æ¨½" "ç¨œ" "è†"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¼¦" "Êþ" "Áó" "Æû" "»è"	nil nil nil nil nil
-	     "¿Õ" "°í" "²Þ" "ÄÛ" "Á¸"	nil nil nil nil nil
-	     "Ëó" "ÃÁ" "µâ" "²ä" "ËÊ"	nil nil nil nil nil]))
+	     "ç—”" "æœ‹" "è’¼" "å»¿" "è‚¢"	nil nil nil nil nil
+	     "è…Ž" "å£±" "å˜©" "å£·" "ç³Ž"	nil nil nil nil nil
+	     "ä¿£" "è›‹" "æ±²" "ä¿„" "å "	nil nil nil nil nil]))
 
     ;;
     (20 ; a
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Æì" "³§" "Âì" "²ø" "·Ü"
-	     nil nil nil nil nil   "Íã" "ÀÞ" "Îø" "¾È" "»Ý"
-	     nil nil nil nil nil   "¿°" "Çù" "Áµ" "È·" "½å"])
+	     nil nil nil nil nil   "ç¸„" "çš†" "æ»" "æ€ª" "é¶"
+	     nil nil nil nil nil   "ç¿¼" "æŠ˜" "æ‹" "ç…§" "æ—¨"
+	     nil nil nil nil nil   "å”‡" "æ¼ " "ç¦…" "é³©" "éµ"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Ç¼" "ÄË" "µí" "Ìï" "Åº"
-	     nil nil nil nil nil   "ÅÝ" "°Ý" "³È" "¶Ø" "Ãî"
-	     nil nil nil nil nil   "½Ê" "ÀÉ" "Ã¥" "¼¢" "¶ò"])
-	(28 (27 . "¤î")) ; l k
+	     nil nil nil nil nil   "ç´" "ç—›" "ç‰›" "å¼¥" "æ·»"
+	     nil nil nil nil nil   "å€’" "ç¶­" "æ‹¡" "ç¦" "è™«"
+	     nil nil nil nil nil   "æ·‘" "éš»" "å¥ª" "æ»‹" "æ„š"])
+	(28 (27 . "ã‚Ž")) ; l k
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "°Ó" "»ò" "´§" "¼ä" "Æï"
-	     nil nil nil nil nil   "³ê" "Ã¯" "Êú" "½¦" "³¸"
-	     nil nil nil nil nil   "É¿" "²ç" "Æõ" "Íì" "µÀ"])
+	     nil nil nil nil nil   "å°‰" "è³œ" "å† " "å¯‚" "æ¥ "
+	     nil nil nil nil nil   "æ»‘" "èª°" "æŠ±" "æ‹¾" "è“‹"
+	     nil nil nil nil nil   "è±¹" "ç‰™" "å¼" "æ´›" "ç¥‡"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "½â" "Ç¡" "Âµ" "¶Ò" "½í"
-	     nil nil nil nil nil   "µ³" "ÌÔ" "ÊÀ" "¿ê" "Ê¯"
-	     nil nil nil nil nil   "ºô" "Ìí" "¾¿" "±Ã" "³ß"]))
+	     nil nil nil nil nil   "ç›¾" "å¦‚" "è¢–" "å·¾" "æ¸š"
+	     nil nil nil nil nil   "é¨Ž" "çŒ›" "å¼Š" "è¡°" "å¢³"
+	     nil nil nil nil nil   "æŸµ" "è€¶" "æ¢¢" "å¡" "æ¨«"]))
 
     (21 ; s
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Ãµ" "Ìð" "¼¯" "¾Ç" "Éè"
-	     nil nil nil nil nil   "Àê" "»ï" "ÎÅ" "ÌÃ" "Åà"
-	     nil nil nil nil nil   "¾î" "º¿" "¹Ù" "·°" "º¦"])
+	     nil nil nil nil nil   "æŽ¢" "çŸ¢" "é¹¿" "ç„¦" "è­œ"
+	     nil nil nil nil nil   "å " "èªŒ" "ç™‚" "éŠ˜" "å‡"
+	     nil nil nil nil nil   "å¬¢" "éŽ–" "éƒŠ" "è–«" "å¢¾"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "¶¿" "½ç" "¿¥" "¾µ" "µÑ"
-	     nil nil nil nil nil   "¾Ð" "È×" "¹ß" "Äì" "ºÚ"
-	     nil nil nil nil nil   "Çþ" "ÇÐ" "Ïª" "ÃÅ" "ÎÑ"])
+	     nil nil nil nil nil   "éƒ·" "é †" "ç¹”" "æ‰¿" "å´"
+	     nil nil nil nil nil   "ç¬‘" "ç›¤" "é™" "åº•" "èœ"
+	     nil nil nil nil nil   "éº¦" "ä¿³" "éœ²" "å£‡" "å€«"])
 	(28 ; l
-	 (16 . "¤º") ; u
-	 (17 . "¤¸") ; i
-	 (25 . "¤¼") ; h
-	 (26 . "¤¾") ; j
-	 (27 . "¤¶")) ; k
+	 (16 . "ãš") ; u
+	 (17 . "ã˜") ; i
+	 (25 . "ãœ") ; h
+	 (26 . "ãž") ; j
+	 (27 . "ã–")) ; k
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Æð" "µ¾" "¾Ñ" "Îî" "Âõ"
-	     nil nil nil nil nil   "¾Ü" "Ìá" "¹¹" "Á¦" "É¶"
-	     nil nil nil nil nil   "Ï³" "´Ù" "²Í" "Æë" "ÏË"])
+	     nil nil nil nil nil   "è»Ÿ" "çŠ " "ç²§" "éœŠ" "æ¿¯"
+	     nil nil nil nil nil   "è©³" "æˆ»" "æ›´" "è–¦" "ä¿µ"
+	     nil nil nil nil nil   "æ¼" "é™¥" "æž¶" "é¦´" "äº˜"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Ç­" "¹Ì" "¹Ú" "¾ê" "¹²"
-	     nil nil nil nil nil   "¹Æ" "¾´" "½Ï" "¾ô" "¿É"
-	     nil nil nil nil nil   "Æú" "¶Õ" "ÈÒ" "ÂÃ" "±â"]))
+	     nil nil nil nil nil   "çŒ«" "è€•" "é…µ" "å‰°" "æ…Œ"
+	     nil nil nil nil nil   "ç¨¿" "å½°" "ç†Ÿ" "æµ„" "è¾›"
+	     nil nil nil nil nil   "è™¹" "æ¬£" "é ’" "å”¾" "å¥„"]))
 
     (22 ; d
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "´¿" "Éû" "¸Ç" "ÌÊ" "ÊÙ"
-	     nil nil nil nil nil   "·Ã" "´ß" "µÒ" "µù" "Ã¦"
-	     nil nil nil nil nil   "ÌÖ" "Èª" "Èé" "½®" "Ãì"])
+	     nil nil nil nil nil   "æ­“" "å‰¯" "å›º" "ç¶¿" "å‹‰"
+	     nil nil nil nil nil   "æµ" "å²¸" "å®¢" "æ¼" "è„±"
+	     nil nil nil nil nil   "ç¶²" "ç•‘" "çš®" "èˆŸ" "æŸ±"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "±ü" "¼þ" "²Æ" "°è" "È¨"
-	     nil nil nil nil nil   "º§" "´´" "¶¡" "Àá" "°Û"
-	     nil nil nil nil nil   "È¢" "Â¸" "Æý" "Ë´" "¹µ"])
+	     nil nil nil nil nil   "å¥¥" "å‘¨" "å¤" "åŸŸ" "å¹¡"
+	     nil nil nil nil nil   "å©š" "å¹¹" "ä¾›" "ç¯€" "ç•°"
+	     nil nil nil nil nil   "ç®±" "å­˜" "ä¹³" "äº¡" "æŽ§"])
 	(28 ; l
-	 (16 . "¤Ã") ; u
-	 (17 . "¤Â") ; i
-	 (22 (16 . "¤Å")) ; d u
-	 (25 . "¤Ç") ; h
-	 (26 . "¤É") ; j
-	 (27 . "¤À")) ; k
+	 (16 . "ã£") ; u
+	 (17 . "ã¢") ; i
+	 (22 (16 . "ã¥")) ; d u
+	 (25 . "ã§") ; h
+	 (26 . "ã©") ; j
+	 (27 . "ã ")) ; k
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Ã¤" "Î´" "Íê" "·¬" "¸ç"
-	     nil nil nil nil nil   "Ãó" "Îé" "ÇÜ" "·»" "ÎÒ"
-	     nil nil nil nil nil   "ÀÝ" "°¸" "¸Û" "¹¡" "¶ï"])
+	     nil nil nil nil nil   "è¾°" "éš†" "é ¼" "æ¡‘" "æ‚Ÿ"
+	     nil nil nil nil nil   "é§" "ç¤¼" "å€" "å…„" "åŽ˜"
+	     nil nil nil nil nil   "æ‘‚" "å®›" "é›‡" "åŽ" "é§ˆ"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Ì¡" "ÎÐ" "Ç÷" "Ë§" "Á¾"
-	     nil nil nil nil nil   "·º" "´ø" "±Æ" "¹ï" "º÷"
-	     nil nil nil nil nil   "°Ø" "µ¶" "¾£" "¾Ì" "±¬"]))
+	     nil nil nil nil nil   "æ¼«" "ç·‘" "è¿«" "èŠ³" "æ›½"
+	     nil nil nil nil nil   "åˆ‘" "æ®" "å½±" "åˆ»" "ç´¢"
+	     nil nil nil nil nil   "æ¤…" "å½" "å‡" "ç¤" "å¯"]))
 
     (23 ; f
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "ºÅ" "Éý" "ËÙ" "Â§" "½¼"
-	     nil nil nil nil nil   "¶Ñ" "¾ù" "½ü" "ºù" "¾§"
-	     nil nil nil nil nil   "¸×" "Ï²" "ÌÄ" "Ì¯" "¿è"])
+	     nil nil nil nil nil   "å‚¬" "å¹…" "å €" "å‰‡" "å……"
+	     nil nil nil nil nil   "å‡" "è­²" "é™¤" "æ¡œ" "å”±"
+	     nil nil nil nil nil   "è™Ž" "æµª" "é³´" "å¦™" "ç²‹"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Ëô" "¹Ó" "±ç" "·¯" "¿Ì"
-	     nil nil nil nil nil   "Àä" "¼Ë" "°µ" "¾Æ" "ÅØ"
-	     nil nil nil nil nil   "³û" "²Û" "´Ç" "Å¨" "±ô"])
+	     nil nil nil nil nil   "åˆ" "è’" "æ´" "å›" "éœ‡"
+	     nil nil nil nil nil   "çµ¶" "èˆŽ" "åœ§" "ç„¼" "åŠª"
+	     nil nil nil nil nil   "é´¨" "è“" "çœ‹" "æ•µ" "é‰›"])
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "ÁÄ" "±è" "Êö" "·®" "¶®"
-	     nil nil nil nil nil   "Å¦" "¸¤" "³ù" "±¢" "Åû"
-	     nil nil nil nil nil   "ÈÑ" "Å³" "µç" "¹¿" "²²"])
+	     nil nil nil nil nil   "ç¥–" "æ²¿" "å³°" "å‹²" "å³¡"
+	     nil nil nil nil nil   "æ‘˜" "çŠ¬" "éŽŒ" "é™°" "ç­’"
+	     nil nil nil nil nil   "ç…©" "è¿­" "çª®" "æ´ª" "è‡†"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "·É" "ÏÓ" "Ì¼" "ÃÃ" "Æ¶"
-	     nil nil nil nil nil   "¹¨" "·¹" "Íß" "¸í" "Äî"
-	     nil nil nil nil nil   "¼Ü" "Î÷" "Åá" "»ó" "Ì÷"]))
+	     nil nil nil nil nil   "æ•¬" "è…•" "å¨˜" "é›" "æ´ž"
+	     nil nil nil nil nil   "å®" "å‚¾" "æ¬²" "èª¤" "å»·"
+	     nil nil nil nil nil   "å°º" "å»‰" "åˆ€" "é›Œ" "é–"]))
 
     (24 ; g
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "¼û" "ÃÙ" "ÁÏ" "ÍÙ" "½ï"
-	     nil nil nil nil nil   "Îó" "µû" "Åµ" "Àë" "ÆÇ"
-	     nil nil nil nil nil   "ÀË" "ÌÛ" "Èù" "µ§" "Á«"])
+	     nil nil nil nil nil   "éœ€" "é…" "å‰µ" "è¸Š" "ç·’"
+	     nil nil nil nil nil   "åˆ—" "é­š" "å…¸" "å®£" "æ¯’"
+	     nil nil nil nil nil   "æƒœ" "é»™" "å¾®" "ç¥ˆ" "é·"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "É®" "¾û" "ÌÁ" "Ëë" "Åô"
-	     nil nil nil nil nil   "¾ã" "À¥" "Á¡" "°Ü" "º¤"
-	     nil nil nil nil nil   "Ëý" "¸¹" "¹ø" "ËÞ" "Ä¨"])
+	     nil nil nil nil nil   "ç­†" "éŒ " "ç›Ÿ" "å¹•" "ç¯"
+	     nil nil nil nil nil   "éšœ" "ç€¬" "ç¹Š" "ç§»" "å›°"
+	     nil nil nil nil nil   "æ…¢" "å¼¦" "è…°" "å‡¡" "æ‡²"])
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Ä¦" "Ëâ" "½Ë" "·È" "Èå"
-	     nil nil nil nil nil   "Ç»" "ÃÈ" "¼î" "ÇÕ" "¶«"
-	     nil nil nil nil nil   "²³" "Îß" "¾½" "ºË" "Ìþ"])
+	     nil nil nil nil nil   "å½«" "é­”" "ç¥" "æº" "æ–"
+	     nil nil nil nil nil   "æ¿ƒ" "æš–" "ç " "æ¯" "å«"
+	     nil nil nil nil nil   "æ¡¶" "ç´¯" "æ™¶" "å®°" "ç™’"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Åâ" "ÏÆ" "³­" "ÂÕ" "²§"
-	     nil nil nil nil nil   "³Þ" "Æ¼" "¶»" "¶¼" "Âù"
-	     nil nil nil nil nil   "Éç" "¹Â" "ÀØ" "¿Û" "²à"]))
+	     nil nil nil nil nil   "å”" "è„‡" "è²" "æ€ " "ç¿"
+	     nil nil nil nil nil   "ç¬ " "éŠ…" "èƒ¸" "è„…" "æ¿"
+	     nil nil nil nil nil   "èŠ™" "æº" "è¹Ÿ" "è«" "è¿¦"]))
 
     ;;
     (25 ; h
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "É¤" "¹Ä" "¸Ð" "Àç" "ÉÁ"	nil nil nil nil nil
-	     "·Ç" "Çö" "Åò" "¸Æ" "Íí"	nil nil nil nil nil
-	     "Åõ" "°¥" "¾ö" "Åí" "°½"	nil nil nil nil nil])
+	     "åŒ¹" "çš‡" "æ¹–" "ä»™" "æ"	nil nil nil nil nil
+	     "æŽ²" "è–„" "æ¹¯" "å‘¼" "çµ¡"	nil nil nil nil nil
+	     "ç‡ˆ" "å“€" "ç•³" "æ¡ƒ" "ç¶¾"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¿²" "½¢" "¿Ü" "Áà" "¾·"	nil nil nil nil nil
-	     "·ó" "ÈÓ" "ÀÕ" "°Í" "Åð"	nil nil nil nil nil
-	     "ÂÛ" "³á" "»é" "¶À" "Ãê"	nil nil nil nil nil])
+	     "å¯" "å°±" "é ˆ" "æ“" "æ‹›"	nil nil nil nil nil
+	     "å…¼" "é£¯" "è²¬" "ä¾" "ç›—"	nil nil nil nil nil
+	     "èƒŽ" "æ¢¶" "è„‚" "é¡" "æŠ½"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¶Ô" "Îæ" "½Ä" "ÎÃ" "Ê³"	nil nil nil nil nil
-	     "²¢" "³Ö" "´²" "Ì²" "¾©"	nil nil nil nil nil
-	     "º·" "¸û" "¼¸" "º«" "Éù"	nil nil nil nil nil])
+	     "æ–¤" "å¶º" "ç¸¦" "æ¶¼" "å¥®"	nil nil nil nil nil
+	     "æ—º" "éš”" "å¯›" "çœ " "å¥¨"	nil nil nil nil nil
+	     "åµ¯" "å‹¾" "å±" "æ˜†" "è•—"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¼Ð" "±ê" "Ã¸" "²Â" "Ä©"	nil nil nil nil nil
-	     "±ñ" "ÍÈ" "´Ô" "·ø" "Çº"	nil nil nil nil nil
-	     "ÍÖ" "¹é" "Ïµ" "½¥" "¾ü"	nil nil nil nil nil]))
+	     "æ–œ" "ç‚Ž" "æ·¡" "ä½³" "æŒ‘"	nil nil nil nil nil
+	     "è‹‘" "æš" "é‚„" "å …" "æ‚©"	nil nil nil nil nil
+	     "è“‰" "æ‹·" "ç‹¼" "æ„" "å˜±"	nil nil nil nil nil]))
 
     (26 ; j
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "½Ü" "¾þ" "ºÎ" "Î¥" "¸ù"	nil nil nil nil nil
-	     "³Ù" "ÉÃ" "Æ®" "µ¿" "Ê©"	nil nil nil nil nil
-	     "¶Ä" "ÅÜ" "¹à" "¸ã" "´ì"	nil nil nil nil nil])
+	     "æ—¬" "é£¾" "æŽ¡" "é›¢" "åŠŸ"	nil nil nil nil nil
+	     "å²³" "ç§’" "é—˜" "ç–‘" "ä»"	nil nil nil nil nil
+	     "ä»°" "æ€’" "é …" "å¾" "ä¼Ž"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "°·" "Éã" "ÉÛ" "²¹" "·ì"	nil nil nil nil nil
-	     "°ø" "¾Ý" "¹¯" "ËÂ" "¼±"	nil nil nil nil nil
-	     "Âº" "»ê" "µ·" "°û" "Éê"	nil nil nil nil nil])
+	     "æ‰±" "çˆ¶" "å¸ƒ" "æ¸©" "è¡€"	nil nil nil nil nil
+	     "å› " "è±¡" "åº·" "ç´¡" "è­˜"	nil nil nil nil nil
+	     "å°Š" "è‡³" "å„€" "é£²" "è³¦"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "²±" "Íñ" "Áû" "È©" "Ãß"	nil nil nil nil nil
-	     "Ä³" "Êô" "Êë" "µµ" "³¨"	nil nil nil nil nil
-	     "ÍÚ" "ÈÚ" "»®" "Ì·" "¾é"	nil nil nil nil nil])
+	     "æ†¶" "åµ" "é¨’" "è‚Œ" "è“„"	nil nil nil nil nil
+	     "è¶" "å¥‰" "æš®" "äº€" "çµµ"	nil nil nil nil nil
+	     "é¥" "è›®" "çš¿" "çŸ›" "å†—"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Ëí" "½î" "¸Ø" "¾Ø" "½Í"	nil nil nil nil nil
-	     "Æ¹" "Âî" "Èá" "¸¥" "Æ¸"	nil nil nil nil nil
-	     "ºó" "ºÈ" "µÔ" "²¥" "ÂÆ"	nil nil nil nil nil]))
+	     "æž•" "åº¶" "èª‡" "è£³" "ç²›"	nil nil nil nil nil
+	     "èƒ´" "å“" "æ‚²" "çŒ®" "ç«¥"	nil nil nil nil nil
+	     "æœ”" "å“‰" "è™" "æ®´" "æƒ°"	nil nil nil nil nil]))
 
     (27 ; k
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "³ã" "Çî" "¶­" "¼Ú" "Í¼"	nil nil nil nil nil
-	     "¼÷" "¹¶" "Ë®" "½°" "»Ñ"	nil nil nil nil nil
-	     "³Ó" "À÷" "¾Ë" "¿Ã" "Èè"	nil nil nil nil nil])
+	     "æ½Ÿ" "åš" "å¢ƒ" "å€Ÿ" "å¤•"	nil nil nil nil nil
+	     "å¯¿" "æ”»" "é‚¦" "è¡†" "å§¿"	nil nil nil nil nil
+	     "è¼ƒ" "æŸ“" "ç¡" "è‡£" "ç–²"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¹ë" "ÍØ" "Éñ" "Ì©" "±ó"	nil nil nil nil nil
-	     "¶Ú" "·Ï" "¿Ë" "ÅÌ" "´î"	nil nil nil nil nil
-	     "Îí" "Ãè" "µÊ" "²¤" "Ã×"	nil nil nil nil nil])
+	     "è±ª" "è¬¡" "èˆž" "å¯†" "é "	nil nil nil nil nil
+	     "ç­‹" "ç³»" "é‡" "å¾’" "å–œ"	nil nil nil nil nil
+	     "é›¶" "å®™" "å–«" "æ¬§" "è‡´"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "²Å" "²¾" "¼­" "ËÒ" "´«"	nil nil nil nil nil
-	     "¾²" "Éâ" "ÊÒ" "¼å" "Í¦"	nil nil nil nil nil
-	     "³¯" "Ê°" "Îå" "»´" "·¨"	nil nil nil nil nil])
+	     "å˜‰" "ä»®" "è¾ž" "ç‰§" "å‹§"	nil nil nil nil nil
+	     "åºŠ" "æµ®" "ç‰‡" "å¼±" "å‹‡"	nil nil nil nil nil
+	     "åŠ¾" "æ†¤" "åŠ±" "æƒ¨" "éšˆ"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "ÃÂ" "½ø" "Èï" "½Ì" "¿á"	nil nil nil nil nil
-	     "¿û" "ºÜ" "´í" "¸ð" "ÂØ"	nil nil nil nil nil
-	     "°«" "²¶" "ÎÞ" "°®" "Íö"	nil nil nil nil nil]))
+	     "èª•" "åº" "è¢«" "ç¸®" "å¹"	nil nil nil nil nil
+	     "è…" "è¼‰" "å±" "ä¹ž" "æ›¿"	nil nil nil nil nil
+	     "èŒœ" "ä¿º" "æ¶™" "æ¡" "è˜­"	nil nil nil nil nil]))
 
     (28 ; l
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Àð" "ÆÏ" "Ê»" "¼¹" "µÆ"	nil nil nil nil nil
-	     "¹ö" "Áü" "»À" "»¥" "Ã°"	nil nil nil nil nil
-	     "µØ" "±÷" "½ë" "Å¥" "±Ù"	nil nil nil nil nil])
+	     "æ‰‡" "å±Š" "ä½µ" "åŸ·" "èŠ"	nil nil nil nil nil
+	     "ç„" "åƒ" "é…¸" "æœ­" "ä¸¹"	nil nil nil nil nil
+	     "ä»‡" "æ–¼" "æš‘" "æ³¥" "æ‚¦"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "´ã" "ºÒ" "ÇË" "ÊÞ" "Æ¦"	nil nil nil nil nil
-	     "ÏÑ" "½ý" "Äù" "´¹" "ÈÈ"	nil nil nil nil nil
-	     "Éë" "ÎÈ" "¼Õ" "·ê" "»Ð"	nil nil nil nil nil])
+	     "çœ¼" "ç½" "ç ´" "èˆ—" "è±†"	nil nil nil nil nil
+	     "æ¹¾" "å‚·" "ç· " "æ›" "çŠ¯"	nil nil nil nil nil
+	     "èµ´" "ç³§" "è¬" "ç©´" "å§‰"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "µ¸" "¶þ" "ÊÉ" "¿æ" "Ï¡"	nil nil nil nil nil
-	     "ÍÇ" "Í«" "Î§" "½±" "Äà"	nil nil nil nil nil
-	     "¸´" "ÍÅ" "Ãï" "¶ß" "ÇÆ"	nil nil nil nil nil])
+	     "å¦“" "å±ˆ" "å£" "ç‚Š" "è“®"	nil nil nil nil nil
+	     "åº¸" "æ†‚" "å¾‹" "è¥²" "é‡£"	nil nil nil nil nil
+	     "é¹¸" "å¦–" "è¡·" "è¥Ÿ" "è¦‡"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "ÎÄ" "Ë¹" "´Ó" "Íò" "Äç"	nil nil nil nil nil
-	     "Ç¢" "º©" "Ìö" "·ç" "ÆÊ"	nil nil nil nil nil
-	     "Ææ" "¼ô" "¾Ù" "ÁÅ" "½Þ"	nil nil nil nil nil]))
+	     "çŒŸ" "å¸½" "è²«" "åµ" "è²ž"	nil nil nil nil nil
+	     "å°¿" "æ‡‡" "èº" "æ¬ " "æ ƒ"	nil nil nil nil nil
+	     "è¬Ž" "å„’" "è¨Ÿ" "ç§Ÿ" "æ®‰"	nil nil nil nil nil]))
 
     (29 ; ;
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¿¬" "ÉÒ" "²·" "¶ð" "Æá"	nil nil nil nil nil
-	     "ËÁ" "µ±" "ÊÁ" "¹Ã" "Èò"	nil nil nil nil nil
-	     "³º" "Èê" "ÀÆ" "ºÏ" "ÊÐ"	nil nil nil nil nil])
+	     "å°»" "æ•" "å¸" "é§’" "é‚£"	nil nil nil nil nil
+	     "å†’" "è¼" "æŸ„" "ç”²" "é¿"	nil nil nil nil nil
+	     "è©²" "ç¢‘" "æ–‰" "æ ½" "å"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "ÍÒ" "Áò" "Ãé" "°ä" "ÁÃ"	nil nil nil nil nil
-	     "ÍÂ" "Ìø" "ºÄ" "µ¥" "±ö"	nil nil nil nil nil
-	     "Á²" "¿Ý" "¹Å" "ÆÚ" "¾æ"	nil nil nil nil nil])
+	     "çª¯" "è‘¬" "å¿ " "éº" "ç¤Ž"	nil nil nil nil nil
+	     "é " "æŸ³" "å‚µ" "æ±½" "å¡©"	nil nil nil nil nil
+	     "æ¼¸" "é…¢" "ç¡¬" "è±š" "ä¸ˆ"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "³¾" "Çå" "¿ì" "º¶" "Ê¨"	nil nil nil nil nil
-	     "¿¡" "ËÄ" "Ê¶" "´¨" "´¤"	nil nil nil nil nil
-	     "Á§" "·ä" "³Å" "ÆÒ" "ºæ"	nil nil nil nil nil])
+	     "é¦¨" "è³ " "é…”" "å”†" "æ²¸"	nil nil nil nil nil
+	     "æ‹­" "è†¨" "ç´›" "å¯’" "ç“¦"	nil nil nil nil nil
+	     "è©®" "éš™" "åš‡" "å¯…" "å º"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Çë" "¼ß" "Îô" "Ê®" "ÌÕ"	nil nil nil nil nil
-	     "°¯" "Æ·" "½Ã" "Î¯" "¿»"	nil nil nil nil nil
-	     "ºü" "°§" "È¥" "°¶" "³Ç"	nil nil nil nil nil]))
+	     "è©" "çˆµ" "åŠ£" "å™´" "ç›²"	nil nil nil nil nil
+	     "æ¸¥" "çž³" "ç£" "æºœ" "æµ¸"	nil nil nil nil nil
+	     "åŒ™" "æŒ¨" "è‚‡" "æ–¡" "å»“"	nil nil nil nil nil]))
     ;;
     (30 ; z
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "°ç" "¿ñ" "µ¹" "À¦" "Çü"
-	     nil nil nil nil nil   "Ä¼" "Áú" "Áå" "Ç´" "³ó"
-	     nil nil nil nil nil   "³õ" "¶æ" "Àí" "³ý" "Áæ"])
+	     nil nil nil nil nil   "äº¥" "é«„" "å®œ" "ç•" "èŽ«"
+	     nil nil nil nil nil   "å‹…" "éœœ" "æ§½" "ç²˜" "éž„"
+	     nil nil nil nil nil   "å…œ" "å€¶" "å°–" "èŒ…" "æ¼•"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "ÇÝ" "¹×" "¾ú" "¾ç" "¾Û"
-	     nil nil nil nil nil   "¿ý" "´ª" "µ÷" "¼§" "Çæ"
-	     nil nil nil nil nil   "³©" "Í¤" "¾á" "»¢" "Èõ"])
+	     nil nil nil nil nil   "åŸ¹" "è²¢" "é†¸" "ä¸ž" "è©”"
+	     nil nil nil nil nil   "é›€" "å‹˜" "è·" "ç£" "é™ª"
+	     nil nil nil nil nil   "èŠ¥" "ä½‘" "é¾" "æ‹¶" "æ¨‹"])
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "ºÖ" "ÅÎ" "·å" "É¦" "ÌØ"
-	     nil nil nil nil nil   "º­" "Ì­" "¼®" "³®" "´Ã"
-	     nil nil nil nil nil   "ÁÌ" "Âû" "Ìå" "Éó" "¸Ó"])
+	     nil nil nil nil nil   "ç ¦" "æœ" "æ¡" "é«­" "è’™"
+	     nil nil nil nil nil   "æ¢±" "ç¨”" "æ±" "å‡±" "æ½…"
+	     nil nil nil nil nil   "é¡" "èŒ¸" "æ‚¶" "è•ª" "è¢´"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "¸¿" "ÎÆ" "Ëê" "½Ý" "ÄÇ"
-	     nil nil nil nil nil   "¶ú" "Ä÷" "±²" "ÇÊ" "Ãð"
-	     nil nil nil nil nil   "±á" "ÅË" "½¶" "ÀÃ" "ÊÜ"]))
+	     nil nil nil nil nil   "èˆ·" "çž­" "æ§™" "æ¥¯" "æ¤Ž"
+	     nil nil nil nil nil   "ä¸²" "ç¦Ž" "æ¸¦" "ç¶" "è¨»"
+	     nil nil nil nil nil   "å °" "å± " "é…‹" "é†’" "éž­"]))
 
     (31 ; x
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "µà" "³¼" "ÀÀ" "·ð" "·¦"
-	     nil nil nil nil nil   "¹ó" "±£" "¸­" "ÃÑ" "ÀÂ"
-	     nil nil nil nil nil   "µÂ" "Á¢" "ÄÞ" "ÀÔ" "µ©"])
+	     nil nil nil nil nil   "æœ½" "éª¸" "èª“" "å€¹" "çªª"
+	     nil nil nil nil nil   "é…·" "éš " "è³¢" "æ¥" "é€"
+	     nil nil nil nil nil   "èŸ»" "ç¾¨" "çˆª" "è„Š" "ç¨€"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "´®" "´Î" "Ãò" "ÉÓ" "Ç«"
-	     nil nil nil nil nil   "ÄÆ" "Íâ" "Ë·" "¾¤" "¾Ó"
-	     nil nil nil nil nil   "ÇÄ" "¶Ö" "Äæ" "¶ü" "Áä"])
+	     nil nil nil nil nil   "å ª" "è‚" "é‹³" "ç“¶" "å¯§"
+	     nil nil nil nil nil   "å¢œ" "ç¿Œ" "åŠ" "å¬" "è‚–"
+	     nil nil nil nil nil   "æŠŠ" "æ¬½" "å‰ƒ" "é‡§" "æ§"])
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "°Ç" "ÄÖ" "¸ä" "°ê" "È¤"
-	     nil nil nil nil nil   "±Ü" "Éí" "·Â" "´­" "Êð"
-	     nil nil nil nil nil   "Ê÷" "´ç" "Á®" "ÂÜ" "¿Ñ"])
+	     nil nil nil nil nil   "é—‡" "ç¶´" "å¨¯" "éƒ" "ç®¸"
+	     nil nil nil nil nil   "é–²" "é™„" "å¾„" "å–š" "ä¿¸"
+	     nil nil nil nil nil   "å³¯" "é›" "é–ƒ" "è…¿" "å£¬"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "³Á" "Åã" "±Í" "°À" "ÁÍ"
-	     nil nil nil nil nil   "¼Ó" "º»" "¶Ï" "Ëò" "ÂÁ"
-	     nil nil nil nil nil   "¾Ö" "Ë©" "Á¹" "´£" "¶ý"]))
+	     nil nil nil nil nil   "æŸ¿" "å¡”" "ç‘›" "ç²Ÿ" "é¼ "
+	     nil nil nil nil nil   "ç´—" "æ²™" "åƒ…" "äº¦" "æ±°"
+	     nil nil nil nil nil   "è•‰" "è“¬" "å™Œ" "è‹…" "å±‘"]))
 
     (32 ; c
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "·ü" "·¡" "Î²" "·æ" "¿â"
-	     nil nil nil nil nil   "ÊÄ" "´ú" "ÇÑ" "·õ" "Ê¤"
-	     nil nil nil nil nil   "É³" "»¤" "Íï" "·Å" "¸Ò"])
+	     nil nil nil nil nil   "æ‡¸" "æŽ˜" "ç¡«" "å‚‘" "åž‚"
+	     nil nil nil nil nil   "é–‰" "æ——" "å»ƒ" "å‰£" "è¦†"
+	     nil nil nil nil nil   "ç´" "æ“¦" "é…ª" "æ…§" "ç³Š"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "¹À" "½Ó" "±À" "·¼" "ÅÍ"
-	     nil nil nil nil nil   "Á¬" "Î¤" "¾Ä" "Å°" "´Ï"
-	     nil nil nil nil nil   "Æ¥" "Æ©" "Îï" "Ì×" "±ú"])
+	     nil nil nil nil nil   "æµ©" "ä¿Š" "é›²" "å•“" "æ–—"
+	     nil nil nil nil nil   "éŠ­" "é‡Œ" "æ¸‰" "å¾¹" "è‰¦"
+	     nil nil nil nil nil   "è¬„" "é€" "éº—" "è€—" "å‡¹"])
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "¸°" "¹Ø" "Çì" "°©" "¼×"
-	     nil nil nil nil nil   "³ø" "¸É" "¾Î" "ÍÏ" "¼ð"
-	     nil nil nil nil nil   "ºç" "ÌÑ" "¼Û" "¾Å" "²ë"])
+	     nil nil nil nil nil   "éµ" "è³¼" "ä¼¯" "é€¢" "é®"
+	     nil nil nil nil nil   "é‡œ" "å­¤" "ç§°" "æº¶" "è…«"
+	     nil nil nil nil nil   "æ¦Š" "å¦„" "å‹º" "æ¹˜" "è›¾"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Æß" "Æ½" "Å½" "´Ì" "Àò"
-	     nil nil nil nil nil   "µõ" "Å±" "ÊÇ" "¿ç" "·Î"
-	     nil nil nil nil nil   "±Þ" "ÎË" "Áº" "Íä" "Çâ"]))
+	     nil nil nil nil nil   "éˆ" "å³ " "è²¼" "ç¼¶" "æ “"
+	     nil nil nil nil nil   "è™š" "æ’¤" "é " "ç¡" "ç¨½"
+	     nil nil nil nil nil   "åŽ­" "é¼" "å¡‘" "æ·€" "ç‹½"]))
 
     (33 ; v
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "½­" "ºÌ" "¸¬" "Ï£" "½Ç"
-	     nil nil nil nil nil   "¼Ñ" "Çñ" "´Å" "À¡" "¿Ó"
-	     nil nil nil nil nil   "Ä¿" "¶´" "¹·" "ÎÜ" "Çô"])
+	     nil nil nil nil nil   "è‡­" "å½©" "è¬™" "éŒ¬" "å”"
+	     nil nil nil nil nil   "ç…®" "æ³Š" "ç”˜" "æ¾„" "ç”š"
+	     nil nil nil nil nil   "æœ•" "æŒŸ" "æ˜‚" "ç‘ " "ç²•"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "±Õ" "·À" "Ìé" "¹±" "ÇÞ"
-	     nil nil nil nil nil   "Ä¢" "ÁÝ" "´Ê" "±ø" "³µ"
-	     nil nil nil nil nil   "¼¿" "¼ü" "·ý" "Éî" "Í´"])
+	     nil nil nil nil nil   "æ¶²" "å¥‘" "ä¹Ÿ" "æ’" "åª’"
+	     nil nil nil nil nil   "å¸³" "æŽƒ" "ç°¡" "æ±š" "æ¦‚"
+	     nil nil nil nil nil   "æ¼†" "å›š" "æ‹³" "ä¾®" "ç¥"])
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "·Ì" "¿þ" "Ê×" "Èì" "ÂÉ"
-	     nil nil nil nil nil   "¶Å" "Ìñ" "Áþ" "°°" "°Ã"
-	     nil nil nil nil nil   "Éï" "ÇÎ" "³¡" "¶ª" "Á½"])
+	     nil nil nil nil nil   "æ¸“" "è£¾" "é" "ç·‹" "èˆµ"
+	     nil nil nil nil nil   "å‡" "åŽ„" "æ†Ž" "æ—­" "åºµ"
+	     nil nil nil nil nil   "æ’«" "èŠ­" "é­" "å¿" "æ›¾"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "¾ß" "¹ä" "ÇÅ" "±³" "ÉÚ"
-	     nil nil nil nil nil   "³Ï" "½ù" "Íû" "¿«" "Å÷"
-	     nil nil nil nil nil   "ºÓ" "Á¿" "Ï´" "ÄÐ" "´È"]))
+	     nil nil nil nil nil   "é†¤" "å‰›" "æ’­" "å˜˜" "å†¨"
+	     nil nil nil nil nil   "ç©«" "å¾" "æŽ" "è¾±" "ç—˜"
+	     nil nil nil nil nil   "é‡‡" "æ¥š" "ç‰¢" "æ§»" "ç«¿"]))
 
     (34 ; b
 	(14 . ; t
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "Èý" "Èç" "´¢" "ÀÍ" "Æò"
-	     nil nil nil nil nil   "µê" "»Ì" "¼ë" "¿ò" "Ã³"
-	     nil nil nil nil nil   "Éà" "ÄØ" "ÇÖ" "ÆÅ" "¿à"])
+	     nil nil nil nil nil   "çœ‰" "æ³Œ" "åˆˆ" "æ–¥" "æ±"
+	     nil nil nil nil nil   "ç³¾" "å—£" "æœ±" "å´‡" "å¦"
+	     nil nil nil nil nil   "æ–§" "æ¤¿" "ç›ƒ" "ç¦¿" "é€—"])
 	(24 . ; g
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "ÅÛ" "²¸" "Äñ" "¿Ô" "±Ó"
-	     nil nil nil nil nil   "¶Í" "Í£" "Åþ" "ÁÓ" "ÁÂ"
-	     nil nil nil nil nil   "Éö" "¹É" "¿ã" "ËÚ" "ÎÕ"])
+	     nil nil nil nil nil   "å¥´" "æ©" "æŠµ" "å°½" "è© "
+	     nil nil nil nil nil   "æ¡" "å”¯" "åˆ°" "å–ª" "ç–Ž"
+	     nil nil nil nil nil   "æ¥“" "ç´˜" "å¸¥" "å¹Œ" "ç‡"])
 	(33 . ; v
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "¾¶" "ÈÍ" "µý" "Ìã" "Åè"
-	     nil nil nil nil nil   "³¥" "½·" "¼í" "Îì" "ÆÌ"
-	     nil nil nil nil nil   "ÍÝ" "ºë" "Ìª" "ÄÊ" "Äõ"])
+	     nil nil nil nil nil   "æŠ„" "è—©" "äº«" "è²°" "å¶‹"
+	     nil nil nil nil nil   "ç°" "é…¬" "ç‹©" "éš·" "å‡¸"
+	     nil nil nil nil nil   "æ…¾" "åŸ¼" "èœœ" "éŽš" "æ±€"])
 	(34 . ; b
 	    [nil nil nil nil nil    nil	 nil  nil  nil	nil
-	     nil nil nil nil nil   "¼Æ" "Èí" "µ£" "±Ý" "¸Ã"
-	     nil nil nil nil nil   "¿¸" "°´" "ÇÌ" "Ëû" "Ì¶"
-	     nil nil nil nil nil   "Ç¿" "²À" "Ìà" "Ã¿" "¶Â"]))
+	     nil nil nil nil nil   "æŸ´" "ç½·" "æ¯…" "æ¦Ž" "ä¹Ž"
+	     nil nil nil nil nil   "æ™‹" "æ¢“" "å©†" "éº¿" "ç‰Ÿ"
+	     nil nil nil nil nil   "è†¿" "ä¼½" "å°¤" "è€½" "é¥—"]))
 
     ;;
     (35 ; n
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "±±" "±Ì" "Í±" "¸Ý" "¿õ"	nil nil nil nil nil
-	     "Ãö" "¶ã" "Äú" "¶Ç" "Â±"	nil nil nil nil nil
-	     "ºÉ" "Æ´" "ÄÑ" "±È" "³ª"	nil nil nil nil nil])
+	     "è‡¼" "æ´©" "çŒ¶" "é¼“" "æž¢"	nil nil nil nil nil
+	     "çŒª" "åŸ" "è‰‡" "æš" "è³Š"	nil nil nil nil nil
+	     "å¡ž" "æ†§" "ä½ƒ" "æ›³" "èŸ¹"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "ºµ" "ÍÊ" "»£" "ÊÅ" "Â¶"	nil nil nil nil nil
-	     "¶ö" "ÁË" "±Ë" "ÀÒ" "ËÐ"	nil nil nil nil nil
-	     "·µ" "´á" "¹Ê" "ºã" "Ê½"	nil nil nil nil nil])
+	     "å‰" "æ“" "æ’®" "é™›" "å…¶"	nil nil nil nil nil
+	     "å¶" "é˜»" "æ³³" "ç±" "æ’²"	nil nil nil nil nil
+	     "å¦" "çŽ©" "çµž" "å†´" "å¡€"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "ÌÞ" "ÆÜ" "µü" "ÉË" "°Ú"	nil nil nil nil nil
-	     "·Ó" "Ì¨" "¶Þ" "°¼" "¿ð"	nil nil nil nil nil
-	     "Ë²" "Ã¨" "°î" "Á£" "ÏÉ"	nil nil nil nil nil])
+	     "å‹¿" "é “" "äº¨" "å½¬" "ç•"	nil nil nil nil nil
+	     "ç½«" "å²¬" "è¡¿" "çµ¢" "ç‘ž"	nil nil nil nil nil
+	     "éµ¬" "ç«ª" "æº¢" "è…º" "é·²"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¾ª" "Äß" "Áç" "»½" "½«"	nil nil nil nil nil
-	     "ÆÓ" "Í¯" "º¾" "Ì®" "ÁÀ"	nil nil nil nil nil
-	     "ÄÙ" "Ã·" "±ª" "ºú" "¾ó"	nil nil nil nil nil]))
+	     "å¦¾" "åŠ" "ç‡¥" "èš•" "ç¹"	nil nil nil nil nil
+	     "é…‰" "æ¹§" "è©" "è„ˆ" "ç‹™"	nil nil nil nil nil
+	     "æ½°" "æ­Ž" "è¿‚" "é®­" "æ–"	nil nil nil nil nil]))
 
     (36 ; m
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Ä·" "¹´" "¸¯" "Íó" "»§"	nil nil nil nil nil
-	     "Ï¶" "ÁÔ" "´¥" "Ãá" "Äº"	nil nil nil nil nil
-	     "º¡" "Îè" "Ã¶" "¶Ê" "Äò"	nil nil nil nil nil])
+	     "è·³" "æ‹˜" "é£" "æ¬„" "è–©"	nil nil nil nil nil
+	     "ç¯­" "å£®" "ä¹¾" "ç§©" "é ‚"	nil nil nil nil nil
+	     "æ­¤" "çŽ²" "æ—¦" "æ›²" "æŒº"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¾¸" "¼Î" "¾»" "·±" "Êæ"	nil nil nil nil nil
-	     "¿Ï" "¸â" "Êñ" "Â©" "Æ§"	nil nil nil nil nil
-	     "Íå" "È²" "Î¡" "ËÝ" "ÎÍ"	nil nil nil nil nil])
+	     "æŽŒ" "æ¨" "æ˜Œ" "è¨“" "ç©‚"	nil nil nil nil nil
+	     "åˆƒ" "å‘‰" "åŒ…" "æ¯" "è¸"	nil nil nil nil nil
+	     "ç¾…" "ä¼" "ç—¢" "ç¿»" "é™µ"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Éì" "Ì°" "Á©" "¶é" "¼Ï"	nil nil nil nil nil
-	     "ÆÖ" "Ëì" "ÉÄ" "Ãª" "±ð"	nil nil nil nil nil
-	     "´¼" "Âü" "Èü" "³¿" "Êµ"	nil nil nil nil nil])
+	     "é˜œ" "ç²" "è·µ" "ç‹—" "èµ¦"	nil nil nil nil nil
+	     "å±¯" "è†œ" "è‹—" "æ£š" "è‰¶"	nil nil nil nil nil
+	     "æ¡“" "å‡§" "çµ" "è›™" "ç³ž"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Äö" "ÉÑ" "ÊÊ" "³Ã" "¸ñ"	nil nil nil nil nil
-	     "¼Ä" "°¾" "ËÑ" "Çû" "Â×"	nil nil nil nil nil
-	     "¸§" "ÃÉ" "Ìß" "Çè" "»Ó"	nil nil nil nil nil]))
+	     "ç¢‡" "é »" "ç™–" "éˆŽ" "é¯‰"	nil nil nil nil nil
+	     "ç¯ " "é®Ž" "æœ´" "ç¸›" "æˆ´"	nil nil nil nil nil
+	     "ç¡¯" "æª€" "é¤…" "è¿" "å±"	nil nil nil nil nil]))
 
     (37 ; ,
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Êé" "²µ" "Ì¸" "¸ª" "¸Ü"	nil nil nil nil nil
-	     "¿Ò" "¿ï" "¶Û" "¿Î" "µÛ"	nil nil nil nil nil
-	     "ÏÍ" "¸ô" "ºÕ" "¸à" "¹Î"	nil nil nil nil nil])
+	     "æ…•" "ä¹™" "éœ§" "è‚©" "é¡§"	nil nil nil nil nil
+	     "å°‹" "éš" "ç·Š" "ä»" "å¸"	nil nil nil nil nil
+	     "è©«" "ä¾¯" "ç •" "ä¼" "è‚¯"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Ï¤" "ÅÂ" "Äá" "Ç³" "¿Ç"	nil nil nil nil nil
-	     "ÉÞ" "°Ï" "Ã¼" "µ¨" "²®"	nil nil nil nil nil
-	     "³Ì" "·ö" "²õ" "Çï" "ÈÊ"	nil nil nil nil nil])
+	     "å‘‚" "æ®¿" "é¶´" "ç‡ƒ" "è¨º"	nil nil nil nil nil
+	     "æ‰¶" "å›²" "ç«¯" "å­£" "è»"	nil nil nil nil nil
+	     "æ®»" "å–§" "å£Š" "æ‹" "ç•”"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Áï" "²Ô" "²Ë" "¶³" "Êø"	nil nil nil nil nil
-	     "³å" "ºÁ" "Í¡" "¿£" "Î³"	nil nil nil nil nil
-	     "»¾" "°ñ" "Áô" "Ï½" "´¯"	nil nil nil nil nil])
+	     "è¡" "ç¨¼" "æš‡" "æ­" "å´©"	nil nil nil nil nil
+	     "å–" "å" "è«­" "æ®–" "ç²’"	nil nil nil nil nil
+	     "è®ƒ" "èŒ¨" "è—»" "ç¦„" "å§¦"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¼à" "²ã" "Ê¢" "¹Õ" "ÀÛ"	nil nil nil nil nil
-	     "Ëß" "È¶" "¿ø" "·«" "¸ë"	nil nil nil nil nil
-	     "¼µ" "¿Á" "½Î" "ÌÒ" "ÊÎ"	nil nil nil nil nil]))
+	     "é…Œ" "èšŠ" "è…¹" "è¡¡" "æ‹™"	nil nil nil nil nil
+	     "ç›†" "é–¥" "æ®" "ç¹°" "ç¢"	nil nil nil nil nil
+	     "å®" "ç§¦" "å¡¾" "å­Ÿ" "è”‘"	nil nil nil nil nil]))
 
     (38 ; .
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Ëª" "²ù" "º°" "Íª" "Àà"	nil nil nil nil nil
-	     "Âä" "²Ò" "±ã" "Ä¯" "Ãà"	nil nil nil nil nil
-	     "ÇÁ" "É°" "´Ú" "·Û" "¿¤"	nil nil nil nil nil])
+	     "èœ‚" "æ‚”" "ç´º" "æ‚ " "çªƒ"	nil nil nil nil nil
+	     "é¯›" "ç¦" "å®´" "çœº" "é€"	nil nil nil nil nil
+	     "è¦—" "æ¡§" "éŸ“" "é š" "ç‡­"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "ÃÚ" "Îº" "ÄÁ" "Îñ" "¾ø"	nil nil nil nil nil
-	     "Íù" "¹ò" "Èî" "ºØ" "ÄÄ"	nil nil nil nil nil
-	     "Á¨" "¿Ä" "´è" "¶ë" "È­"	nil nil nil nil nil])
+	     "é¦³" "è™œ" "ç" "æš¦" "è’¸"	nil nil nil nil nil
+	     "å" "ç©€" "è‚¥" "æ–Ž" "é™³"	nil nil nil nil nil
+	     "è³Ž" "èŠ¯" "é ‘" "çŸ©" "é‰¢"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "Ë£" "ÂÝ" "³é" "Æ×" "ÈÆ"	nil nil nil nil nil
-	     "¸Á" "Ëõ" "ÎÔ" "±¯" "½Ô"	nil nil nil nil nil
-	     "ÅÆ" "ÃÐ" "¶û" "Ëø" "°¹"	nil nil nil nil nil])
+	     "çƒ¹" "è‹”" "æ¸‡" "æƒ‡" "æ±Ž"	nil nil nil nil nil
+	     "è«º" "æŠ¹" "æ·‹" "ä¸‘" "å³»"	nil nil nil nil nil
+	     "å…Ž" "å¼›" "æ«›" "è¿„" "å§"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "²´" "°ô" "±¾" "²Õ" "ËÕ"	nil nil nil nil nil
-	     "Ë¨" "°þ" "½ö" "ÈÞ" "Ìû"	nil nil nil nil nil
-	     "Äµ" "²×" "Ä¡" "ÀÌ" "Ìù"	nil nil nil nil nil]))
+	     "ç‰¡" "å…" "äº‘" "ç®‡" "é‡¦"	nil nil nil nil nil
+	     "èŒ" "è”­" "å™" "å¦ƒ" "æ„‰"	nil nil nil nil nil
+	     "è«œ" "è‹›" "å¸–" "æˆš" "è–®"	nil nil nil nil nil]))
 
     (39 ; /
 	(15 . ; y
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "½ì" "¹¸" "Äþ" "¸Ì" "ÈÜ"	nil nil nil nil nil
-	     "Íþ" "²ô" "°ï" "»ü" "¸Ï"	nil nil nil nil nil
-	     "½ú" "ÈÃ" "¿ª" "È«" "Ã¬"	nil nil nil nil nil])
+	     "æ›™" "æ™ƒ" "é€“" "å¼§" "å‘"	nil nil nil nil nil
+	     "ç’ƒ" "å¡Š" "é€¸" "æ…ˆ" "æž¯"	nil nil nil nil nil
+	     "æ•" "æ–‘" "è•" "ç• " "ç‹¸"	nil nil nil nil nil])
 	(25 . ; h
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "³ì" "Äé" "Àû" "Äå" "ÆÆ"	nil nil nil nil nil
-	     "°¿" "ËÅ" "¸Ê" "Ì¦" "¹ª"	nil nil nil nil nil
-	     "Âé" "Ä¸" "³î" "ÆØ" "°ö"	nil nil nil nil nil])
+	     "è¤" "å ¤" "æ—‹" "åµ" "ç¯¤"	nil nil nil nil nil
+	     "æˆ–" "è¬€" "å·±" "å·³" "å·§"	nil nil nil nil nil
+	     "é†" "éŠš" "ä¸”" "æ•¦" "å’½"	nil nil nil nil nil])
 	(35 . ; n
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "¼Ê" "¾«" "Âö" "ÏÈ" "ÌÆ"	nil nil nil nil nil
-	     "±¨" "Î¶" "²î" "¼¤" "Ë«"	nil nil nil nil nil
-	     "³ð" "³ë" "ÏÐ" "³·" "¹å"	nil nil nil nil nil])
+	     "ç¸ž" "å¨¼" "ç¢" "æž " "ç‰"	nil nil nil nil nil
+	     "çƒ" "é¾" "é¤“" "çˆ¾" "è¤’"	nil nil nil nil nil
+	     "å¶" "è‘›" "æ¤€" "ç¢" "åŠ«"	nil nil nil nil nil])
 	(36 . ; m
 	    [ nil  nil	nil  nil  nil	nil nil nil nil nil
-	     "»â" "Å®" "µ¦" "¿Ð" "±»"	nil nil nil nil nil
-	     "»Æ" "ÏÁ" "½Ù" "Ìè" "¸È"	nil nil nil nil nil
-	     "ÀÈ" "Ì§" "Çí" "¸ï" "Î¿"	nil nil nil nil nil]))))
+	     "ç…" "æºº" "ç•¿" "å¡µ" "ç“œ"	nil nil nil nil nil
+	     "ä»”" "å€­" "é§¿" "åŒ" "å§‘"	nil nil nil nil nil
+	     "è„†" "ç®•" "å‰¥" "é†" "å‡Œ"	nil nil nil nil nil]))))
 
 (setq tcode-special-commands-alist
-  '(((0 0) . (lambda () (tcode-show-tables nil nil))) ; 11 : LLÉ½¤ÎÉ½¼¨
-    ((0 9) . (lambda () (tcode-show-tables nil t))) ; 10 : LRÉ½¤ÎÉ½¼¨
-    ((9 0) . (lambda () (tcode-show-tables t nil))) ; 01 : RLÉ½¤ÎÉ½¼¨
-    ((9 9) . (lambda () (tcode-show-tables t t))) ; 00 : RRÉ½¤ÎÉ½¼¨
-    ((1 1) . tcode-start-jiscode)	; 22 : JIS ¥³¡¼¥ÉÉ½ÆþÎÏ
-    ((2 2) . tcode-toggle-alnum-mode) ; 33 : 1-2¥Ð¥¤¥ÈÀÚ¤ê´¹¤¨
-    ((2 1) . tcode-switch-variable) ; 32 : ¶çÆÉÅÀ¤Î¥È¥°¥ë
+  '(((0 0) . (lambda () (tcode-show-tables nil nil))) ; 11 : LLè¡¨ã®è¡¨ç¤º
+    ((0 9) . (lambda () (tcode-show-tables nil t))) ; 10 : LRè¡¨ã®è¡¨ç¤º
+    ((9 0) . (lambda () (tcode-show-tables t nil))) ; 01 : RLè¡¨ã®è¡¨ç¤º
+    ((9 9) . (lambda () (tcode-show-tables t t))) ; 00 : RRè¡¨ã®è¡¨ç¤º
+    ((1 1) . tcode-start-jiscode)	; 22 : JIS ã‚³ãƒ¼ãƒ‰è¡¨å…¥åŠ›
+    ((2 2) . tcode-toggle-alnum-mode) ; 33 : 1-2ãƒã‚¤ãƒˆåˆ‡ã‚Šæ›ãˆ
+    ((2 1) . tcode-switch-variable) ; 32 : å¥èª­ç‚¹ã®ãƒˆã‚°ãƒ«
     ((3 3) . (lambda ()
 	       (tcode-display-stroke-sequence tcode-last-help-char-list)))
-					; 44 : ¥Ø¥ë¥×
+					; 44 : ãƒ˜ãƒ«ãƒ—
     ((4 4) . (lambda () (tcode-query-stroke (point))))
-					; 55 : ¥Ø¥ë¥×
+					; 55 : ãƒ˜ãƒ«ãƒ—
     ((6 6) . tcode-bushu-begin-alternate-conversion)
-					; 77 : postfix Éô¼óÊÑ´¹
+					; 77 : postfix éƒ¨é¦–å¤‰æ›
     ((7 7) . (lambda () (tcode-transpose-strokes nil)))
 					; 88 : transpose-strokes
     ((8 8) . tcode-clear)
-					; 99 : Éô¼ó¹çÀ®ÊÑ´¹¡¦¸ò¤¼½ñ¤­ÊÑ´¹¤Ê¤É¤Î
-					; ¥­¥ã¥ó¥»¥ë
-    ((20 28 20) . tcode-bushu-begin-conversion))) ; ala : Éô¼ó¹çÀ®ÊÑ´¹¤Î³«»Ï
+					; 99 : éƒ¨é¦–åˆæˆå¤‰æ›ãƒ»äº¤ãœæ›¸ãå¤‰æ›ãªã©ã®
+					; ã‚­ãƒ£ãƒ³ã‚»ãƒ«
+    ((20 28 20) . tcode-bushu-begin-conversion))) ; ala : éƒ¨é¦–åˆæˆå¤‰æ›ã®é–‹å§‹
 
 
 (setq tcode-mode-help-string "\
-TUT¥³¡¼¥É¥â¡¼¥ÉÃæ¤Î¥­¡¼Áàºî¤Ï¼¡¤Î¤È¤ª¤ê¡£
-   ala : Éô¼ó¹çÀ®ÊÑ´¹¥â¡¼¥É¤ËÆþ¤ë¡£ala¤òÂÇ¤ÁÂ³¤±¤ë¤ÈºÆµ¢Åª¤ËÉô¼ó¹çÀ®ÊÑ´¹¤ò
-	¹Ô¤¦¤³¤È¤¬¤Ç¤­¤ë¡£
-   alj : ¸ò¤¼½ñ¤­ÊÑ´¹¤ò¹Ô¤¦(see variable `tcode-use-prefix-mazegaki')¡£
-   00, 01, 10, 11 : TUT¥³¡¼¥É¤Î2¥¹¥È¥í¡¼¥¯¤Î¥¹¥È¥í¡¼¥¯É½¤òÉ½¼¨¤¹¤ë¡£
-			(0¤¬¡Ö±¦¡×¡¢1¤¬¡Öº¸¡×¤ò°ÕÌ£¤·¤Æ¤¤¤ë)
-   22 : JIS ¥³¡¼¥É°ìÍ÷É½¤Ë¤è¤ëÆþÎÏ¡£
-   32 : ¡¢¡£¤È, . ¤òÀÚ¤êÂØ¤¨¤ë¡£(see variable `tcode-switch-table-list')¡£
-   33 : TUT¥³¡¼¥ÉÉ½¤Ë¤¢¤ë±Ñ¿ô»ú¡¦µ­¹æ¤ÎÊ¸»ú¥³¡¼¥É¤Î1¥Ð¥¤¥È¡¦2¥Ð¥¤¥ÈÀÚ¤êÂØ¤¨¡£
-   44 : Ä¾Á°¤ËÉ½¼¨¤·¤¿ÂÇ¤ÁÊý¤òºÆÉ½¼¨¤¹¤ë¡£
-   55 : ¥Ý¥¤¥ó¥È°ÌÃÖ¤Ë¤¢¤ëÊ¸»ú¤ÎÂÇ¤ÁÊý¤òÉ½¼¨¤¹¤ë¡£
-   58 : ³èÍÑ¸ì¤òÍ¥Àè¤·¤Æ¸ò¤¼½ñ¤­ÊÑ´¹¤ò¹Ô¤¦¡£
-   77 : ¥Ý¥¤¥ó¥ÈÁ°¤Ë¤¢¤ë2Ê¸»ú¤ÇÉô¼ó¹çÀ®ÊÑ´¹¤ò¹Ô¤¦¡£
-   88 : ¥Ý¥¤¥ó¥È°ÌÃÖ¤Ë¤¢¤ëÊ¸»ú¤òµÕ¥¹¥È¥í¡¼¥¯²½¤¹¤ë(Îã: Ç¯->¤Î)¡£
-	¹ÔËö¤Ç¤Ï¥Ý¥¤¥ó¥È¤ÎÄ¾Á°¤ÎÊ¸»ú¤òÊÑ´¹¤¹¤ë¡£
-   99 : ¸ò¤¼½ñ¤­ÊÑ´¹¥â¡¼¥É¤äÉô¼óÊÑ´¹¥â¡¼¥É¤Ë¤¤¤¿»þ¤Ë¡¢
-	¤½¤ì¤é¤òÁ´Éô¥­¥ã¥ó¥»¥ë¤¹¤ë¡£¤Þ¤¿¡¢¥Ø¥ë¥×¤ò¾Ã¤¹¡£
-   [1-4]8, [2-5]9: Ê¸»ú¿ô¤ò»ØÄê¤·¤Æ¸ò¤¼½ñ¤­ÊÑ´¹¤ò¹Ô¤¦¡£
-   \\[toggle-input-method] : TUT¥³¡¼¥É¥â¡¼¥É¤òÈ´¤±¤ë¡£
+TUTã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ä¸­ã®ã‚­ãƒ¼æ“ä½œã¯æ¬¡ã®ã¨ãŠã‚Šã€‚
+   ala : éƒ¨é¦–åˆæˆå¤‰æ›ãƒ¢ãƒ¼ãƒ‰ã«å…¥ã‚‹ã€‚alaã‚’æ‰“ã¡ç¶šã‘ã‚‹ã¨å†å¸°çš„ã«éƒ¨é¦–åˆæˆå¤‰æ›ã‚’
+	è¡Œã†ã“ã¨ãŒã§ãã‚‹ã€‚
+   alj : äº¤ãœæ›¸ãå¤‰æ›ã‚’è¡Œã†(see variable `tcode-use-prefix-mazegaki')ã€‚
+   00, 01, 10, 11 : TUTã‚³ãƒ¼ãƒ‰ã®2ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯ã®ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯è¡¨ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
+			(0ãŒã€Œå³ã€ã€1ãŒã€Œå·¦ã€ã‚’æ„å‘³ã—ã¦ã„ã‚‹)
+   22 : JIS ã‚³ãƒ¼ãƒ‰ä¸€è¦§è¡¨ã«ã‚ˆã‚‹å…¥åŠ›ã€‚
+   32 : ã€ã€‚ã¨, . ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ã€‚(see variable `tcode-switch-table-list')ã€‚
+   33 : TUTã‚³ãƒ¼ãƒ‰è¡¨ã«ã‚ã‚‹è‹±æ•°å­—ãƒ»è¨˜å·ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã®1ãƒã‚¤ãƒˆãƒ»2ãƒã‚¤ãƒˆåˆ‡ã‚Šæ›¿ãˆã€‚
+   44 : ç›´å‰ã«è¡¨ç¤ºã—ãŸæ‰“ã¡æ–¹ã‚’å†è¡¨ç¤ºã™ã‚‹ã€‚
+   55 : ãƒã‚¤ãƒ³ãƒˆä½ç½®ã«ã‚ã‚‹æ–‡å­—ã®æ‰“ã¡æ–¹ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
+   58 : æ´»ç”¨èªžã‚’å„ªå…ˆã—ã¦äº¤ãœæ›¸ãå¤‰æ›ã‚’è¡Œã†ã€‚
+   77 : ãƒã‚¤ãƒ³ãƒˆå‰ã«ã‚ã‚‹2æ–‡å­—ã§éƒ¨é¦–åˆæˆå¤‰æ›ã‚’è¡Œã†ã€‚
+   88 : ãƒã‚¤ãƒ³ãƒˆä½ç½®ã«ã‚ã‚‹æ–‡å­—ã‚’é€†ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯åŒ–ã™ã‚‹(ä¾‹: å¹´->ã®)ã€‚
+	è¡Œæœ«ã§ã¯ãƒã‚¤ãƒ³ãƒˆã®ç›´å‰ã®æ–‡å­—ã‚’å¤‰æ›ã™ã‚‹ã€‚
+   99 : äº¤ãœæ›¸ãå¤‰æ›ãƒ¢ãƒ¼ãƒ‰ã‚„éƒ¨é¦–å¤‰æ›ãƒ¢ãƒ¼ãƒ‰ã«ã„ãŸæ™‚ã«ã€
+	ãã‚Œã‚‰ã‚’å…¨éƒ¨ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã™ã‚‹ã€‚ã¾ãŸã€ãƒ˜ãƒ«ãƒ—ã‚’æ¶ˆã™ã€‚
+   [1-4]8, [2-5]9: æ–‡å­—æ•°ã‚’æŒ‡å®šã—ã¦äº¤ãœæ›¸ãå¤‰æ›ã‚’è¡Œã†ã€‚
+   \\[toggle-input-method] : TUTã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’æŠœã‘ã‚‹ã€‚
 
-½é¤á¤Æµ¯Æ°¤µ¤ì¤¿»þ¤Ë¤Ï¡¤`tcode-ready-hook' ¤ò¼Â¹Ô¤¹¤ë¡£
-¤Þ¤¿¡¢µ¯Æ°¤µ¤ì¤ëÅÙ¤Ë`tcode-toggle-hook'¤ò¼Â¹Ô¤¹¤ë¡£")
+åˆã‚ã¦èµ·å‹•ã•ã‚ŒãŸæ™‚ã«ã¯ï¼Œ`tcode-ready-hook' ã‚’å®Ÿè¡Œã™ã‚‹ã€‚
+ã¾ãŸã€èµ·å‹•ã•ã‚Œã‚‹åº¦ã«`tcode-toggle-hook'ã‚’å®Ÿè¡Œã™ã‚‹ã€‚")
 
 (defun tcode-make-special-for-tut (seq table)
-  "TABLE ¤ò SEQ ¤Ë´ð¤Å¤­ `tcode-special-commands-alist' ÍÑ¤ËÊÑ´¹¤¹¤ë¡£"
+  "TABLE ã‚’ SEQ ã«åŸºã¥ã `tcode-special-commands-alist' ç”¨ã«å¤‰æ›ã™ã‚‹ã€‚"
   (cond ((consp table)
 	 (if (integerp (car table))
 	     (tcode-make-special-for-tut (append seq (car table)) (cdr table))
@@ -886,41 +886,41 @@ TUT¥³¡¼¥É¥â¡¼¥ÉÃæ¤Î¥­¡¼Áàºî¤Ï¼¡¤Î¤È¤ª¤ê¡£
       (nconc (tcode-make-special-for-tut nil tut-over-2-strokes-table)
 	     tcode-special-commands-alist
 	     '(((20 28 26) . tcode-mazegaki-begin-conversion)
-				     ; alj: ¸ò¤¼½ñ¤­ÊÑ´¹
+				     ; alj: äº¤ãœæ›¸ãå¤‰æ›
 	       ((9 8) . tcode-mazegaki-begin-alternate-conversion)
-			  ; Á°ÃÖ¡¦¸åÃÖ¤¬µÕ¤Î¸ò¤¼½ñ¤­ÊÑ´¹
-	       ;; ¡Ö18¡×¤ÇÆÉ¤ß1Ê¸»ú¤Î¸åÃÖ·¿¸ò¤¼½ñ¤­ÊÑ´¹
+			  ; å‰ç½®ãƒ»å¾Œç½®ãŒé€†ã®äº¤ãœæ›¸ãå¤‰æ›
+	       ;; ã€Œ18ã€ã§èª­ã¿1æ–‡å­—ã®å¾Œç½®åž‹äº¤ãœæ›¸ãå¤‰æ›
 	       ((0 7) . (lambda ()
 			  (tcode-mazegaki-convert 1 current-prefix-arg)))
-	       ;; ¡Ö28¡×¤ÇÆÉ¤ß2Ê¸»ú¤Î¸åÃÖ·¿¸ò¤¼½ñ¤­ÊÑ´¹
+	       ;; ã€Œ28ã€ã§èª­ã¿2æ–‡å­—ã®å¾Œç½®åž‹äº¤ãœæ›¸ãå¤‰æ›
 	       ((1 7) . (lambda ()
 			  (tcode-mazegaki-convert 2 current-prefix-arg)))
 
-	       ;; ¡Ö38¡×¤ÇÆÉ¤ß3Ê¸»ú¤Î¸åÃÖ·¿¸ò¤¼½ñ¤­ÊÑ´¹
+	       ;; ã€Œ38ã€ã§èª­ã¿3æ–‡å­—ã®å¾Œç½®åž‹äº¤ãœæ›¸ãå¤‰æ›
 	       ((2 7) . (lambda ()
 			  (tcode-mazegaki-convert 3 current-prefix-arg)))
 
-	       ;; ¡Ö48¡×¤ÇÆÉ¤ß4Ê¸»ú¤Î¸åÃÖ·¿¸ò¤¼½ñ¤­ÊÑ´¹
+	       ;; ã€Œ48ã€ã§èª­ã¿4æ–‡å­—ã®å¾Œç½®åž‹äº¤ãœæ›¸ãå¤‰æ›
 	       ((3 7) . (lambda ()
 			  (tcode-mazegaki-convert 4 current-prefix-arg)))
 
-     ;; ¡Ö58¡×¤Ç³èÍÑ¤¹¤ë¸ì¤òÂÐ¾Ý¤È¤·¤¿¸åÃÖ·¿¸ò¤¼½ñ¤­ÊÑ´¹
+     ;; ã€Œ58ã€ã§æ´»ç”¨ã™ã‚‹èªžã‚’å¯¾è±¡ã¨ã—ãŸå¾Œç½®åž‹äº¤ãœæ›¸ãå¤‰æ›
 	       ((4 7) . (lambda () (tcode-mazegaki-convert nil t)))
 
-	    ;; ¡Ö29¡×¤ÇÆÉ¤ß2Ê¸»ú¤Î³èÍÑ¤¹¤ë¸ì¤òÂÐ¾Ý¤È¤·¤¿
-	       ;; ¸åÃÖ·¿¸ò¤¼½ñ¤­ÊÑ´¹
+	    ;; ã€Œ29ã€ã§èª­ã¿2æ–‡å­—ã®æ´»ç”¨ã™ã‚‹èªžã‚’å¯¾è±¡ã¨ã—ãŸ
+	       ;; å¾Œç½®åž‹äº¤ãœæ›¸ãå¤‰æ›
 	       ((1 8) . (lambda () (tcode-mazegaki-convert 2 t)))
 
-	    ;; ¡Ö39¡×¤ÇÆÉ¤ß3Ê¸»ú¤Î³èÍÑ¤¹¤ë¸ì¤òÂÐ¾Ý¤È¤·¤¿
-	       ;; ¸åÃÖ·¿¸ò¤¼½ñ¤­ÊÑ´¹
+	    ;; ã€Œ39ã€ã§èª­ã¿3æ–‡å­—ã®æ´»ç”¨ã™ã‚‹èªžã‚’å¯¾è±¡ã¨ã—ãŸ
+	       ;; å¾Œç½®åž‹äº¤ãœæ›¸ãå¤‰æ›
 	       ((2 8) . (lambda () (tcode-mazegaki-convert 3 t)))
 
-	    ;; ¡Ö49¡×¤ÇÆÉ¤ß4Ê¸»ú¤Î³èÍÑ¤¹¤ë¸ì¤òÂÐ¾Ý¤È¤·¤¿
-	       ;; ¸åÃÖ·¿¸ò¤¼½ñ¤­ÊÑ´¹
+	    ;; ã€Œ49ã€ã§èª­ã¿4æ–‡å­—ã®æ´»ç”¨ã™ã‚‹èªžã‚’å¯¾è±¡ã¨ã—ãŸ
+	       ;; å¾Œç½®åž‹äº¤ãœæ›¸ãå¤‰æ›
 	       ((3 8) . (lambda () (tcode-mazegaki-convert 4 t)))
 
-	    ;; ¡Ö59¡×¤ÇÆÉ¤ß5Ê¸»ú¤Î³èÍÑ¤¹¤ë¸ì¤òÂÐ¾Ý¤È¤·¤¿
-	       ;; ¸åÃÖ·¿¸ò¤¼½ñ¤­ÊÑ´¹
+	    ;; ã€Œ59ã€ã§èª­ã¿5æ–‡å­—ã®æ´»ç”¨ã™ã‚‹èªžã‚’å¯¾è±¡ã¨ã—ãŸ
+	       ;; å¾Œç½®åž‹äº¤ãœæ›¸ãå¤‰æ›
 	       ((4 8) . (lambda () (tcode-mazegaki-convert 5 t))))))
 
 (setq tcode-stroke-file-name (concat tcode-data-directory "tutcode.st"))

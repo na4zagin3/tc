@@ -24,7 +24,7 @@ sub signal_handler {
     restore_term;
     exit 1;
 }
-@STATE_NAMES = qw/¡ß ¢¤ ¡ı/;
+@STATE_NAMES = qw/Ã— â–³ â—/;
 
 #  unless (-e "./combime" || -e "./reduce") {
 #      print STDERR "You haven't compiled the tools yet. Wait a sec.\n";
@@ -75,10 +75,10 @@ for (0..$n-1) {
     display_line $_;
 }
 $term->Tgoto('cm', 0, $n+2, STDOUT);
-print 'n : ²¼¡¤p : ¾å, " " : ÀÚ´¹, e : ½ªÎ», q : ÃæÃÇ', "\n";
-print '¡ı : ³Î¼Â¤Ë³Ğ¤¨¤¿Ê¸»ú·²', "\n";
-print '¢¤ : °ìÉô³Ğ¤¨¤¿Ê¸»ú·²', "\n";
-print '¡ß : Á´¤¯³Ğ¤¨¤Æ¤¤¤Ê¤¤Ê¸»ú·²', "\n";
+print 'n : ä¸‹ï¼Œp : ä¸Š, " " : åˆ‡æ›, e : çµ‚äº†, q : ä¸­æ–­', "\n";
+print 'â— : ç¢ºå®Ÿã«è¦šãˆãŸæ–‡å­—ç¾¤', "\n";
+print 'â–³ : ä¸€éƒ¨è¦šãˆãŸæ–‡å­—ç¾¤', "\n";
+print 'Ã— : å…¨ãè¦šãˆã¦ã„ãªã„æ–‡å­—ç¾¤', "\n";
 
 $line_max = $n;
 $line = 0;
@@ -107,7 +107,7 @@ for (;;) {
 	display_line $line;
     } elsif ($ch eq 'q') {
 	goto_line $line_max;
-	print 'ËÜÅö¤ËÃæÃÇ¤·¤Ş¤¹¤«(y/n)?';
+	print 'æœ¬å½“ã«ä¸­æ–­ã—ã¾ã™ã‹(y/n)?';
 	$ch = getc STDIN;
 	if ($ch eq 'y' || $ch eq 'Y') {
 	    restore_term;

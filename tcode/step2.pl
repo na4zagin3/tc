@@ -1,24 +1,24 @@
 #!/usr/local/bin/jperl
 open(IN, "step1") || die "step1 : $!";
 
-$KANA = "[¤¡¤¢-¥ö¡¼¡½]";
-$KANJI = "[^¤¡¤¢-¥ö¡¼¡½]";
-$ONSETSU = "[¤¢¤¤¤¦¤¨¤ª¤«-¤Â¤Ä-¤â¤ä¤æ¤è-¤í¤ï¤ğ¤ñ¤ò][¤¡¤¢-¥ö¡¼¡½]*";
-# ²»Àá¤Ï¾®¤µ¤¤»ú¡¢¤ó¡¢²»°ú¤Ç»Ï¤Ş¤Ã¤Æ¤Ï¤¤¤±¤Ê¤¤
+$KANA = "[ãã‚-ãƒ¶ãƒ¼â€”]";
+$KANJI = "[^ãã‚-ãƒ¶ãƒ¼â€”]";
+$ONSETSU = "[ã‚ã„ã†ãˆãŠã‹-ã¢ã¤-ã‚‚ã‚„ã‚†ã‚ˆ-ã‚ã‚ã‚ã‚‘ã‚’][ãã‚-ãƒ¶ãƒ¼â€”]*";
+# éŸ³ç¯€ã¯å°ã•ã„å­—ã€ã‚“ã€éŸ³å¼•ã§å§‹ã¾ã£ã¦ã¯ã„ã‘ãªã„
 
 $| = 1;
 
-print "Ã±´Á -> ÆÉ¤ß ¤ÎÉ½¤òºîÀ®Ãæ";
+print "å˜æ¼¢ -> èª­ã¿ ã®è¡¨ã‚’ä½œæˆä¸­";
 
 sub add_sokuon {
     my ($yomi, $k) = @_;
     my ($org_yomi) = $yomi;
-    $yomi =~ s/¤Ä$/¤Ã/;
-    $yomi =~ s/¤¯$/¤Ã/;
+    $yomi =~ s/ã¤$/ã£/;
+    $yomi =~ s/ã$/ã£/;
     $YOMI{$k} .= "!$yomi";
 }
 sub kata_hira {
-    $_[0] =~ tr/¥¡-¥ó¥ô¥õ¥ö/¤¡-¤ó¤¦¤«¤±/;
+    $_[0] =~ tr/ã‚¡-ãƒ³ãƒ´ãƒµãƒ¶/ã-ã‚“ã†ã‹ã‘/;
 }
 
 while (<IN>) {
@@ -35,7 +35,7 @@ while (<IN>) {
 	    kata_hira($kanji2);
 	    ($header, $k, $trailer) = $kanji2 =~ /^($KANA*)($KANJI)($KANA*)$/o;
 	    unless ($yomi =~ /^$header(.*)$trailer$/) {
-		warn "ÆÉ¤ß($yomi)¤È´Á»ú($kanji)¤¬°ìÃ×¤·¤Æ¤Ş¤»¤ó¡£";
+		warn "èª­ã¿($yomi)ã¨æ¼¢å­—($kanji)ãŒä¸€è‡´ã—ã¦ã¾ã›ã‚“ã€‚";
 		next;
 	    }
 	    $this_yomi = $1;
@@ -45,21 +45,21 @@ while (<IN>) {
 	
 	&add_sokuon($this_yomi, $k);
 
-	# ²»ÊØ·Á¤âÅĞÏ¿¤¹¤ë¡£
+	# éŸ³ä¾¿å½¢ã‚‚ç™»éŒ²ã™ã‚‹ã€‚
 	$first_yomi = substr($this_yomi, 0, 2);
-	$first_yomi =~ tr/¤«¤­¤¯¤±¤³/¤¬¤®¤°¤²¤´/;
-	$first_yomi =~ tr/¤µ¤·¤¹¤»¤½/¤¶¤¸¤º¤¼¤¾/;
-	$first_yomi =~ tr/¤¿¤Á¤Ä¤Æ¤È/¤À¤Â¤Å¤Ç¤É/;
-	$first_yomi =~ tr/¤Ï¤Ò¤Õ¤Ø¤Û/¤Ğ¤Ó¤Ö¤Ù¤Ü/;
+	$first_yomi =~ tr/ã‹ããã‘ã“/ãŒããã’ã”/;
+	$first_yomi =~ tr/ã•ã—ã™ã›ã/ã–ã˜ãšãœã/;
+	$first_yomi =~ tr/ãŸã¡ã¤ã¦ã¨/ã ã¢ã¥ã§ã©/;
+	$first_yomi =~ tr/ã¯ã²ãµã¸ã»/ã°ã³ã¶ã¹ã¼/;
 	$alternative_yomi = $first_yomi . substr($this_yomi, 2);
 	$YOMI{$k} .= "!$alternative_yomi";
 	&add_sokuon($alternative_yomi);
 	
-	$first_yomi =~ tr/¤Ğ¤Ó¤Ö¤Ù¤Ü/¤Ñ¤Ô¤×¤Ú¤İ/;
+	$first_yomi =~ tr/ã°ã³ã¶ã¹ã¼/ã±ã´ã·ãºã½/;
 	$alternative_yomi = $first_yomi . substr($this_yomi, 2);
 	$YOMI{$k} .= "!$alternative_yomi";
 	&add_sokuon($alternative_yomi);
-	$first_yomi =~ tr/¤Â/¤¸/;
+	$first_yomi =~ tr/ã¢/ã˜/;
 	$alternative_yomi = $first_yomi . substr($this_yomi, 2);
 	$YOMI{$k} .= "!$alternative_yomi";
 	&add_sokuon($alternative_yomi);
@@ -82,7 +82,7 @@ for $k (sort keys %YOMI) {
 close OUT;
 
 print "..\n";
-print "¼­½ñºîÀ®Ãæ";
+print "è¾æ›¸ä½œæˆä¸­";
 open(IN, "step1") || die "step1 : $!";
 open(OUT, ">pd_kihon.yom") || die "pd_kihon.yom : $!";
 open(JUKUJIKU, ">jukujiku.maz") || die "jukujiku.maz : $!";
@@ -99,7 +99,7 @@ while (<IN>) {
 	$output = &match_itr($yomi, $kanji);
 	#print "$kanji : output = $output\n";
 	if (!$output) {
-	    warn "$kanji($yomi) ¤ÎÆÉ¤ß¤¬ÉÔÌÀ";
+	    warn "$kanji($yomi) ã®èª­ã¿ãŒä¸æ˜";
 	    print JUKUJIKU "$yomi $kanji\n";
 	} else {
 	    print OUT "$output\n";
@@ -109,20 +109,20 @@ while (<IN>) {
     $i++;
 }
 
-print "ÆÉ¤ß¤ÎÊ¬¤«¤é¤Ê¤¤½Ï¸ì¤Ï¡¤jukujiku.maz¤ËÅĞÏ¿¤µ¤ì¤Ş¤·¤¿.\n";
+print "èª­ã¿ã®åˆ†ã‹ã‚‰ãªã„ç†Ÿèªã¯ï¼Œjukujiku.mazã«ç™»éŒ²ã•ã‚Œã¾ã—ãŸ.\n";
 
 sub match_itr {
     my ($yomi, $kanji) = @_;
     my @kanji = $kanji =~ /\G($KANA+|$KANJI)/go;
     if (join("", @kanji) ne $kanji) {
-	warn "ÊÑ¤Ê»ú¤¬Æş¤Ã¤Æ¤ë: $kanji";
+	warn "å¤‰ãªå­—ãŒå…¥ã£ã¦ã‚‹: $kanji";
 	return undef;
     }
     my $pat = '';
     my @unk;
     for (my $i=0; $i<@kanji; $i++) {
 	my $k = $kanji[$i];
-	if ($k eq '¡¹' && $i > 0) {
+	if ($k eq 'ã€…' && $i > 0) {
 	    $k = $kanji[$i-1];
 	}
 	if ($k =~ /$KANA+/o) {
@@ -137,12 +137,12 @@ sub match_itr {
 	}
     }
     if (@unk > 1) {
-	warn "$kanji---¤ï¤«¤é¤Ê¤¤»ú¤¬Ê£¿ô";
+	warn "$kanji---ã‚ã‹ã‚‰ãªã„å­—ãŒè¤‡æ•°";
 	return undef;
     }
     my @ret = $yomi =~ /\A$pat\Z/;
     if (@ret == @kanji) {
-	# À®¸ù
+	# æˆåŠŸ
 	my $ret = '';
 	for (my $i=0; $i<@kanji; $i++) {
 	    $ret .= $kanji[$i];
@@ -164,7 +164,7 @@ sub match_itr_old {
     while ($kanji) {
 	$kanji_head = substr($kanji, 0, 2);
 	$kanji = substr($kanji, 2);
-	if ($kanji_head =~ /^[¤¢-¥ö¡¼¡½]$/) {
+	if ($kanji_head =~ /^[ã‚-ãƒ¶ãƒ¼â€”]$/) {
 	    $yomi_head = substr($yomi, 0, 2);
 	    $yomi = substr($yomi, 2);
 	    if ($yomi_head ne $kanji_head) {
@@ -173,11 +173,11 @@ sub match_itr_old {
 	    $output .= $kanji_head;
 	} else {
  	    $orig_kanji_head = $kanji_head;
- 	    if ($kanji_head eq "¡¹") {
+ 	    if ($kanji_head eq "ã€…") {
  		$kanji_head = $last_kanji_head;
  	    }
 	    unless (defined $YOMI{$kanji_head}) {
-		warn "$kanji_head ¤ÎÆÉ¤ß¤¬ÅĞÏ¿¤µ¤ì¤Æ¤Ş¤»¤ó";
+		warn "$kanji_head ã®èª­ã¿ãŒç™»éŒ²ã•ã‚Œã¦ã¾ã›ã‚“";
 		last;
 	    }
 	    #print "TRYING $kanji_head, $YOMI{$kanji_head}\n";

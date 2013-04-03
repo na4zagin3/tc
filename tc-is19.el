@@ -54,22 +54,22 @@
 ;;;  User Variables
 ;;;
 (defvar tcode-isearch-start-state nil
-  "*¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥Á³«»Ï»ş¤ÎT¥³¡¼¥É¥â¡¼¥É¤ò»ØÄê¤¹¤ë¡£
-	nil: ¥Ğ¥Ã¥Õ¥¡¤ÎT¥³¡¼¥É¥â¡¼¥É¤ËÆ±´ü(¥Ç¥Õ¥©¡¼¥ë¥È)¡£
-	t:   ¥Ğ¥Ã¥Õ¥¡¤ÎT¥³¡¼¥É¥â¡¼¥É¤ÈÆÈÎ©¡£³«»Ï»ş¤Ï¥Ğ¥Ã¥Õ¥¡¤ÈÆ±¤¸¡£
-	0:   ¥Ğ¥Ã¥Õ¥¡¤ÈÆÈÎ©¤Ë¾ï¤ËÈóT¥³¡¼¥É¥â¡¼¥É¥µ¡¼¥Á¤«¤é³«»Ï¡£
-	1:   ¥Ğ¥Ã¥Õ¥¡¤ÈÆÈÎ©¤Ë¾ï¤ËT¥³¡¼¥É¥â¡¼¥É¥µ¡¼¥Á¤«¤é³«»Ï¡£
-¥Ğ¥Ã¥Õ¥¡¥í¡¼¥«¥ëÊÑ¿ô¡£")
+  "*ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒé–‹å§‹æ™‚ã®Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’æŒ‡å®šã™ã‚‹ã€‚
+	nil: ãƒãƒƒãƒ•ã‚¡ã®Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã«åŒæœŸ(ãƒ‡ãƒ•ã‚©ãƒ¼ãƒ«ãƒˆ)ã€‚
+	t:   ãƒãƒƒãƒ•ã‚¡ã®Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã¨ç‹¬ç«‹ã€‚é–‹å§‹æ™‚ã¯ãƒãƒƒãƒ•ã‚¡ã¨åŒã˜ã€‚
+	0:   ãƒãƒƒãƒ•ã‚¡ã¨ç‹¬ç«‹ã«å¸¸ã«éTã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚µãƒ¼ãƒã‹ã‚‰é–‹å§‹ã€‚
+	1:   ãƒãƒƒãƒ•ã‚¡ã¨ç‹¬ç«‹ã«å¸¸ã«Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚µãƒ¼ãƒã‹ã‚‰é–‹å§‹ã€‚
+ãƒãƒƒãƒ•ã‚¡ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã€‚")
 (make-variable-buffer-local 'tcode-isearch-start-state)
 (setq-default tcode-isearch-start-state nil)
 
 (defcustom tcode-isearch-enable-wrapped-search t
-  "*2¥Ğ¥¤¥ÈÊ¸»ú¤Ç¥µ¡¼¥Á¤¹¤ë¤È¤­¤Ë¡¢¶õÇò¤ä²ş¹Ô¤òÌµ»ë¤¹¤ë¡£"
+  "*2ãƒã‚¤ãƒˆæ–‡å­—ã§ã‚µãƒ¼ãƒã™ã‚‹ã¨ãã«ã€ç©ºç™½ã‚„æ”¹è¡Œã‚’ç„¡è¦–ã™ã‚‹ã€‚"
   :type 'boolean :group 'tcode)
 
 (defcustom tcode-isearch-ignore-regexp "[\n \t]*"
-  "* 2¥Ğ¥¤¥ÈÊ¸»ú´Ö¤ËÆş¤ëÀµµ¬É½¸½¡£
-`tcode-isearch-enable-wrapped-search' ¤¬ t ¤Î¤È¤­¤Î¤ßÍ­¸ú¡£"
+  "* 2ãƒã‚¤ãƒˆæ–‡å­—é–“ã«å…¥ã‚‹æ­£è¦è¡¨ç¾ã€‚
+`tcode-isearch-enable-wrapped-search' ãŒ t ã®ã¨ãã®ã¿æœ‰åŠ¹ã€‚"
   :type 'regexp :group 'tcode)
 
 (defcustom tcode-isearch-special-function-alist
@@ -79,7 +79,7 @@
     (tcode-mazegaki-begin-alternate-conversion . tcode-isearch-prefix-mazegaki)
     (tcode-mazegaki-begin-conversion . tcode-isearch-postfix-mazegaki)
     (tcode-toggle-alnum-mode))
-  "*isearchÃæ¤Ç¤ÎÆÃ¼ì¤Ê¥³¥Ş¥ó¥É¤ÎÆşÎÏ¤ËÂĞ¤¹¤ëÂåÂØ¥³¥Ş¥ó¥É¤Î alist¡£"
+  "*isearchä¸­ã§ã®ç‰¹æ®Šãªã‚³ãƒãƒ³ãƒ‰ã®å…¥åŠ›ã«å¯¾ã™ã‚‹ä»£æ›¿ã‚³ãƒãƒ³ãƒ‰ã® alistã€‚"
   :group 'tcode)
 
 
@@ -87,7 +87,7 @@
 ;;;  Internal Variable
 ;;;
 (defvar tcode-isearch-active nil
-  "¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥Á¤¬T¥³¡¼¥É¥â¡¼¥É¤Î¤È¤­ non-nil¡£")
+  "ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒãŒTã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã®ã¨ã non-nilã€‚")
 
 ;;;
 ;;; Default key binding
@@ -123,7 +123,7 @@
 
 
 (defun isearch-toggle-tcode ()
-  "¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥ÁÃæ¤Î T¥³¡¼¥É¥â¡¼¥É¤ò¥È¥°¥ë¤¹¤ë¡£"
+  "ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒä¸­ã® Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚’ãƒˆã‚°ãƒ«ã™ã‚‹ã€‚"
   (interactive)
   (setq tcode-isearch-active (not tcode-isearch-active))
   (if tcode-isearch-start-state
@@ -132,7 +132,7 @@
   (isearch-update))
 
 (defun tcode-isearch-bushu-henkan (c1 c2)
-  ;; ¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥ÁÃæ¤Ë C1 ¤È C2 ¤È¤ÇÉô¼ó¹çÀ®ÊÑ´¹¤¹¤ë¡£
+  ;; ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒä¸­ã« C1 ã¨ C2 ã¨ã§éƒ¨é¦–åˆæˆå¤‰æ›ã™ã‚‹ã€‚
   (let ((c (tcode-bushu-compose-two-chars (string-to-char c1)
 					  (string-to-char c2))))
     (if c
@@ -151,8 +151,8 @@
       (isearch-update))))
 
 (defun tcode-isearch-process-string (str prev)
-  "Ê¸»ú STR ¤ò¸¡º÷Ê¸»úÎó¤Ë²Ã¤¨¤Æ¸¡º÷¤¹¤ë¡£
-PREV ¤È¹çÀ®¤Ç¤­¤ë¤È¤­¤Ï¤½¤Î¹çÀ®¤·¤¿Ê¸»ú¤Ç¸¡º÷¤¹¤ë¡£"
+  "æ–‡å­— STR ã‚’æ¤œç´¢æ–‡å­—åˆ—ã«åŠ ãˆã¦æ¤œç´¢ã™ã‚‹ã€‚
+PREV ã¨åˆæˆã§ãã‚‹ã¨ãã¯ãã®åˆæˆã—ãŸæ–‡å­—ã§æ¤œç´¢ã™ã‚‹ã€‚"
   (if (stringp prev)
       (tcode-isearch-bushu-henkan prev str)
     (isearch-process-search-string
@@ -305,8 +305,8 @@ PREV ¤È¹çÀ®¤Ç¤­¤ë¤È¤­¤Ï¤½¤Î¹çÀ®¤·¤¿Ê¸»ú¤Ç¸¡º÷¤¹¤ë¡£"
     (mapconcat (function char-to-string) ll nil)))
 
 (defun tcode-isearch-remove-ignore-regexp (str)
-  "ÊÑ¿ô `tcode-isearch-enable-wrapped-search' ¤¬ nil ¤Ç¤Ê¤¤¤È¤­¡¢
-STR ¤«¤é `tcode-isearch-ignore-regexp' ¤ò¼è¤ê½ü¤¯¡£"
+  "å¤‰æ•° `tcode-isearch-enable-wrapped-search' ãŒ nil ã§ãªã„ã¨ãã€
+STR ã‹ã‚‰ `tcode-isearch-ignore-regexp' ã‚’å–ã‚Šé™¤ãã€‚"
   (if (or (not tcode-isearch-enable-wrapped-search)
 	  isearch-regexp)
       str
@@ -481,15 +481,15 @@ STR ¤«¤é `tcode-isearch-ignore-regexp' ¤ò¼è¤ê½ü¤¯¡£"
 ;;;
 
 (defun tcode-isearch-start-bushu ()
-  "T¥³¡¼¥É¥â¡¼¥É¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥ÁÃæ¤ÎÁ°ÃÖ·¿Éô¼ó¹çÀ®ÊÑ´¹¤ò»Ï¤á¤ë¡£"
+  "Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒä¸­ã®å‰ç½®å‹éƒ¨é¦–åˆæˆå¤‰æ›ã‚’å§‹ã‚ã‚‹ã€‚"
   (tcode-bushu-init 2)
-  (setq isearch-message (concat isearch-message "¢¥"))
+  (setq isearch-message (concat isearch-message "â–²"))
   (isearch-push-state)
   (isearch-update))
 
 
 (defun tcode-isearch-postfix-bushu ()
-  "T¥³¡¼¥É¥â¡¼¥É¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥ÁÃæ¤Î¸åÃÖ·¿Éô¼ó¹çÀ®ÊÑ´¹¡£"
+  "Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒä¸­ã®å¾Œç½®å‹éƒ¨é¦–åˆæˆå¤‰æ›ã€‚"
   (let ((p1 (string-match "..$" isearch-message))
 	(p2 (string-match ".$"  isearch-message)))
     (if (null p1)
@@ -500,31 +500,31 @@ STR ¤«¤é `tcode-isearch-ignore-regexp' ¤ò¼è¤ê½ü¤¯¡£"
 
 
 (defun tcode-isearch-bushu ()
-  "isearch-messageÃæ¤ÎÉô¼ó¹çÀ®¤ÎÊ¸»ú¤òÄ´¤Ù¤ë"
+  "isearch-messageä¸­ã®éƒ¨é¦–åˆæˆã®æ–‡å­—ã‚’èª¿ã¹ã‚‹"
   (cond
-   ((string-match "¢¥$" isearch-message)
+   ((string-match "â–²$" isearch-message)
     t)
-   ((string-match "¢¥.$" isearch-message)
+   ((string-match "â–².$" isearch-message)
     (substring isearch-message (string-match ".$" isearch-message)))
    (t
     nil)))
 
 (defun tcode-isearch-bushu-alternate-conversion-command ()
-  "isearchÃæ¤ÇÄÌ¾ï¤È¤ÏµÕ¤Î·¿¤ÎÉô¼ó¹çÀ®ÊÑ´¹¤ò»Ï¤á¤ë¡£"
+  "isearchä¸­ã§é€šå¸¸ã¨ã¯é€†ã®å‹ã®éƒ¨é¦–åˆæˆå¤‰æ›ã‚’å§‹ã‚ã‚‹ã€‚"
   (interactive)
   (if tcode-use-postfix-bushu-as-default
       (tcode-isearch-start-bushu)
     (tcode-isearch-postfix-bushu)))
 
 (defun tcode-isearch-bushu-conversion-command ()
-  "isearchÃæ¤ÇÉô¼ó¹çÀ®ÊÑ´¹¤ò»Ï¤á¤ë¡£"
+  "isearchä¸­ã§éƒ¨é¦–åˆæˆå¤‰æ›ã‚’å§‹ã‚ã‚‹ã€‚"
   (interactive)
   (if (not tcode-use-postfix-bushu-as-default)
       (tcode-isearch-start-bushu)
     (tcode-isearch-postfix-bushu)))
 
 (defun tcode-isearch-init ()
-  "T¥³¡¼¥É¥â¡¼¥É¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥Á¤Î½é´ü²½¡£"
+  "Tã‚³ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒã®åˆæœŸåŒ–ã€‚"
   (setq tcode-isearch-active (if (numberp tcode-isearch-start-state)
 				 (if (zerop tcode-isearch-start-state) nil t)
 			       (and (boundp 'tcode-mode)
@@ -535,7 +535,7 @@ STR ¤«¤é `tcode-isearch-ignore-regexp' ¤ò¼è¤ê½ü¤¯¡£"
 
 
 (defun tcode-isearch-read-string ()
-  "¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥ÁÃæ¤ËÊ¸»úÎó¤òÆÉ¤ß¹ş¤à¡£"
+  "ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒä¸­ã«æ–‡å­—åˆ—ã‚’èª­ã¿è¾¼ã‚€ã€‚"
   (let* (overriding-terminal-local-map
 	 (minibuffer-setup-hook (lambda ()
 				  (tcode-activate tcode-mode)))
@@ -546,7 +546,7 @@ STR ¤«¤é `tcode-isearch-ignore-regexp' ¤ò¼è¤ê½ü¤¯¡£"
 
 
 (defun tcode-isearch-prefix-mazegaki ()
-  "¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥ÁÃæ¤ËÁ°ÃÖ·¿¤Î¸ò¤¼½ñ¤­ÊÑ´¹¤ò¹Ô¤¦¡£"
+  "ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒä¸­ã«å‰ç½®å‹ã®äº¤ãœæ›¸ãå¤‰æ›ã‚’è¡Œã†ã€‚"
   (let* (overriding-terminal-local-map
 	 (minibuffer-setup-hook (lambda ()
 				  (tcode-activate tcode-mode)
@@ -558,7 +558,7 @@ STR ¤«¤é `tcode-isearch-ignore-regexp' ¤ò¼è¤ê½ü¤¯¡£"
 
 
 (defun tcode-isearch-postfix-mazegaki ()
-  "¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥ÁÃæ¤Ë¸åÃÖ·¿¤Î¸ò¤¼½ñ¤­ÊÑ´¹¤ò¹Ô¤¦¡£"
+  "ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒä¸­ã«å¾Œç½®å‹ã®äº¤ãœæ›¸ãå¤‰æ›ã‚’è¡Œã†ã€‚"
   (let ((orig-isearch-cmds isearch-cmds))
     (unwind-protect
 	(let ((current-string isearch-message))

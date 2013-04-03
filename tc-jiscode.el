@@ -56,7 +56,7 @@
      (describe-mode        . "?"))))
 
 (defun tcode-jiscode-quit ()
-  "JIS ´Á»úÉ½ÆşÎÏ¥â¡¼¥É¤ò½ªÎ»¤¹¤ë¡£"
+  "JIS æ¼¢å­—è¡¨å…¥åŠ›ãƒ¢ãƒ¼ãƒ‰ã‚’çµ‚äº†ã™ã‚‹ã€‚"
   (interactive)
   (set-window-configuration tcode-jiscode-window-configuration)
   (goto-char tcode-jiscode-marker)
@@ -78,7 +78,7 @@
   (insert ":\n"))
 
 (defun tcode-jiscode-insert-tables ()
-  "JIS¥³¡¼¥ÉÉ½¤òºî¤Ã¤Æ¡¢¸½¥Ğ¥Ã¥Õ¥¡¤ËÁŞÆş¤¹¤ë¡£"
+  "JISã‚³ãƒ¼ãƒ‰è¡¨ã‚’ä½œã£ã¦ã€ç¾ãƒãƒƒãƒ•ã‚¡ã«æŒ¿å…¥ã™ã‚‹ã€‚"
   (message "Making jiscode tables...")
   (let ((1st 161) (2nd 161))
     (while (< 1st 255)
@@ -91,7 +91,7 @@
   (beginning-of-buffer))
 
 (defun tcode-jiscode-insert ()
-  "JIS ´Á»úÉ½¤Î¸½ºß°ÌÃÖ¤Ë¤¢¤ëÊ¸»ú¤ò¡¢É½¤òºî¤ëÁ°¤Ë¤¤¤¿¥Ğ¥Ã¥Õ¥¡¤ËÁŞÆş¤¹¤ë¡£"
+  "JIS æ¼¢å­—è¡¨ã®ç¾åœ¨ä½ç½®ã«ã‚ã‚‹æ–‡å­—ã‚’ã€è¡¨ã‚’ä½œã‚‹å‰ã«ã„ãŸãƒãƒƒãƒ•ã‚¡ã«æŒ¿å…¥ã™ã‚‹ã€‚"
   (interactive)
   (let ((str (buffer-substring (point)
 			       (save-excursion
@@ -104,12 +104,12 @@
 
 ;;;###autoload
 (defun tcode-start-jiscode ()
-  "JIS´Á»úÉ½¤òÉ½¼¨¤¹¤ë¡£
-É½¼¨¤µ¤ì¤¿¥Ğ¥Ã¥Õ¥¡¤Ç¤Ï¡¢ÂĞÏÃÅª¤Ë´Á»ú¤òÁª¤ó¤Ç¸µ¤Î¥Ğ¥Ã¥Õ¥¡¤ËÁŞÆş¤Ç¤­¤ë¡£
-»ÈÍÑ¤Ç¤­¤ë¥­¡¼¤Ï¼¡¤ÎÄÌ¤ê¡£
+  "JISæ¼¢å­—è¡¨ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
+è¡¨ç¤ºã•ã‚ŒãŸãƒãƒƒãƒ•ã‚¡ã§ã¯ã€å¯¾è©±çš„ã«æ¼¢å­—ã‚’é¸ã‚“ã§å…ƒã®ãƒãƒƒãƒ•ã‚¡ã«æŒ¿å…¥ã§ãã‚‹ã€‚
+ä½¿ç”¨ã§ãã‚‹ã‚­ãƒ¼ã¯æ¬¡ã®é€šã‚Šã€‚
 
-   \\[tcode-jiscode-insert]\t¥«¡¼¥½¥ë°ÌÃÖ¤Î´Á»ú¤òÁ°¤¤¤¿¥Ğ¥Ã¥Õ¥¡¤ËÁŞÆş¤¹¤ë¡£
-   \\[tcode-jiscode-quit]\tÁ°¤¤¤¿¥Ğ¥Ã¥Õ¥¡¤ËÌá¤ë¡£
+   \\[tcode-jiscode-insert]\tã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã®æ¼¢å­—ã‚’å‰ã„ãŸãƒãƒƒãƒ•ã‚¡ã«æŒ¿å…¥ã™ã‚‹ã€‚
+   \\[tcode-jiscode-quit]\tå‰ã„ãŸãƒãƒƒãƒ•ã‚¡ã«æˆ»ã‚‹ã€‚
 
 \\{tcode-jiscode-map}"
   (interactive)
@@ -125,7 +125,7 @@
 	(use-local-map tcode-jiscode-map)
 	(setq major-mode 'tcode-start-jiscode)
 	(setq buffer-read-only t)))
-  (tcode-verbose-message "? ¤Ç¥Ø¥ë¥×"))
+  (tcode-verbose-message "? ã§ãƒ˜ãƒ«ãƒ—"))
 
 (provide 'tc-jiscode)
 

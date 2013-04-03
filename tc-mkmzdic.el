@@ -67,9 +67,9 @@
 
 
 (defvar tcode-mazegaki-certains '("certain")
-  "*³Î¼Â¤Ë³Ğ¤¨¤¿»ú¤Î°ìÍ÷¤¬Æş¤Ã¤Æ¤¤¤ë¥Õ¥¡¥¤¥ë¤Î¥ê¥¹¥È¡£")
+  "*ç¢ºå®Ÿã«è¦šãˆãŸå­—ã®ä¸€è¦§ãŒå…¥ã£ã¦ã„ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒªã‚¹ãƒˆã€‚")
 (defvar tcode-mazegaki-uncertains '("uncertain")
-  "*³Ğ¤¨¤Æ¤¤¤Ê¤¤»ú¤Î°ìÍ÷¤¬Æş¤Ã¤Æ¤¤¤ë¥Õ¥¡¥¤¥ë¤Î¥ê¥¹¥È¡£")
+  "*è¦šãˆã¦ã„ãªã„å­—ã®ä¸€è¦§ãŒå…¥ã£ã¦ã„ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒªã‚¹ãƒˆã€‚")
 
 (defvar tc-mkmzdic-status-vector nil)
 
@@ -230,7 +230,7 @@
     (with-temp-buffer
       (tc-mkmzdic-map-insert-yomi)
       (goto-char (point-min))
-      (while (search-forward "¡½/" nil t)
+      (while (search-forward "â€”/" nil t)
 	(replace-match "/" nil t))
       (write-region (point-min) (point-max) outfile))
     (tc-mkmzdic-final-obarray)))

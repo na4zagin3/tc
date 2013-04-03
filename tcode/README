@@ -1,32 +1,32 @@
-  $B8r$<=q$-JQ49<-=qMQ%G!<%?$+$i8D?MMQ$N<-=q$r:n@.$9$kJ}K!$O!"(B
-Info $B$r;2>H$7$F$/$@$5$$!#(B
+  交ぜ書き変換辞書用データから個人用の辞書を作成する方法は、
+Info を参照してください。
 
-  $B0J2<$G$O!"(Bpd_kihon.yom$B$r:n@.$9$kJ}K!$r@bL@$7$^$9!#(B
+  以下では、pd_kihon.yomを作成する方法を説明します。
 
-`pd_kihon.yom'$B$N:n$jJ}(B
+`pd_kihon.yom'の作り方
 ----------------------
 
-  Wnn$B$N(B`kihon.u'$B$H(B`tankan.u'$B$+$i!"(BT$B%3!<%I$N<-=q%=!<%9%U%!%$%k$G$"$k(B
-`pd_kihon.yom'$B$r:n$kJ}K!$r@bL@$7$^$9!#(BT$B%3!<%I%Q%C%1!<%8$K$O(B
-`pd_kihon.yom'$B$O4{$K4^$^$l$F$$$^$9$N$G!"(B*$B$3$N:n6H$O0lHL$K$OITMW$G$9(B*$B!#<+(B
-$BJ,$G4A;z$r(B`pd_kihon.yom'$B$XEPO?$7$?$$>l9g$K$@$19T$C$F$/$@$5$$!#(B
+  Wnnの`kihon.u'と`tankan.u'から、Tコードの辞書ソースファイルである
+`pd_kihon.yom'を作る方法を説明します。Tコードパッケージには
+`pd_kihon.yom'は既に含まれていますので、*この作業は一般には不要です*。自
+分で漢字を`pd_kihon.yom'へ登録したい場合にだけ行ってください。
 
-  1. $B$^$:!"(BWnn$B$N%=!<%9$rF~<j$7$F!"$=$NCf$N(B`pubdic/*.u'$B%U%!%$%k$r%+%l%s%H(B
-     $B%G%#%l%/%H%j$K%3%T!<(B($B$"$k$$$O%7%s%\%j%C%/%j%s%/(B)$B$7$F2<$5$$!#(BWnn$B$N%=!<(B
-     $B%9$O(BX11R6$B$KI8=`$GIU$$$F$-$^$9!#(B
-     $B$^$?$O!"(Bpubdic++$B$rF~<j$7$F!"F1MM$K9T$$$^$9!#(B
+  1. まず、Wnnのソースを入手して、その中の`pubdic/*.u'ファイルをカレント
+     ディレクトリにコピー(あるいはシンボリックリンク)して下さい。Wnnのソー
+     スはX11R6に標準で付いてきます。
+     または、pubdic++を入手して、同様に行います。
 
-  2. `step1.pl'$B$r<!$N$h$&$K<B9T$7$^$9!#(B
+  2. `step1.pl'を次のように実行します。
 
           % ./step1.pl
 
-     `step1.pl'$B$O(B`kihon.u'$B$H(B`tankan.u'$B!"$=$7$F(BTcode$BMQ$N4A;z%U%!%$%k(B
-     `tcode.u' ($B$3$N%Q%C%1!<%8$K4^$^$l$F$$$^$9!#(B) $B$+$i!"Cf4V7A<0$N%U%!%$(B
-     $B%k(B`step1'$B$r@8@.$7$^$9!#(B
+     `step1.pl'は`kihon.u'と`tankan.u'、そしてTcode用の漢字ファイル
+     `tcode.u' (このパッケージに含まれています。) から、中間形式のファイ
+     ル`step1'を生成します。
 
-  3. `step2.pl'$B$r<B9T$7$^$9!#(B
+  3. `step2.pl'を実行します。
 
           % ./step2.pl
 
-     $B$3$l$G!":n6H%G%#%l%/%H%j>e$K(B`pd_kihon.yom'$B$H(B`jukujiku.maz'$B$,:n@.$5(B
-     $B$l$^$9!#(B
+     これで、作業ディレクトリ上に`pd_kihon.yom'と`jukujiku.maz'が作成さ
+     れます。
