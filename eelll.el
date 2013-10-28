@@ -1000,7 +1000,7 @@ Emacs内部のcompletionの実装上の問題のため、「?」を
   (interactive)
   (save-excursion
     (set-buffer " *eelll: strokes*")
-    (insert (char-to-string last-command-char)))
+    (insert (char-to-string last-command-event)))
   (if eelll-move-cursor
       (insert " ")))
 
