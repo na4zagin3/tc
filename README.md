@@ -33,3 +33,7 @@ restart後は
 を実行し、用いるinput-methodにT-codeを選択してください。
 tcの設定file作成場所についてなども問われるかもしれませんがすべて
 defaultで問題ありません。
+
+## tcの利用方法
+
+https://github.com/kanchoku/tc/blob/master/doc/manual.pdf?raw=true のpdfをご覧ください
