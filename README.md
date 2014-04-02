@@ -23,7 +23,15 @@ init.elに
 	M-x package-install
 	tc
 
-を実行します。package-installが終わったらinit.elに
+を実行します。package-installが終わったら
+
+	M-x tcode-install
+
+を実行してください。
+tcの設定file作成場所についてなども問われますがすべて
+defaultで問題ありません。
+
+最後にinit.elに
 
 `(require 'tc-setup)`
 
@@ -31,8 +39,6 @@ init.elに
 restart後は
 `M-x toggle-input-method`
 を実行し、用いるinput-methodにT-codeを選択してください。
-tcの設定file作成場所についてなども問われるかもしれませんがすべて
-defaultで問題ありません。
 
 ## tcの利用方法
 
