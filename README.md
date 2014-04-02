@@ -28,7 +28,7 @@ init.elに
 	M-x tcode-install
 
 を実行してください。
-tcの設定file作成場所についてなども問われますがすべて
+tcの設定file作成場所についてなどが問われますがすべて
 defaultで問題ありません。
 
 最後にinit.elに
