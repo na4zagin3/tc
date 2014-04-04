@@ -40,6 +40,11 @@ restart後は
 `M-x toggle-input-method`
 を実行し、用いるinput-methodにT-codeを選択してください。
 
+### Ubuntu Linuxでの注意事項
+
+Ubuntu Linuxでuim-tcodeをご利用の方は /etc/emacs/site-start.d/50t-code.el の内容をすべてコメントアウトしてください。
+
+
 ## tcの利用方法
 
 https://github.com/kanchoku/tc/blob/master/doc/manual.pdf?raw=true のpdfをご覧ください
