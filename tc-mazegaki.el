@@ -1583,7 +1583,7 @@ CONVERSION が nil でないとき、補完後(補完を行った場合のみ)�
 		     (setq comp (append (cdr list) comp))
 		     (rplacd list nil)))
 		  ((or (= ch ?\t)
-		       (= ch last-command-char))
+		       (= ch last-command-event))
 		   ;; 先頭の候補を選択して終了
 		   (insert (substring (car comp)
 				      (length yomi-prefix) nil))
