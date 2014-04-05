@@ -223,7 +223,7 @@
 	(error "練習テキスト%sはありません。" (if num (int-to-string num) "")))
     (setq eelll-lesson-string (buffer-substring (match-beginning 1)
 						(match-end 1))
-	  eelll-lesson-no (string-to-int eelll-lesson-string))
+	  eelll-lesson-no (string-to-number eelll-lesson-string))
     (setq eelll-prefix-stroke
 	  (let ((l tcode-special-prefix-alist) ret)
 	    (while l
@@ -688,7 +688,7 @@ Emacs内部のcompletionの実装上の問題のため、「?」を
 			      (if pos (cons 'hist pos) 'hist))))))
 	    (if (string= str "")
 		nil
-	      (list (string-to-int str)))))
+	      (list (string-to-number str)))))
       (fset 'minibuffer-completion-help orig-minibuffer-completion-help))))
 
 (defun eelll-minibuffer-completion-help ()
@@ -707,7 +707,7 @@ Emacs内部のcompletionの実装上の問題のため、「?」を
 `display-completion-list'を置き換える。"
   (princ "    ---- 練習テキスト一覧 ----\n")
   (setq x (sort x (lambda (x y)
-		    (< (string-to-int x) (string-to-int y)))))
+		    (< (string-to-number x) (string-to-number y)))))
   (while x
     (princ (car x))
     (princ ":")
@@ -1043,11 +1043,11 @@ Emacs内部のcompletionの実装上の問題のため、「?」を
 (defun eelll-current-time ()
   (let ((str (current-time-string)))
     (string-match "\\([0-9][0-9]\\):\\([0-9][0-9]\\):\\([0-9][0-9]\\)" str)
-    (+ (* 3600 (string-to-int (substring str
+    (+ (* 3600 (string-to-number (substring str
 					 (match-beginning 1)
 					 (match-end 1))))
-       (* 60 (string-to-int (substring str (match-beginning 2) (match-end 2))))
-       (string-to-int (substring str (match-beginning 3) (match-end 3))))))
+       (* 60 (string-to-number (substring str (match-beginning 2) (match-end 2))))
+       (string-to-number (substring str (match-beginning 3) (match-end 3))))))
 
 (defun eelll-percentage (num den)
   (let ((res%  (min 9999 (/ num (max 1 den)))))
