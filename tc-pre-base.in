@@ -100,7 +100,7 @@ nemacs, mule-1, mule-2, mule-3, mule-4, xemacsのいずれか。")
 (defun tcode-version ()
   "Tコード入力環境のバージョンを表示する。"
   (interactive)
-  (if (interactive-p)
+  (if (called-interactively-p 'interactive)
       (message (concat "T-Code input environment version "
 		       (tcode-version)
 		       (if (tcode-xemacs-p)

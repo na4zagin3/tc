@@ -34,7 +34,7 @@
 (defun eelll-version ()
   "EELLL のバージョンを表示する。"
   (interactive)
-  (if (interactive-p)
+  (if (called-interactively-p 'interactive)
       (message "EELLL version %s" (eelll-version))
     (substring "$Revision: 1.29 $" 11 -2)))
 

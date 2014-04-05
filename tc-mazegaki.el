@@ -315,7 +315,7 @@ face の指定は変数 `tcode-mazegaki-face' を設定することにより行�
   (interactive)
   (let ((buffer (tcode-set-work-buffer tcode-mazegaki-buffer-name
 				       tcode-mazegaki-dictionary-name)))
-    (if (interactive-p)
+    (if (called-interactively-p 'interactive)
 	(switch-to-buffer buffer))))
 
 (defun tcode-mazegaki-construct-yomi (len &optional offset inflection)
@@ -1223,7 +1223,7 @@ NOT-QUIT が nil でないときは、読みの状態に戻すだけで、終了
 読みおよび漢字が `tcode-mazegaki-splitter' で区切ってある場合には、
 それらを組み合わせた読みすべてについて登録する。"
   (interactive (tcode-mazegaki-get-yomi-and-kanji "登録■"))
-  (and (interactive-p)
+  (and (called-interactively-p 'interactive)
        (> (string-width yomi) tcode-mazegaki-yomi-max)
        (message (concat "読み「%s」の長さ(%d)は `tcode-mazegaki-yomi-max' "
 			"の値を超えています。")
@@ -1257,7 +1257,7 @@ NOT-QUIT が nil でないときは、読みの状態に戻すだけで、終了
 	      ((re-search-forward (concat "/" kanji "/")
 				  (save-excursion (end-of-line) (point))
 				  t)
-	       (and (interactive-p)
+	       (and (called-interactively-p 'interactive)
 		    (progn
 		      (ding)
 		      (message "「%s」はすでに登録されています。" kanji)))
@@ -1354,9 +1354,9 @@ NOT-QUIT が nil でないときは、読みの状態に戻すだけで、終了
 		 (prog1 t		; 1行全体を削除
 		   (beginning-of-line)
 		   (delete-region (point) (progn (forward-line 1) (point)))))
-	  (and (interactive-p)
+	  (and (called-interactively-p 'interactive)
 	       (message "読み「%s」漢字「%s」を削除しました。" yomi kanji)))
-      (when (interactive-p)
+      (when (called-interactively-p 'interactive)
 	(ding)
 	(message "読み「%s」漢字「%s」は登録されていません。"
 		 yomi kanji)))))

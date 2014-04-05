@@ -238,7 +238,7 @@ nil でない引数があれば、カーソルの色がモードにより変わ�
 		 maxstr str))
       (forward-line 1)
       (setq l (1+ l)))
-    (and (interactive-p)
+    (and (called-interactively-p 'interactive)
 	 (message "%d文字 (%s) %d行目" max maxstr line))
     max))
 

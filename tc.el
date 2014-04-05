@@ -453,7 +453,7 @@ TYPE ... 機能の種類。(変数 `tcode-key-translation-rule-table' 参照)
 		     prefix-arg))
   ;; type
   (cond ((null type)
-	 (setq type (if (if (interactive-p) (commandp func) func)
+	 (setq type (if (if (called-interactively-p 'interactive) (commandp func) func)
 			-3 -1)))
 	((integerp type))
 	((eq type 'literal)
