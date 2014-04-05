@@ -131,8 +131,7 @@ nil でない引数があれば、カーソルの色がモードにより変わ�
 (autoload 'tcode-mazegaki-switch-to-dictionary "tc-mazegaki" nil t)
 
 (defun tcode-mazegaki-write-to-delete-log (str)
-  (save-excursion
-    (set-buffer tcode-mazegaki-delete-log-buffer)
+  (with-current-buffer tcode-mazegaki-delete-log-buffer
     (goto-char (point-max))
     (insert str)))
 
@@ -145,8 +144,7 @@ nil でない引数があれば、カーソルの色がモードにより変わ�
   (let ((nod 0)
 	(yomi-pattern (concat "[^ ]*" kanji))
 	str)
-    (save-excursion
-      (get-buffer-create tcode-mazegaki-delete-log-buffer)
+    (with-current-buffer (get-buffer-create tcode-mazegaki-delete-log-buffer)
       (tcode-mazegaki-switch-to-dictionary)
       (goto-char (point-min))
       (message "検索中(%s)..." kanji)

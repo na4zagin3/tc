@@ -1374,8 +1374,7 @@ Type \\[tcode-mode-help] for more detail."
         (sep0 [" " " " " " " " "  " "  " "  " " " " " " " ""])
         (sep1 ["[" " " " " " " "] " "  " " [" " " " " " " "]"])
         (none-str "-"))
-    (save-excursion
-      (set-buffer buf)
+    (with-current-buffer buf
       (erase-buffer)
       (let ((fv (make-vector 10 nil))
 	    (i 0)
@@ -1422,17 +1421,15 @@ Type \\[tcode-mode-help] for more detail."
     (if append
 	(let ((buf (get-buffer tcode-help-buffer-name)))
 	  (setq previous-contents (and buf
-				       (save-excursion
-					 (set-buffer buf)
+				       (with-current-buffer buf
 					 (buffer-string))))))
     (with-output-to-temp-buffer tcode-help-buffer-name
       (when previous-contents
 	(princ previous-contents)
 	(princ "\n"))
-      (princ (save-excursion (set-buffer buffer) (buffer-string))))
+      (princ (with-current-buffer buffer (buffer-string))))
     (if (fboundp 'help-mode)
-	(save-excursion
-	  (set-buffer (get-buffer tcode-help-buffer-name))
+	(with-current-buffer (get-buffer tcode-help-buffer-name)
 	  (help-mode))))
   ;; ウィンドウの大きさの調整
   (let ((orig-win (selected-window))
@@ -1653,8 +1650,7 @@ BACKUP-INHIBITED が nil でない場合は、バックアップファイルの�
 	       buffer
 	       (buffer-modified-p buffer)
 	       (file-writable-p file-path))
-      (save-excursion
-	(set-buffer buffer)
+      (with-current-buffer buffer
 	(unless (or backup-inhibited
 		    (not (file-exists-p file-path)))
 	  (rename-file file-path (make-backup-file-name file-path) t))
