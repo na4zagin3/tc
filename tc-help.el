@@ -618,8 +618,7 @@ FOR-HELPがnilでない場合は、直接入力できる字に分解する。"
       (let* ((strokes (tcode-encode (tcode-string-to-char ch)))
 	     (buf (get-buffer-create " *tcode: stroke*"))
 	     decomposed-string)
-	(save-excursion
-	  (set-buffer buf)
+	(with-current-buffer buf
 	  (erase-buffer)
 	  (and strokes
 	       (<= (length strokes) 4)
@@ -774,8 +773,7 @@ If FORCE is non-nil, make new table."
 	 (buf (get-buffer-create tcode-stroke-buffer-name))
 	 (str (concat "^" (if dat (regexp-quote (nth 2 (car dat))))
 		      (if first "R" "L") (if second "R" "L"))))
-    (save-excursion
-      (set-buffer buf)
+    (with-current-buffer buf
       (widen)
       (goto-char (point-min))
       (if (and (not force)

@@ -59,8 +59,7 @@ The space character will be deleted.")
 
 (defun j-add-ignore-exp (str)
   "Expand STR by inserting j-ignore-str between JIS characters."
-  (save-excursion
-    (set-buffer (get-buffer-create " *search-work-buff*"))
+  (with-current-buffer (get-buffer-create " *search-work-buff*")
     (erase-buffer)
     (insert str)
     (goto-char (point-min))

@@ -131,8 +131,7 @@ nil でない引数があれば、カーソルの色がモードにより変わ�
 (autoload 'tcode-mazegaki-switch-to-dictionary "tc-mazegaki" nil t)
 
 (defun tcode-mazegaki-write-to-delete-log (str)
-  (save-excursion
-    (set-buffer tcode-mazegaki-delete-log-buffer)
+  (with-current-buffer tcode-mazegaki-delete-log-buffer
     (goto-char (point-max))
     (insert str)))
 
@@ -145,8 +144,7 @@ nil でない引数があれば、カーソルの色がモードにより変わ�
   (let ((nod 0)
 	(yomi-pattern (concat "[^ ]*" kanji))
 	str)
-    (save-excursion
-      (get-buffer-create tcode-mazegaki-delete-log-buffer)
+    (with-current-buffer (get-buffer-create tcode-mazegaki-delete-log-buffer)
       (tcode-mazegaki-switch-to-dictionary)
       (goto-char (point-min))
       (message "検索中(%s)..." kanji)
@@ -240,7 +238,7 @@ nil でない引数があれば、カーソルの色がモードにより変わ�
 		 maxstr str))
       (forward-line 1)
       (setq l (1+ l)))
-    (and (interactive-p)
+    (and (called-interactively-p 'interactive)
 	 (message "%d文字 (%s) %d行目" max maxstr line))
     max))
 
@@ -306,7 +304,7 @@ Tコードモードのときに、このリストのコマンドが呼ばれた�
 					      (tcode-preceding-char))))
 			      (string-match (regexp-quote prev-char)
 					    tcode-no-following-space-chars)))
-		       (tcode-redo-command last-command-char)))
+		       (tcode-redo-command last-command-event)))
 	       (condition-case nil
 		   (let* ((echo-keystrokes 0)
 			  (ch (read-char)))
@@ -399,7 +397,7 @@ LEVEL 番目の表が対象となる。"
 	  (cond (elm
 		 (let (current-prefix-arg)
 		   (tcode-insert elm)))
-		((= ch last-command-char)
+		((= ch last-command-event)
 		 (tcode-insert-ya-outset (1+ level)))
 		((= ch ? )
 		 (self-insert-command level))
@@ -681,7 +679,7 @@ RET で終了。
     (unwind-protect
 	(let* ((echo-keystrokes 0)
 	       (ch (read-char)))
-	  (cond ((= ch last-command-char)
+	  (cond ((= ch last-command-event)
 		 (tcode-katakana-preceding-chars (1+ arg)))
 		((= ch ?\C-?)
 		 (tcode-katakana-preceding-chars (- arg)))

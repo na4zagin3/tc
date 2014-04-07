@@ -47,7 +47,7 @@
 
 ;;; Code:
 
-(if (<= (string-to-int emacs-version) 18)
+(if (<= (string-to-number emacs-version) 18)
     (error "tc-is19 cannot run on Nemacs/mule-1.x.  Use Mule-2.0 or later!"))
 
 ;;;
@@ -417,8 +417,7 @@ STR から `tcode-isearch-ignore-regexp' を取り除く。"
       string)))
 
 (defun isearch-fep-read-string ()
-  (save-excursion
-    (set-buffer (window-buffer (minibuffer-window)))
+  (with-current-buffer (window-buffer (minibuffer-window))
     (let* ((overriding-local-map nil)
 	   (minibuffer-local-map (cons 'keymap minibuffer-local-map)))
       ;; Some program overwrites "\C-m"'s default binding.

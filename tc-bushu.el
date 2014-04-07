@@ -142,8 +142,7 @@ CHARとして文字列も受け付ける。"
 	  (progn
 	    (put (intern str tcode-stroke-table) 'bushu (list char))
 	    (list char))
-	(save-excursion
-	  (set-buffer (get-buffer tcode-bushu-expand-buffer-name))
+	(with-current-buffer (get-buffer tcode-bushu-expand-buffer-name)
 	  (if (tcode-bushu-search str)
 	      (let ((bushu-list (cdr (tcode-bushu-parse-entry))))
 		(put (intern str tcode-stroke-table)
@@ -154,8 +153,7 @@ CHARとして文字列も受け付ける。"
 	    (list char)))))))
 
 (defun tcode-bushu-lookup-index2-entry-internal (str)
-  (save-excursion
-    (set-buffer (get-buffer tcode-bushu-index2-buffer-name))
+  (with-current-buffer (get-buffer tcode-bushu-index2-buffer-name)
     (when (tcode-bushu-search (concat str " "))
       (search-forward " ")
       (tcode-bushu-parse-entry))))
@@ -282,8 +280,7 @@ CHARとして文字列も受け付ける。"
 ;;;
 
 (defun tcode-bushu-add-to-index2 (char component)
-  (save-excursion
-    (set-buffer (get-buffer tcode-bushu-index2-buffer-name))
+  (with-current-buffer (get-buffer tcode-bushu-index2-buffer-name)
     (setq component (sort component 'tcode-bushu-<))
     (let ((l nil) bushu)
       (while component
@@ -325,8 +322,7 @@ CHARとして文字列も受け付ける。"
 	(noe (count-lines (point-min) (point-max)))
 	(count 0)
 	(percent -1))
-    (save-excursion
-      (set-buffer (get-buffer-create tcode-bushu-index2-buffer-name))
+    (with-current-buffer (get-buffer-create tcode-bushu-index2-buffer-name)
       (erase-buffer)
       (or (not (boundp 'buffer-file-coding-system))
 	  (set-buffer-file-coding-system coding-system)))
@@ -346,8 +342,7 @@ CHARとして文字列も受け付ける。"
       (message "部首合成辞書の拡張索引を作成中(100%%)...完了"))))
 
 (defun tcode-bushu-expand-add-entry (char component)
-  (save-excursion
-    (set-buffer (get-buffer tcode-bushu-expand-buffer-name))
+  (with-current-buffer (get-buffer tcode-bushu-expand-buffer-name)
     (if (not (tcode-bushu-search (tcode-bushu-b2s char)))
 	(insert char (tcode-bushu-bl2s component) ?\n)
       (end-of-line)
@@ -357,8 +352,7 @@ CHARとして文字列も受け付ける。"
   (if (member char tcode-bushu-list)
       (list char)
     (let ((str (tcode-bushu-b2s char)))
-      (save-excursion
-	(set-buffer (get-buffer tcode-bushu-expand-buffer-name))
+      (with-current-buffer (get-buffer tcode-bushu-expand-buffer-name)
 	(tcode-bushu-search str)
 	(let ((entry (tcode-bushu-parse-entry)))
 	  (if (and entry (equal char (car entry)))
@@ -412,8 +406,7 @@ CHARとして文字列も受け付ける。"
 			    buffer-file-coding-system))
 	(noe (count-lines (point-min) (point-max)))
 	(count 0))
-    (save-excursion
-      (set-buffer bushu-expand-buf)
+    (with-current-buffer bushu-expand-buf
       (erase-buffer)
       (or (not (boundp 'buffer-file-coding-system))
 	  (set-buffer-file-coding-system coding-system)))
@@ -471,8 +464,7 @@ FORCEがnilでない場合は再読み込みする。"
   "現在のバッファにあるdic形式部首合成辞書データをrev形式に変換する。"
   (interactive)
   (let ((buf (get-buffer-create "*tcode: dic to rev*")))
-    (save-excursion
-      (set-buffer buf)
+    (with-current-buffer buf
       (erase-buffer))
     (goto-char (point-min))
     (setq tcode-bushu-list nil)
