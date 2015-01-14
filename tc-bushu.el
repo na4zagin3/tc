@@ -431,12 +431,6 @@ CHARとして文字列も受け付ける。"
 FORCEがnilでない場合は再読み込みする。"
   (interactive "P")
   (save-excursion
-    ;; expand if need
-    (if (file-newer-than-file-p (tcode-path-for-read
-				 tcode-bushu-reverse-dictionary-name)
- 				(tcode-path-for-read
-				 tcode-bushu-expand-file-name))
- 	(tcode-bushu-expand-all))
     ;; load dictionaries
     (tcode-set-work-buffer tcode-bushu-expand-buffer-name
 			   tcode-bushu-expand-file-name)
