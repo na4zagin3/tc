@@ -116,7 +116,8 @@ Emacs 内部関数を置き換える関数を提供するモジュール名。")
   '(("japanese-T-Code" . "tc-tbl")
     ("japanese-TT-Code" . "ttc-tbl")
     ("japanese-Try-Code" . "try-tbl")
-    ("japanese-TUT-Code" . "tutc-tbl"))
+    ("japanese-TUT-Code" . "tutc-tbl")
+    ("japanese-TUTO-Code" . "tutcodeo-tbl"))
   "名前とテーブル名との対応")
 
 ;;;; site information
