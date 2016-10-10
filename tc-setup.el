@@ -47,6 +47,11 @@
 			 'tcode-use-package
 			 "TUT"
 			 "a kanji direct input method")
+  (register-input-method "japanese-TUTO-Code"
+			 "Japanese"
+			 'tcode-use-package
+			 "TUTO"
+			 "a kanji direct input method")
   (register-input-method "japanese-Try-Code"
 			 "Japanese"
 			 'tcode-use-package
