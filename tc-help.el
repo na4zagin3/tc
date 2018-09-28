@@ -70,13 +70,6 @@ nil の場合では見つからないような場合でも、non-nil にすれ�
 	      (display-images-p))
 	 (autoload 'tc-image-stroke-to-string "tc-image")
 	 'tc-image-stroke-to-string)
-	((and (featurep 'bitmap)
-	      (or (tcode-mule-2-p)
-		  (tcode-mule-3-p)
-		  (tcode-mule-4-p))
-	      window-system)
-	 (autoload 'tc-bitmap-stroke-to-string "tc-bitmap")
-	 'tc-bitmap-stroke-to-string)
 	(t nil))
   "*`tcode-stroke-to-string'を制御する変数")
 
