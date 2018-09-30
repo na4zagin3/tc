@@ -50,4 +50,4 @@ Ubuntu Linuxでuim-tcodeをご利用の方は /etc/emacs/site-start.d/50t-code.e
 
 ## tcの利用方法
 
-https://github.com/kanchoku/tc/blob/master/doc/manual.pdf?raw=true のpdfをご覧ください
+https://www.dropbox.com/s/qushezrz948u8ks/manual.pdf?dl=0 のpdfをご覧ください
