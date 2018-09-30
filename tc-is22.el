@@ -70,14 +70,34 @@
 ;;;
 ;;; patch to original functions in isearch.el of Emacs 22
 ;;;
+
+;; isearch-word -> isearch-regexp-function from 25.1
+(defsubst tcode-isearch-regexp-function ()
+  (or (bound-and-true-p isearch-regexp-function)
+      (bound-and-true-p isearch-word)))
+
+;; isearch-message-state -> isearch--state-message from 24
+(defsubst tcode-isearch--state-message (x)
+  (or (when (fboundp 'isearch--state-message)
+	(isearch--state-message x))
+      (when (fboundp 'isearch-message-state)
+	(isearch-message-state x))))
+
+;; isearch-top-state -> none
+;; -> (isearch--set-state (car isearch-cmds)) from 24
+(defsubst tcode-isearch-top-state ()
+  (or (bound-and-true-p isearch-top-state)
+      (when (fboundp 'isearch--set-state)
+	(isearch--set-state (car isearch-cmds)))))
+
 (defadvice isearch-search-string (around tcode-handling activate)
-  (let ((isearch-regexp (if (or isearch-word isearch-regexp)
+  (let ((isearch-regexp (if (or (tcode-isearch-regexp-function) isearch-regexp)
                             isearch-regexp
                           tcode-isearch-enable-wrapped-search)))
     ad-do-it))
 
 (defun tcode-isearch-search-fun ()
-  (cond (isearch-word
+  (cond ((tcode-isearch-regexp-function)
 	 (if isearch-forward
 	     'word-search-forward 'word-search-backward))
 	((or isearch-regexp
@@ -268,7 +288,7 @@
 	      (setq normal-end t))))
       (unless normal-end
 	(setq isearch-cmds orig-isearch-cmds)
-	(isearch-top-state)))))
+	(tcode-isearch-top-state)))))
 
 (defun isearch-toggle-tcode ()
   "インクリメンタルサーチ中のTコードモードをトグルする。"
@@ -283,13 +303,13 @@
 					  (string-to-char c2))))
     (if c
 	(let ((s (char-to-string c)))
-	  (let ((msg (isearch-message-state (car isearch-cmds))))
+	  (let ((msg (tcode-isearch--state-message (car isearch-cmds))))
 	    (while (and msg
-			(string= msg (isearch-message-state (car isearch-cmds))))
+			(string= msg (tcode-isearch--state-message (car isearch-cmds))))
 	      (isearch-delete-char)))
-	  (let ((msg (isearch-message-state (car isearch-cmds))))
+	  (let ((msg (tcode-isearch--state-message (car isearch-cmds))))
 	    (while (and msg
-			(string= msg (isearch-message-state (car isearch-cmds))))
+			(string= msg (tcode-isearch--state-message (car isearch-cmds))))
 	      (isearch-delete-char)))
 	  (isearch-process-search-string
 	   (tcode-isearch-make-string-for-wrapping s) s))
