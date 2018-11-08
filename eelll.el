@@ -359,7 +359,7 @@ Tコードで入力できなければnilを返す。"
 	  (setq j (1+ j) k 0)
 	  (while (< k 5)
 	    (setq k (1+ k))
-	    (insert "‐‐‐‐‐  ")
+	    (insert "－－－－－  ")
 	    (if (= k c) (insert "  ")))
 	  (delete-horizontal-space)
 	  (insert "\n"))
