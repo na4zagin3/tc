@@ -47,25 +47,14 @@ Ubuntu Linuxでuim-tcodeをご利用の方は /etc/emacs/site-start.d/50t-code.e
 
 https://www.dropbox.com/s/qushezrz948u8ks/manual.pdf?dl=0 のpdfをご覧ください
 
-## 動作確認環境
+## Windowsでのfont設定
 
-http://ftp.jaist.ac.jp/pub/GNU/emacs/windows/emacs-26/emacs-26.1-x86_64.zip の Windows用Emacs に下記の設定ファイル。
-ストローク表をずれ無く見る上でfont設定は重要となります。
-Windowsは日本語環境にしておいた方が無難です。英語環境ですと日本語フォントセットが見つけられない可能性があります。
+Windows用Emacs に下記の設定font設定をおすすめします。  
+ストローク表をずれ無く見る上でfont設定は重要となります。  
+Windowsは日本語環境にしておいた方が無難です。  
+英語環境ですと日本語フォントセットを見つけることができない可能性があります。
 
 ``` emacs-lisp
-(require 'package)
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                    (not (gnutls-available-p))))
-       (proto (if no-ssl "http" "https")))
-  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
-  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
-  (when (< emacs-major-version 24)
-    ;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
-(package-initialize)
-
 (require 'tc-setup)
 (add-to-list 'default-frame-alist '(font . "-outline-ＭＳ ゴシック-normal-normal-normal-mono-19-*-*-*-c-*-iso8859-1"))
 ```
