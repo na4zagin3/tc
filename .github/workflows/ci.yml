@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+jobs:
+  test:
+    name: 'Compile'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        emacs_version:
+          - 24.5
+          - 25.3
+          - 26.3
+          - 27.2
+    steps:
+      - name: '[dep] Install Emacs'
+        uses: purcell/setup-emacs@master
+        with:
+          version: ${{ matrix.emacs_version }}
+      - name: '[tc] Checkout tc repository'
+        uses: actions/checkout@v2
+      - name: '[tc] Byte compilation tests'
+        run: emacs --batch -L . -f batch-byte-compile tc-pre.el tc.el *-*.el eelll.el

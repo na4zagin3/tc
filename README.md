@@ -1,7 +1,7 @@
 tc:  Japanese direct input method environment for emacs
 ========================================================
 
-[![Build Status](https://semaphoreci.com/api/v1/naota/tc/branches/master/badge.svg)](https://semaphoreci.com/naota/tc)
+[![CI](https://github.com/kanchoku/tc/actions/workflows/ci.yml/badge.svg)](https://github.com/kanchoku/tc/actions/workflows/ci.yml)
 
 
 This repository provides tc(T-code input environment for emacs).  
