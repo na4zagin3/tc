@@ -53,7 +53,7 @@
       (unwind-protect
 	  (progn
 	    (setq tcode-2byte-alnum-mode nil)
-	    (run-hooks 'input-method-inactivate-hook))
+	    (run-hooks 'input-method-deactivate-hook))
 	(setq input-method-function nil))
     ;; activate T-Code mode
     (setq tcode-2byte-alnum-mode t)
@@ -65,7 +65,7 @@
 
 ;;;###autoload
 (defun tcode-use-2byte-alnum (package-name &rest libraries)
-  (setq inactivate-current-input-method-function 'tcode-2byte-alnum-inactivate
+  (setq deactivate-current-input-method-function 'tcode-2byte-alnum-inactivate
 	describe-current-input-method-function nil
 	current-input-method package-name)
   (tcode-2byte-alnum-mode 1))
